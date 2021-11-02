@@ -1,0 +1,53 @@
+{% extends 'main/layout.html' %}
+{% block title %}Кафе Яство-контакты{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="d-flex justify-content-center">
+      <form method="post" class="decor" >
+          <div class="form-left-decoration"></div>
+            <div class="form-right-decoration"></div>
+            <div class="container flex form-inner">
+              <h3 class="text-center ">Написать нам</h3>
+                {% csrf_token %}
+                {{form.as_p}}
+                <div class="d-flex justify-content-center">
+                <input type="submit" value="Отправить"></div>
+            </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-4">
+    <iframe class="map" src="https://yandex.ru/map-widget/v1/?z=12&amp;ol=biz&amp;oid=226819973804" width="90%" height="auto" frameborder="0"></iframe>
+
+    </div>
+    <div class="col-sm-4">
+      <h3 >У нас есть правило:</h3>
+      <p></p>
+      <h4 style="text-align: center;">"Еда должна быть свежеприготовленной"</h4>
+      <p></p>
+      <p>Все блюда мы готовим "из под ножа", то есть, по твоему заказу!
+        <br><br>
+        На кухне есть минимальные заготовки, которые ускоряют процесс приготовления блюда.
+        Когда одновременно много заказов, исполнение может быть чуть долше обычного!
+        <br><br>
+        Пожалуйста, если у Вас есть непереносимость каких-то продуктов, скажите нам об этом.
+        <br><br>
+        Действует услуга доставки: <br>
+        "Кафе у тебя дома".
+        <br>
+        <br>
+        <i class="fas fa-seedling">Vegan 100%</i>
+        <br>
+        <br>
+        <i class="bi bi-telephone"> +7(978)935-85-30</i> <br>
+        <i class="bi bi-envelope-open"> postmaster@yastvo-yalta.ru</i><br>
+        <i class="bi bi-geo-alt-fill"> 298635, Республика Крым, г. Ялта, ул. Ломоносова, д. 3/2 </i>
+
+
+        
+  </div>    
+</div>
+{% endblock %}

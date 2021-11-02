@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+<h1 class="vegan">{{ title }}</h1>
+<div class="container">
+  <div class="row">
+    <div class="col align-self-center">
+    <form method="post" class="form-register">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button class="btn btn-outline-success" type="submit">Зарегистрироваться</button>
+      <p>Уже зарегистрированы? <a href="{%url 'users'%}">Войти в личный кабинет</a></p>
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock%}

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e5f64ce-37b2-48aa-a265-a7776c7e4ec5" name="Default Changelist" comment="Yastvo Site making shop" />
+    <list default="true" id="0e5f64ce-37b2-48aa-a265-a7776c7e4ec5" name="Default Changelist" comment="Yastvo Site making shop">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Yastvo.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,7 +21,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -25,14 +29,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="ac68d16a-2dc7-4817-8b85-4a737e4a3591" />
-        <option name="url" value="https://github.com/DemetrPI/Yastvo" />
-      </UrlAndAccount>
-    </option>
   </component>
   <component name="ProjectId" id="1yYGzA34PYAZVr41HAHkdb7NRWa" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />

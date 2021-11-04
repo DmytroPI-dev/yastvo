@@ -1,1 +1,1 @@
-web: guinicorn Yastvo\wsgi.py
+web: gunicorn Yastvo\wsgi.py

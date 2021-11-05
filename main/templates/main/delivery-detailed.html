@@ -20,7 +20,7 @@
                     <p class="card-text px-2">Цена: {{object.item_price}} руб.</p>
                     {% if object.milk_added %}
                     <!-- Button trigger modal -->
-                    <button type="button" class="floating-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <img src = "{% static 'main/img/svg/milk-bottle.svg' %}" height ="64" width ="auto" >
                     </button>
                     <!-- Modal -->
@@ -43,7 +43,8 @@
                     
                     {% endif %}
                     </div>    
-                    <a href="{% url 'delivery' %}" class="floating-button text-center">Назад</a>
+                    <p></p>
+                    <a href="{% url 'delivery' %}" class="btn btn-success rounded-pill">Назад</a>
               </div>
           </div>
         </div>

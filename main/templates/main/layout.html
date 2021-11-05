@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="h-100">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +14,21 @@
   <link rel="stylesheet" href="{% static 'main/CSS/bxslider.css' %}">
   <link rel="stylesheet" href="{% static 'main/CSS/jquery.bxslider.css' %}">
   <link rel="stylesheet" href="{% static 'main/CSS/styles.css' %}">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
   <script src="https://kit.fontawesome.com/fb1859fd88.js" crossorigin="anonymous"></script>
   <script src="{% static 'main/JS/jquery-3.6.0.js' %}"></script>
   <script src="{% static 'main/JS/jquery.bxslider.min.js' %}"></script>
@@ -25,16 +40,94 @@
      prevText:'',
      useCSS: false,
      easing: 'jswing',
-     speed: 500
+     speed: 1000
      });
   });
   </script>
   <title>{% block title %}{% endblock %}</title>
 </head>
 
-<body>
+<body class = "d-flex flex-column h-100">
+    <header>
+    <nav class="navbar navbar-expand-md navbar-dark header bg-dark" aria-label="First navbar example">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{%url 'home' %}" >Главная страница</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-<div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarsExample01">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0 ">
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'menu' %}" >Меню</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'delivery' %}" >Доставка</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'contacts' %}">Контакты</a>
+            </li>
+            {%if not user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'reg' %}">Регистрация</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'users' %}">Войти в ЛК</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'profile' %}">Профиль</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'exit' %}">Выйти из ЛК</a>
+            </li>
+            {% endif %}
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+  </header>
+
+  {% if messages %}
+  {% for mess in messages %}
+  <div class="row justify-content-center">
+    <div class="col col-lg-2"></div>
+    <div class="alert alert-info text-center col-md-auto new_user" >{{mess}}</div>
+    <div class="col col-lg-2"></div>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <main class="flex-shrink-0">
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+    
+      
+  <footer class="mt-auto footer d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+    <div class="col-md-4 d-flex align-items-center">
+      <span class="text-muted">© 2021 Яство</span>
+      </div>
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a href="https://vegcard.com/"> <img src = "{% static 'main/img/vegcard_png.png' %}"  height ="32" width ="auto" > </a> </li>
+      <li class="ms-3"><a href="https://www.facebook.com/yastvo.yalta/"><img src = "{% static 'main/img/svg/facebook.svg' %}" width ="32" height ="32"></a></li>
+      <li class="ms-3"><a href="https://www.instagram.com/yastvo.yalta/"><img src = "{% static 'main/img/svg/instagram.svg' %}" width ="32" height ="32"></a></li>
+      <li class="ms-3"><a href=" https://www.tripadvisor.ru/Restaurant_Review-g295378-d23499626-Reviews-Yastvo-Yalta.html"><img src = "{% static 'main/img/svg/tripadvisor.svg' %}"  width ="32" height ="32"></a></li>
+    </ul>
+  </footer>    
+    <script src="{% static 'main/JS/bootstrap.js' %}"></script>
+    <script>
+      jQuery('.new_user').slideUp(2000);
+    </script>
+</body>
+</html>
+
+<!-- <li class="nav-item">
+  <a class="nav-link" href="{%url 'shopping' %}">Магазин</a>
+</li> -->
+<!-- <div class="container-fluid">
     <div class="big-menu">
         <ul class="nav nav-pills nav-justified">
             <a class="nav-item floating-button" href="{%url 'home' %}" title="Главная страница"><i class="fas fa-leaf"></i></a>
@@ -52,82 +145,19 @@
           {% endif %}
         </ul>
     </div>
-  </div>
-
-
-  <nav class="navbar navbar-dark bg-dark small-menu" aria-label="First navbar example">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{%url 'home' %}" >Главная страница</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarsExample01">
-            <ul class="navbar-nav me-auto mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="{%url 'menu' %}" >Меню</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{%url 'delivery' %}" >Доставка</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{%url 'shopping' %}">Магазин</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{%url 'contacts' %}">Контакты</a>
-              </li>
-              {%if not user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link" href="{%url 'reg' %}">Регистрация</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{%url 'users' %}">Войти в ЛК</a>
-              </li>
-              {% else %}
-              <li class="nav-item">
-                <a class="nav-link" href="{%url 'profile' %}">Профиль</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{%url 'exit' %}">Выйти из ЛК</a>
-              </li>
-              {% endif %}
-            </ul>
-
-          </div>
-      </div>
-</nav>
-
-  {% if messages %}
-    {% for mess in messages %}
-      <div class="row justify-content-center">
-        <div class="col col-lg-2"></div>
-          <div class="alert alert-info text-center col-md-auto new_user" >{{mess}}</div>
-      <div class="col col-lg-2"></div>
-    {% endfor %}
-  {% endif %}
-  {% block content %}{% endblock %}
-  </div>
-
-  <div class="container-fluid footer">
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
-    <div class="col-md-4 d-flex align-items-center">
-
-      <span class="text-muted">© 2021 Яство</span>
-      </div>
-
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-      <li class="ms-3"><a href="https://vegcard.com/"> <img src = "{% static 'main/img/vegcard_png.png' %}"  height ="32" width ="auto" > </a> </li>
-      <li class="ms-3"><a href="https://www.facebook.com/yastvo.yalta/"><img src = "{% static 'main/img/svg/facebook.svg' %}" width ="32" height ="32"></a></li>
-      <li class="ms-3"><a href="https://www.instagram.com/yastvo.yalta/"><img src = "{% static 'main/img/svg/instagram.svg' %}" width ="32" height ="32"></a></li>
-      <li class="ms-3"><a href=" https://www.tripadvisor.ru/Restaurant_Review-g295378-d23499626-Reviews-Yastvo-Yalta.html"><img src = "{% static 'main/img/svg/tripadvisor.svg' %}"  width ="32" height ="32"></a></li>
-    </ul>
-  </footer>
-</div>
-<script src="{% static 'main/JS/bootstrap.js' %}"></script>
-<script>
-  jQuery('.new_user').slideUp(4000);
-</script>
-
-
-</body>
-</html>
+  </div> -->
+    <!-- <div class="container-fluid footer">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+        <div class="col-md-4 d-flex align-items-center">
+          
+          <span class="text-muted">© 2021 Яство</span>
+        </div>
+        
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3"><a href="https://vegcard.com/"> <img src = "{% static 'main/img/vegcard_png.png' %}"  height ="32" width ="auto" > </a> </li>
+          <li class="ms-3"><a href="https://www.facebook.com/yastvo.yalta/"><img src = "{% static 'main/img/svg/facebook.svg' %}" width ="32" height ="32"></a></li>
+          <li class="ms-3"><a href="https://www.instagram.com/yastvo.yalta/"><img src = "{% static 'main/img/svg/instagram.svg' %}" width ="32" height ="32"></a></li>
+          <li class="ms-3"><a href=" https://www.tripadvisor.ru/Restaurant_Review-g295378-d23499626-Reviews-Yastvo-Yalta.html"><img src = "{% static 'main/img/svg/tripadvisor.svg' %}"  width ="32" height ="32"></a></li>
+        </ul>
+      </footer>
+    </div> -->

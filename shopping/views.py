@@ -9,7 +9,7 @@ def test_view(request):
     return render(request, 'shopping/shopping.html', {})
 
 
-class ProductDetaliView (DetailView):
+class ProductDetailView (DetailView):
 
     CT_MODEL_MODEL_CLASS = {
         'grocery': Grocery,

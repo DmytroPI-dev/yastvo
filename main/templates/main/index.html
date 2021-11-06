@@ -9,6 +9,115 @@
     <!-- <p id = "vegan">Vegan</p> -->
   </div>
 
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{%static 'main/img/Food_items/DSC_7264.jpg' %}" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">
+
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Вкусная полезная еда!</h1>
+            <p>Приходите сами и приводите друзей</p>
+            <p><a class="btn btn-lg btn-primary" href="{%url 'menu' %}">Меню</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{%static 'main/img/Food_items/DSC_7371.jpg' %}" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">
+
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Всегда рады Вас видеть!</h1>
+            <p>Работает доставка "Кафе у Вас дома" </p>
+            <p><a class="btn btn-lg btn-primary" href="{%url 'delivery' %}">Доставка</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{%static 'main/img/Food_items/DSC_7430.jpg' %}" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">
+
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1 >Будем рады услышать Ваши пожелания!</h1>
+            <p>Нас легко найти в Вашем городе!</p>
+            <p><a class="btn btn-lg btn-primary" href="{%url 'contacts' %}">Контакты</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading text-danger" >Яркие мероприятия <span class="text-info">Поднимут Ваше настроение!</span></h2>
+        <p class="lead text-success">Проводим праздники, встречи, вечеринки и дни рождения!</p>
+      </div>
+      <div class="col-md-5">
+        <img src="{%static 'main/img/Food_items/DSC_7408.jpg' %}" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">
+
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading text-warning">Можно прийти перекусить, <span class="text-primary">или плотно покушать.</span></h2>
+        <p class="lead">Завтраки с открытия и до закрытия, напитки, закуски - на любой вкус!</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img src="{%static 'main/img/Food_items/DSC_7315.jpg' %}" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">
+
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading text-warning">При приготовлении блюд,<span class="text-success"> не пострадало ни одно животное!</span></h2>
+        <p class="lead">При приготовлении некоторых блюд используются молоко и продукты переработки молока!</p>
+      </div>
+      <div class="col-md-5">
+        <img src="{%static 'main/img/Food_items/DSC_7408.jpg' %}" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">
+
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+
+
+
+
+
   <!-- <div class="container-fluid d-flex justify-content-around py-2">
     <img class="photos" src="{% static 'main/img/Food_items/DSC_7232.jpg' %}" id = "one" alt="картинка еды">
     <img class="photos" src="{% static 'main/img/Food_items/DSC_7236.jpg' %}" id = "two" alt="картинка еды">

@@ -3,7 +3,7 @@ from django.db.models.base import Model
 from django.shortcuts import render
 from django.views.generic import DetailView
 from shopping import models
-from .models import Grocery, Maindishes
+from .models import Breakfast, Lunch, Salads, Snack, French_toasts
 
 def test_view(request):
     return render(request, 'shopping/shopping.html', {})
@@ -12,8 +12,12 @@ def test_view(request):
 class ProductDetailView (DetailView):
 
     CT_MODEL_MODEL_CLASS = {
-        'grocery': Grocery,
-        'maindishes': Maindishes,
+        'Breakfast': Breakfast,
+        'Snack': Snack,
+        'Salads': Salads,
+        'Lunch' : Lunch,
+        'French_toasts' : French_toasts,
+
     }
 
     def dispatch(self, request, *args, **kwargs):

@@ -7,5 +7,5 @@ from . import views
 urlpatterns = [
     path('', views.ShowMenuItem.as_view(), name = 'delivery'),
     path('<int:pk>', views.ShowMenuDetailed.as_view(), name = 'delivery-detailed' ),  #задаем динемический путь: int - integer, slug = span
-    path('add', views.CreateDishes.as_view(), name = 'add'),
+    # path('add', views.CreateDishes.as_view(), name = 'add'),
 ]

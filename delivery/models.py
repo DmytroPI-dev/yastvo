@@ -1,5 +1,4 @@
 import sys
-from os import name
 from PIL import Image
 from io import BytesIO
 from django.db import models

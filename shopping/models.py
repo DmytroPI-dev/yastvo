@@ -57,21 +57,30 @@ class Category (models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'     
+
 class Product(models.Model):
 
-    MIN_RESOLUTION = (400,400)
-    MAX_RESOLUTION = (3000,3000)
-    MAX_IMAGE_SIZE = 4194304 
+    MIN_RESOLUTION = 600
+    MAX_RESOLUTION = 3000
+    MAX_IMAGE_SIZE = 5000000
 
+    
     class Meta:
         abstract = True
 
     category = models.ForeignKey(Category, verbose_name = 'Категория', on_delete = models.CASCADE)
-    title = models.CharField(max_length = 255, verbose_name = 'Название товара')
     slug = models.SlugField(unique = True)
-    image = models.ImageField(verbose_name = 'Изображение товара', upload_to='goods')
-    description = models.TextField (verbose_name = 'Описание товара', null = True)
-    price = models.DecimalField(max_digits= 9, decimal_places = 2, verbose_name = 'Цена')
+    title = models.CharField(max_length = 255, verbose_name = 'Название блюда')
+    price = models.DecimalField(max_digits= 9, decimal_places = 2, verbose_name = 'Цена', default=100)
+    composition = models.TextField('Состав (описание) блюда', max_length=250, default='Состав')
+    weight = models.IntegerField(verbose_name='Масса нетто, гр.', default=100)
+    calories = models.IntegerField(verbose_name='Калорийность, Ккал', default=100)
+    milk_added = models.BooleanField(verbose_name='Есть ли молоко в составе', default=False)
+    image = models.ImageField(verbose_name = 'Изображение блюда', upload_to='goods')
+     
 
     def __str__(self):
         return self.title
@@ -89,8 +98,6 @@ class Product(models.Model):
         self.image = InMemoryUploadedFile (
             filestream,'Imagefield', name, 'jpeg/image', sys.getsizeof(filestream), None)
         super().save(*args, **kwargs)
-
-# EOF #
 
 
 class CartProduct(models.Model):
@@ -110,10 +117,14 @@ class CartProduct(models.Model):
         self.final_price = self.qty * self.content_object.price
         super().save(*args, **kwargs)
 
+    class Meta:
+        verbose_name = 'Товар для корзины'
+        verbose_name_plural = 'Товары для корзины'     
+
 
 class Cart(models.Model):
 
-    owner = models.ForeignKey('Customer', null=True, verbose_name='Владелец', on_delete=models.CASCADE)
+    owner = models.ForeignKey('Customer', null=True, verbose_name='Покупатель', on_delete=models.CASCADE)
     products = models.ManyToManyField(CartProduct, blank=True, related_name='related_cart')
     total_products = models.PositiveIntegerField(default=0)
     final_price = models.DecimalField(max_digits=9, default=0, decimal_places=2, verbose_name='Общая цена')
@@ -122,6 +133,10 @@ class Cart(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+    class Meta:
+        verbose_name = 'Корзина'
+        verbose_name_plural = 'Корзины'     
 
 
 
@@ -136,33 +151,67 @@ class Customer(models.Model):
         return "Покупатель: {} {}".format(self.user.first_name, self.user.last_name)
 
 
-class Grocery(Product):
-    shelf_life = models.CharField(max_length=7, verbose_name='Срок хранения')
-    net_weight = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Масса нетто')
-    in_box = models.DecimalField(max_digits=4, decimal_places=0, verbose_name='Количество в упаковке')
-    milk_added = models.BooleanField(verbose_name='Молоко в составе', default=False)
-    fridge_life = models.CharField(max_length=10, verbose_name='Срок хранения в холодильнике', default=1)
-
-    def __str__(self):
-        return "{} : {}".format(self.category.name, self.title)
-    
-    def get_absolute_url(self):
-        return get_product_url(self, 'product_detail')
+    class Meta:
+        verbose_name = 'Покупатель'
+        verbose_name_plural = 'Покупатели'     
 
 
-    
-class Maindishes (Product):
-    shelf_life = models.CharField(max_length=7, verbose_name='Срок хранения')
-    net_weight = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Масса нетто')
-    in_box = models.DecimalField(max_digits=4, decimal_places=0, verbose_name='Количество в упаковке', default=1)
-    milk_added = models.BooleanField(verbose_name='Молоко в составе', default=False)
-    fridge_life = models.CharField(max_length=10, verbose_name='Срок хранения в холодильнике')
+
+class Breakfast(Product):
+    some = models.CharField(max_length=255, verbose_name = 'Прочие характеристики', null=True, blank=True)
 
     def __str__(self):
         return "{} : {}".format(self.category.name, self.title)
 
     def get_absolute_url(self):
         return get_product_url(self, 'product_detail')
+
+    class Meta:
+        verbose_name = 'Завтрак'
+        verbose_name_plural = 'Завтраки'     
+
     
+class Snack (Product):
+    some_new = models.CharField(max_length=255, verbose_name = 'Еще характеристики', null=True, blank=True)
+
+    def __str__(self):
+        return "{} : {}".format(self.category.name, self.title)
+
+    def get_absolute_url(self):
+        return get_product_url(self, 'product_detail')
+
+    class Meta:
+        verbose_name = 'Перекус'
+        verbose_name_plural = 'Перекусы' 
+
+class Lunch (Product):
+    def __str__(self):
+        return "{} : {}".format(self.category.name, self.title)
+    def get_absolute_url(self):
+        return get_product_url(self, 'product_detail')   
+
+    class Meta:
+        verbose_name = 'Обед'
+        verbose_name_plural = 'Обеды'      
 
 
+class Salads (Product):
+    def __str__(self):
+        return "{} : {}".format(self.category.name, self.title)
+    def get_absolute_url(self):
+        return get_product_url(self, 'product_detail')   
+        
+    class Meta:
+        verbose_name = 'Салат'
+        verbose_name_plural = 'Салаты'         
+
+
+class French_toasts (Product):
+    def __str__(self):
+        return "{} : {}".format(self.category.name, self.title)
+    def get_absolute_url(self):
+        return get_product_url(self, 'product_detail')            
+
+    class Meta:
+        verbose_name = 'Тост'
+        verbose_name_plural = 'Тосты' 

@@ -12,6 +12,11 @@ from io import BytesIO
 
 User = get_user_model()
 
+
+def get_models_for_count(*model_names):
+    return [models.Count(model_name) for model_name in model_names]
+
+
 def get_product_url(obj, viewname):
     ct_model = obj.__class__.meta.model_name
     return reverse (viewname, kwargs={'ct_model': ct_model, 'slug': obj.slug})
@@ -49,21 +54,49 @@ class LatestProducts:
     objects = LatestProductsManager()
 
 
+class CategoryManager(models.Manager):
+
+    CATEGORY_NAME_COUNT_NAME = {
+        'Завтраки целый день': 'breakfast__count',
+        'Сытный перекус': 'snack__count',
+        'Обычно берут на обед': 'lunch__count',
+        'Больше чем салат': 'salads__count',
+        'Французские тосты': 'french_toasts__count',
+        
+    }
+
+    def get_queryset(self):
+        return super().get_queryset()
+
+    def get_categories_for_left_sidebar(self):
+        models = get_models_for_count('breakfast', 'snack', 'lunch', 'salads', 'french_toasts')
+        qs = list(self.get_queryset().annotate(*models).values())
+        return [dict(name=c['name'], slug=c['slug'], count=c[self.CATEGORY_NAME_COUNT_NAME[c['name']]]) for c in qs]
+            
+        
+        
+
 class Category (models.Model):
 
     name = models.CharField(max_length=255, verbose_name = 'Имя категории')
     slug = models.SlugField(unique = True)
+    objects = CategoryManager()
 
     def __str__(self):
         return self.name
 
+    # def get_absolute_url(self):
+    #     return reverse('category_detail', kwargs={'slug': self.slug})
+
     class Meta:
         verbose_name = 'Категория'
-        verbose_name_plural = 'Категории'     
+        verbose_name_plural = 'Категории'  
+
+
 
 class Product(models.Model):
 
-    MIN_RESOLUTION = 600
+    MIN_RESOLUTION = 1000
     MAX_RESOLUTION = 3000
     MAX_IMAGE_SIZE = 5000000
 
@@ -84,7 +117,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
-# A function to resize image to 600*600 pixels
+            # A function to resize image to 600*600 pixels
 
     def save(self, *args, **kwargs):
         image = self.image
@@ -139,7 +172,6 @@ class Cart(models.Model):
         verbose_name_plural = 'Корзины'     
 
 
-
 class Customer(models.Model):
 
     user = models.ForeignKey(User, verbose_name='Пользователь', on_delete=models.CASCADE)
@@ -154,7 +186,6 @@ class Customer(models.Model):
     class Meta:
         verbose_name = 'Покупатель'
         verbose_name_plural = 'Покупатели'     
-
 
 
 class Breakfast(Product):
@@ -183,6 +214,7 @@ class Snack (Product):
     class Meta:
         verbose_name = 'Перекус'
         verbose_name_plural = 'Перекусы' 
+
 
 class Lunch (Product):
     def __str__(self):

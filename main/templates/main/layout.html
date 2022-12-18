@@ -67,6 +67,12 @@
             <li class="nav-item">
               <a class="nav-link" href="{%url 'contacts' %}">Контакты</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'shopping' %}">Магазин</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Корзина <span class="badge badge-pill badge-danger">{{ cart.products.count }}</span></a>
+            </li>
             {%if not user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{%url 'reg' %}">Регистрация</a>
@@ -83,7 +89,14 @@
             </li>
             {% endif %}
           </ul>
-
+          <div class="col-lg-3 mt-5">
+            <div class="list-group">
+              {% for category in categories %}
+              <a href="{{category.url}}" class="list-group-item">{{ category.name }} ({{ category.count }})</a>
+              {% endfor %}
+            </div>
+    
+          </div>
         </div>
     </div>
   </nav>

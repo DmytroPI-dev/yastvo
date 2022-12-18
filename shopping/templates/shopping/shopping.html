@@ -14,9 +14,6 @@
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <!-- Custom styles for this template -->
-  <link href="css/shop-homepage.css" rel="stylesheet">
-
 </head>
 <style>
     body {
@@ -50,7 +47,7 @@
       <div class="col-lg-3 mt-5">
         <div class="list-group">
           {% for category in categories %}
-          <a href="#" class="list-group-item">{{ category.name }} ({{ category.count }})</a>
+          <a href="{{category.url}}" class="list-group-item">{{ category.name }} ({{ category.count }})</a>
           {% endfor %}
         </div>
 

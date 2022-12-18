@@ -1,6 +1,7 @@
 
 from django import template
 from django.utils.safestring import mark_safe
+from shopping.models import Breakfast, Lunch, Salads, Snack, French_toasts
 
 register = template.Library()
 

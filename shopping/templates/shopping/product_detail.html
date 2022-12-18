@@ -1,54 +1,34 @@
-{% extends 'main/layout.html' %}
+{% extends 'shopping/shopping.html' %}
 {% load specifications %}
 
 {% block title %}{{ product.title }}{% endblock %}
 
 {% block content %}
-<nav aria-label="breadcrumb">
+<nav aria-label="breadcrumb" class="mt-3">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{%url 'home' %}">Назад на главную</a></li>
-      <li class="breadcrumb-item"><a href="#">{{product.category.name}}</a></li>
-      <li class="breadcrumb-item active" aria-current="page">{{product.title}} </li>
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+      <li class="breadcrumb-item"><a href="{{ product.category.get_absolute_url }}">{{ product.category.name }}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
     </ol>
   </nav>
+<div class="row">
+  <div class="col-md-4">
+      <img src="{{ product.image.url }}" class="img-fluid">
+  </div>
+  <div class="col-md-8">
+      <h3>{{ product.title }}</h3>
+      <p>Цена: {{ product.price }} руб.</p>
+      <p>Описание: {{ product.description }}</p>
+      <hr>
+      <a href="#"><button class="btn btn-danger">Добавить в корзину</button></a>
+  </div>
+  <p class="mt-4">Характеристики:</p>
 
-  <div class="row">
-    <div class="col-md-4">
-        <img src="{{product.image.url }}" alt="картинка блюда" class="img-fluid rounded-circle">
-    </div>
-    <div class="col-md-8 align-items-start">
-        <h3 class="text-start">{{product.title}}</h3>
-        <p class="text-start">Цена: {{product.price}}</p>
-        <p class="text-start">Описание: {{product.composition}}</p>
-        <p class="text-start">Вес: {{product.weight}}</p>
-        <p class="text-start">Калорийность: {{product.calories}}</p>
-    </div>
-    <p class="text-start">Описание:</p> 
-    
-    <!-- Так можно включать блок дополнительных характеристик можно с помощью templatetegs -->
-    {{ product|product_spec}} 
-    
-    <!-- Так можно включать блок дополнительных характеристик, с помощью if, пока выключим
-    {% if product.category.slug == 'Salads' %}
-        {% include 'shopping/salads_specifications.html'%}
-    {% elif product.category.slug == 'Breakfast' %}
-        {% include 'shopping/breakfast_specifications.html'%}
-    {% endif %} -->
+  {{ product|product_spec }}
 
-  
 </div>
 
 {% endblock content %}
 
-<!-- 
 
-category = models.ForeignKey(Category, verbose_name = 'Категория', on_delete = models.CASCADE)
-    slug = models.SlugField(unique = True)
-    title = models.CharField(max_length = 255, verbose_name = 'Название блюда')
-    price = models.DecimalField(max_digits= 9, decimal_places = 2, verbose_name = 'Цена', default=100)
-    composition = models.TextField('Состав (описание) блюда', max_length=250, default='Состав')
-    weight = models.IntegerField(verbose_name='Масса нетто, гр.', default=100)
-    calories = models.IntegerField(verbose_name='Калорийность, Ккал', default=100)
-    milk_added = models.BooleanField(verbose_name='Есть ли молоко в составе', default=False)
-    image = models.ImageField(verbose_name = 'Изображение блюда', upload_to='goods')
-      -->
+

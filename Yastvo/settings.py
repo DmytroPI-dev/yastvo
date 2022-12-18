@@ -80,14 +80,25 @@ WSGI_APPLICATION = 'Yastvo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dbjn0fjcuv8ole',
-        'HOST': 'ec2-54-154-101-45.eu-west-1.compute.amazonaws.com',
-        'PORT': 5432,
-        'USER': 'seibcnbyxptmcd',
-        'PASSWORD': '9dc3027515bcb8b601835b946b8230bdf7887b7ad78c0d57da15a2c8989d4d93',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
+        # 'HOST': 'ec2-54-154-101-45.eu-west-1.compute.amazonaws.com',
+        # 'PORT': 5432,
+        # 'USER': 'seibcnbyxptmcd',
+        # 'PASSWORD': '9dc3027515bcb8b601835b946b8230bdf7887b7ad78c0d57da15a2c8989d4d93',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'dbjn0fjcuv8ole',
+#         'HOST': 'ec2-54-154-101-45.eu-west-1.compute.amazonaws.com',
+#         'PORT': 5432,
+#         'USER': 'seibcnbyxptmcd',
+#         'PASSWORD': '9dc3027515bcb8b601835b946b8230bdf7887b7ad78c0d57da15a2c8989d4d93',
+#     }
+# }
 
 
 
@@ -154,5 +165,5 @@ EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = 'postmaster@yastvo-yalta.ru'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-import django_heroku
-django_heroku.settings(locals())
+# import django_heroku
+# django_heroku.settings(locals())

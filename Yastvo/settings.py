@@ -165,5 +165,3 @@ EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = 'postmaster@yastvo-yalta.ru'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# import django_heroku
-# django_heroku.settings(locals())

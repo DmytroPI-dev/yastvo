@@ -1,15 +1,21 @@
 body {
-  margin:10px;
-  /* background-image: linear-gradient(90deg, #C39367 0%, #ffeed9 100%); */
-  background-color: white;
+  margin:20px;
+  background-size: 400px 200px;
+  background-repeat: repeat;
+  background-image: url("images/Heading_Leaves.png");
+    
+    /* background-image: linear-gradient(90deg, #C39367 0%, #ffeed9 100%); */
+  /* background-color: white; */
+  
   }
+
   
 /* переопределяем цвета элементов навигации */
 .bg-dark {
   background-color: #b5ebc7 !important;
 }
 
-.footer {
+.footer, .header {
   background-color: #b5ebc7 !important;
   border-radius: 20px;
 }
@@ -55,6 +61,12 @@ body {
   font-style: italic;
   color: #fff;
 }
+
+main > .container {
+  padding-top: 60px;
+}
+
+
 
 .cafe {
   height: auto;

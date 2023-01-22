@@ -13,10 +13,6 @@ def menu(request):
     return render(request, 'main/menu.html')
 
 
-def shop(request):
-    return render(request, 'main/shop.html')
-
-
 def contacts(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)

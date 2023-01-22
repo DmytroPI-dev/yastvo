@@ -5,8 +5,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('shop/', views.shop, name = 'shop'),
+    # path('shop/', views.shop, name = 'shop'),
     path('', views.index, name = 'home'),
     path('menu', views.menu, name = 'menu'),
     path('contacts', views.contacts, name = 'contacts'),
+    
    ]

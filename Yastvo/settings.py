@@ -37,11 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'shopping',
+    'users.apps.UsersConfig',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'django_countries',
+    'crispy_forms',
     'main',
     'delivery',
-    'users.apps.UsersConfig',
-
+    
         ]
 
 MIDDLEWARE = [
@@ -82,25 +87,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'db.sqlite3',
-        # 'HOST': 'ec2-54-154-101-45.eu-west-1.compute.amazonaws.com',
-        # 'PORT': 5432,
-        # 'USER': 'seibcnbyxptmcd',
-        # 'PASSWORD': '9dc3027515bcb8b601835b946b8230bdf7887b7ad78c0d57da15a2c8989d4d93',
+        
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'dbjn0fjcuv8ole',
-#         'HOST': 'ec2-54-154-101-45.eu-west-1.compute.amazonaws.com',
-#         'PORT': 5432,
-#         'USER': 'seibcnbyxptmcd',
-#         'PASSWORD': '9dc3027515bcb8b601835b946b8230bdf7887b7ad78c0d57da15a2c8989d4d93',
-#     }
-# }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -124,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -142,26 +131,28 @@ STATIC_URL = '/staticfiles/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 # STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static'),
-# ]
+#     os.path.join(BASE_DIR, 'staticfiles')
+#  ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend'
+)
+
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'images')
-
 
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'users'
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'mail.nic.ru'
-EMAIL_HOST_USER = 'postmaster@yastvo-yalta.ru'
-EMAIL_HOST_PASSWORD = 'Zxcvbnm,./123'
-EMAIL_PORT = 587
-DEFAULT_FROM_EMAIL = 'postmaster@yastvo-yalta.ru'
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+SITE_ID = 1
+
+#stripe payment
+STRIPE_KEY = ''

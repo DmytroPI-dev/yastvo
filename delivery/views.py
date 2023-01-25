@@ -24,26 +24,32 @@ stripe.api_key = settings.STRIPE_KEY
 class ShowMenuItem(ListView):
     model = MenuItems
     template_name = 'main/delivery.html'
-    context_object_name = 'food'
-
-   
-    
+        
     def get_context_data(self, **kwargs):
-        ctx = super(ShowMenuItem, self).get_context_data(**kwargs)
-        ctx['title'] = 'Доставка Кафе Яство'
-        return ctx
+        context = super(ShowMenuItem, self).get_context_data(**kwargs)
+        try:
+            order = Order.objects.get(user=self.request.user, ordered=False)
+        except:
+            order = 0
+        context['food'] = MenuItems.objects.all()
+        context['cart']=order
+        context['title'] = 'Доставка Кафе Яство'
+        return context
     
     
 class ShowMenuDetailed(DetailView):
     model = MenuItems
-
     template_name = 'main/delivery-detailed.html'
 
     def get_context_data(self, **kwargs):
-        ctx = super(ShowMenuDetailed, self).get_context_data(**kwargs)
-
-        ctx['title'] = MenuItems.objects.get(pk=self.kwargs['pk'])
-        return ctx
+        context = super(ShowMenuDetailed, self).get_context_data(**kwargs)
+        try:
+            order = Order.objects.get(user=self.request.user, ordered=False)
+        except:
+            order = 0
+        context['title'] = MenuItems.objects.get(pk=self.kwargs['pk'])
+        context['cart']=order
+        return context
 
 
 class CreateDishes(CreateView):
@@ -59,7 +65,8 @@ class OrderSummaryView(LoginRequiredMixin, View):
             order = Order.objects.get(user=self.request.user, ordered=False)
             context = {
                 'object': order
-            }
+                
+                }
             return render(self.request, 'order_summary.html', context)
         except ObjectDoesNotExist:
             messages.error(self.request, "You do not have an order")
@@ -202,17 +209,14 @@ def add_to_cart(request, pk):
         if order.items.filter(item__pk=item.pk).exists():
             order_item.quantity += 1
             order_item.save()
-            messages.info(request, "Added quantity Item")
             return redirect("order-summary")
         else:
             order.items.add(order_item)
-            messages.info(request, "Item added to your cart")
             return redirect("order-summary")
     else:
         ordered_date = timezone.now()
         order = Order.objects.create(user=request.user, ordered_date=ordered_date)
         order.items.add(order_item)
-        messages.info(request, "Item added to your cart")
         return redirect("order-summary")
 
 @login_required
@@ -231,14 +235,13 @@ def remove_from_cart(request, pk):
                 ordered=False
             )[0]
             order_item.delete()
-            messages.info(request, "Item \""+order_item.item.item+"\" remove from your cart")
             return redirect("order-summary")
         else:
             messages.info(request, "This Item is not in your cart")
             return redirect("product", pk=pk)
     else:
-        #add message doesnt have order
-        messages.info(request, "You do not have an Order")
+        #add message cart empty
+        messages.info(request, "You cart is empty")
         return redirect("product", pk = pk)
 
 
@@ -262,14 +265,12 @@ def reduce_quantity_item(request, pk):
                 order_item.save()
             else:
                 order_item.delete()
-            messages.info(request, "Item quantity was updated")
             return redirect("order-summary")
         else:
-            messages.info(request, "This Item is not in your cart")
             return redirect("order-summary")
     else:
-        #add message doesnt have order
-        messages.info(request, "You do not have an Order")
+        #add message cart is empty
+        messages.info(request, "You cart is empty!")
         return redirect("order-summary")
 
 

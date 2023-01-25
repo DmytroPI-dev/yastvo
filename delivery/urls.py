@@ -9,13 +9,17 @@ from .views import (
     add_to_cart,
     OrderSummaryView,
     CheckoutView,
-    PaymentView
+    PaymentView,
+    ShowMenuItem,
+    ShowMenuDetailed,
+    CreateDishes
+    
 )
 
 urlpatterns = [
-    path('', views.ShowMenuItem.as_view(), name = 'delivery'),
-    path('<int:pk>', views.ShowMenuDetailed.as_view(), name = 'delivery-detailed' ),  
-    path('add', views.CreateDishes.as_view(), name = 'add'),
+    path('', ShowMenuItem.as_view(), name = 'delivery'),
+    path('<int:pk>', ShowMenuDetailed.as_view(), name = 'delivery-detailed' ),  
+    path('add', CreateDishes.as_view(), name = 'add'),
     path('order-summary/', OrderSummaryView.as_view(), name='order-summary'),
     path('checkout/', CheckoutView.as_view(), name='checkout'),
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),

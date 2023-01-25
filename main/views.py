@@ -27,7 +27,7 @@ def contacts(request):
             }
             message = "\n".join(body.values())
             try:
-                send_mail(subject=subject, message=message, from_email='postmaster@yastvo-yalta.ru', recipient_list=['postmaster@yastvo-yalta.ru'])
+                send_mail(subject=subject, message=message, from_email='demetriy.78@gmail.com', recipient_list=['demetriy.78@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Найден некорректный заголовок')
             return redirect ('contacts')

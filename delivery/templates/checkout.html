@@ -1,135 +1,164 @@
 {% extends 'main/layout.html' %} 
 {% load static %}
-{% comment %} {% load crispy_forms_tags %} {% endcomment %}
-
 {% block content %}
 
-<main >
-    <div class="container">
-
-      <!-- Heading -->
-      <h2 class="my-5 h2 text-center">Checkout form</h2>
-
-      <!--Grid row-->
-      <div class="row">
-
-        <!--Grid column-->
-        <div class="col-md-8 mb-4">
-
-          <!--Card-->
-          <div class="card">
-
-            <!--Card content-->
-            <form method="POST" class="card-body">
-            {% csrf_token %}
-              <!--address-->
-              <div class="md-form mb-5">
-                {{ form.street_address }}
-                <label for="address" class="">Address</label>
-              </div>
-
-              <!--address-2-->
-              <div class="md-form mb-5">
-                {{ form.apartment_address }}
-                <label for="address-2" class="">Address 2 (optional)</label>
-              </div>
-
-              <!--Grid row-->
-              <div class="row">
-
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-12 mb-4">
-                  <label for="country">Country</label>
-                  {{ form.country }}
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-6 mb-4">
-
-                  <label for="zip">Zip</label>
-                  {{ form.zip }}
-                  <div class="invalid-feedback">
-                    Zip code required.
-                  </div>
-
-                </div>
-                <!--Grid column-->
-
-              </div>
-              <!--Grid row-->
-
-              <hr>
-
-              <div class="custom-control custom-checkbox">
-                <input {% if form.same_billing_address.value %}checked{% endif %} type="checkbox" class="custom-control-input" name="same_billing_address" id="same-address">
-                <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input {% if form.save_info.value %}checked{% endif %} type="checkbox" class="custom-control-input" name="save_info" id="save-info">
-                <label class="custom-control-label" for="save-info">Save this information for next time</label>
-              </div>
-
-              <hr>
-
-              <div class="d-block my-3">
-                {% for value, name in form.fields.payment_option.choices %}
-                <div class="custom-control custom-radio">
-                  <input id="{{ name }}" name="payment_option" value="{{ value }}" type="radio" class="custom-control-input" required>
-                  <label class="custom-control-label" for="{{ name }}">{{ name }}</label>
-                </div>
-                {% endfor %}
-              </div>
-             
-              <hr class="mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
-
-            </form>
-
-          </div>
-          <!--/.Card-->
-
-        </div>
-        <!--Grid column-->
-
-          <!--Grid column-->
-        <div class="col-md-4 mb-4">
-
-          <!-- Heading -->
+<body class="bg-light">
+  <div class="container">
+    <main>
+      <div class="py-5 text-center">
+        <h2>Checkout form</h2>
+      </div>
+      <!-- Cart heading -->
+      <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Your cart</span>
-            <span class="badge badge-secondary badge-pill">{{ order.items.count }}</span>
+            <span class="text-primary">Your cart</span>
+            <span class="badge bg-primary rounded-pill"
+              >{{ order.items.count }}</span
+            >
           </h4>
-
-          <!-- Cart -->
-          <ul class="list-group mb-3 z-depth-1">
-            
+          <!-- Cart body  -->
+          <ul class="list-group mb-3">
             {% for order_item in order.items.all %}
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
-                <h6 class="my-0">{{ order_item.quantity }} x {{ order_item.item.item }}</h6>
-                <small class="text-muted">{{ order_item.item.description }}</small>
+                <h6 class="my-0">
+                  {{ order_item.quantity }} x {{ order_item.item.item }}
+                </h6>
+                <small class="text-muted"
+                  >{{ order_item.item.description }}</small
+                >
               </div>
               <span class="text-muted">{{ order_item.get_final_price }}</span>
             </li>
             {% endfor %}
-           
-
 
             <li class="list-group-item d-flex justify-content-between">
-              <span>Total </span>
+              <span>Total: </span>
               <strong>{{ order.get_total_price }}</strong>
             </li>
           </ul>
-          <!-- Cart -->
-
         </div>
+        <!-- End of cart  -->
 
+        <!-- Address data  -->
+
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">Billing address</h4>
+          <form class="needs-validation" novalidate method="POST">
+            {% csrf_token %}
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="firstName" class="form-label">First name</label>
+                {{ form.first_name }}
+             
+                <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label">Last name</label>
+                {{ form.last_name }}
+         
+                <div class="invalid-feedback">Valid last name is required.</div>
+              </div>
+
+              <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                {{form.email}}
+             
+                <div class="invalid-feedback">
+                  Please enter a valid email address for shipping updates.
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="address" class="form-label">Address</label>
+                {{ form.street_address }}
+            
+                <div class="invalid-feedback">
+                  Please enter your shipping address.
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="address2" class="form-label"
+                  >Address 2 <span class="text-muted">(Optional)</span></label
+                >
+                {{ form.apartment_address }}
+              
+              </div>
+
+              <div class="col-md-5">
+                <label for="country" class="form-label">Country</label>
+                {{ form.country }}
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="zip" class="form-label">Postal code</label>
+                {{ form.zip }}
+           
+                <div class="invalid-feedback">Zip code required.</div>
+              </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <div class="custom-control custom-checkbox">
+              <input
+                {% if form.same_billing_address.value %}checked{% endif %}
+                type="checkbox"
+                class="custom-control-input"
+                name="same_billing_address"
+                id="same-address"
+              />
+              <label class="custom-control-label" for="same-address"
+                >Shipping address is the same as my billing address</label
+              >
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input
+                {% if form.save_info.value %}checked{% endif %}
+                type="checkbox"
+                class="custom-control-input"
+                name="save_info"
+                id="save-info"
+              />
+              <label class="custom-control-label" for="save-info"
+                >Save this information for next time</label
+              >
+            </div>
+            <hr class="my-4" />
+           <div class="d-block my-3">
+              <h4 class="mb-3">Payment</h4>
+              {% for value, name in form.fields.payment_option.choices %}
+              <div class="custom-control custom-radio">
+                <input
+                  id="{{ name }}"
+                  name="payment_option"
+                  value="{{ value }}"
+                  type="radio"
+                  class="custom-control-input"
+                  required
+                />
+                <label class="custom-control-label" for="{{ name }}"
+                  >{{ name }}</label
+                >
+              </div>
+              {% endfor %}
+            </div>
+
+            <button class="w-25 btn add-btn btn-lg" type="submit">
+              Continue to checkout
+            </button>
+          </form>
+        </div>
       </div>
-      <!--Grid row-->
-
-    </div>
-  </main>
-  <!--Main layout-->
-
+    </main>
+  </div>
+</body>
 {% endblock content %}

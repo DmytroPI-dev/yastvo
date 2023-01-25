@@ -3,6 +3,18 @@
 {% block title %}{{title}}{% endblock %} 
 {% block content %}
 
+  <div class="cart-button">
+
+    <a class="btn btn-success rounded-pill-lg floating-button" href="{%url 'order-summary' %}"
+    ><i class="bi-cart-fill">
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ cart.items.count }}</i></span>
+      </a
+      >
+  </div>
+
+ 
+
+
 <div class="album py-5">
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -27,21 +39,24 @@
             {% endif %}
 
             <div class="btn-group mt-auto" role="group">
+              {%if not user.is_authenticated %}              
+              <a
+                href="{%url 'reg' %}"
+                class="btn btn-warning btn-md my-0 p"
+                >Register to order!
+                
+              </a>                    
+              {% else %}
               <a
                 href="{{ dishes.get_add_to_cart_url }}"
-                class="btn btn-success btn-md my-0 p"
+                class="btn add-btn btn-md my-0 p"
                 >Add to cart
                 <i class="fas fa-shopping-cart ml-1"></i>
               </a>
-              <a
-                href="{{ dishes.get_remove_from_cart_url }}"
-                class="btn btn-danger btn-md my-0 p"
-                >Remove From cart
-                <i class="fas fa-trash ml-1"></i>
-              </a>
+              {% endif %}
               <a
                 href="{% url 'delivery-detailed' dishes.id %} "
-                class="btn btn-info btn-md my-0 p"
+                class="btn details-btn btn-md my-0 p"
                 >Details</a
               >
             </div>

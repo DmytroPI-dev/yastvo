@@ -5,6 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+
+<link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@200;400;500;900&display=swap" rel="stylesheet">
+
+
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
@@ -18,71 +26,62 @@
       href="{% static 'main/img/favicon.jpg' %}"
       type="image/jpg"
     />
-    <link rel="stylesheet" href="{% static 'main/CSS/flexboxgrid.css' %}" />
+
     <link rel="stylesheet" href="{% static 'main/CSS/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'main/CSS/feedback.css' %}" />
     <link rel="stylesheet" href="{% static 'main/CSS/bxslider.css' %}" />
-    <link rel="stylesheet" href="{% static 'main/CSS/jquery.bxslider.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'main/CSS/jquery.bxslider.min.css' %}"
+    />
     <link rel="stylesheet" href="{% static 'main/CSS/styles.css' %}" />
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
     <script
       src="https://kit.fontawesome.com/fb1859fd88.js"
       crossorigin="anonymous"
     ></script>
-    <script src="{% static 'main/JS/jquery-3.6.0.js' %}"></script>
+    <script src="{% static 'main/JS/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'main/JS/jquery.bxslider.min.js' %}"></script>
-    <script src="{% static 'main/JS/jquery.easing.1.3.js' %}"></script>
-    <script src="{% static 'main/JS/jquery.fitvids.js' %}"></script>
+    <script src="{% static 'main/JS/jquery.easing.1.3.min.js' %}"></script>
+    <script src="{% static 'main/JS/jquery.fitvids.min.js' %}"></script>
+    <script src="{% static 'main/JS/slider.js' %}"></script>
+    <script src="{% static 'main/JS/bootstrap.min.js' %}"></script>
+    <script src="{% static 'main/JS/checkout.js' %}"></script>
     <script>
-      jQuery(document).ready(function () {
-        jQuery(".bxslider").bxSlider({
-          nextText: "",
-          prevText: "",
-          useCSS: false,
-          easing: "jswing",
-          speed: 1000,
-        });
-      });
+      jQuery(".new_user").slideUp(2000);
     </script>
     <title>{% block title %} {% endblock %}</title>
   </head>
 
   <body class="d-flex flex-column h-100">
     <header>
-      <nav class="navbar navbar-expand-md navbar-dark header bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top header">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{%url 'home' %}">Главная страница</a>
+          <a class="navbar-brand" href="{%url 'home' %}"
+            ><i class="fas fa-house-user"></i
+          ></a>
           <button
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
+            data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarsExample01">
+          <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
                 <a class="nav-link" href="{%url 'menu' %}">Меню</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{%url 'contacts' %}">Контакты</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'delivery' %}">Доставка</a>
               </li>
               {%if not user.is_authenticated %}
               <li class="nav-item">
@@ -91,39 +90,49 @@
               <li class="nav-item">
                 <a class="nav-link" href="{%url 'users' %}">Войти в ЛК</a>
               </li>
+
               {% else %}
-              <li class="nav-item">
-                <a class="nav-link" href="{%url 'delivery' %}">Доставка</a>
-              </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="{%url 'profile' %}">Профиль</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{%url 'exit' %}">Выйти из ЛК</a>
               </li>
+
+              {% endif %}
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Language
+                </a>
+                <ul class="dropdown-menu mt-3">
+                  <li><a class="dropdown-item" href="#">English</a></li>
+                  <li><a class="dropdown-item" href="#">Ukrainian</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Polish</a>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </div>
-          <div class="col-lg-3">
-            <a class="nav-link floating-button" href="{%url 'order-summary' %}"
-              ><i class="bi-cart-fill"></i>
-              <span class="badge bg-dark text-info rounded-pill">0</span></a
-            >
-          </div>
-          {% endif %}
         </div>
       </nav>
     </header>
 
-    {% if messages %} 
-    {% for mess in messages %}
+    {% if messages %} {% for mess in messages %}
     <div class="row justify-content-center">
       <div class="col col-lg-2"></div>
       <div class="alert alert-info text-center col-md-auto new_user">
         {{mess}}
       </div>
       <div class="col col-lg-2"></div>
-      {% endfor %} 
-      {% endif %}
+      {% endfor %} {% endif %}
     </div>
 
     <main class="flex-shrink-0">
@@ -131,7 +140,7 @@
     </main>
 
     <footer
-      class="mt-auto footer d-flex flex-wrap justify-content-between align-items-center py-3 my-4 mb-3"
+      class="mt-auto footer d-flex flex-wrap justify-content-between align-items-center py-3 my-4 mb-3 mt-5"
     >
       <div class="col-md-4 d-flex align-items-center">
         <span class="text-muted">© 2021 Яство</span>
@@ -173,9 +182,5 @@
         </li>
       </ul>
     </footer>
-    <script src="{% static 'main/JS/bootstrap.js' %}"></script>
-    <script>
-      jQuery(".new_user").slideUp(2000);
-    </script>
   </body>
 </html>

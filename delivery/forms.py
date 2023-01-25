@@ -8,22 +8,45 @@ PAYMENT = (
 )
 
 class CheckoutForm(forms.Form):
-    street_address = forms.CharField(widget=forms.TextInput(attrs={
+    first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={
         'class': 'form-control',
-        'placeholder': 'Your address'
+    'placeholder': 'First name', 
+    'id': 'firstName', 
+     
+    }))
+
+    last_name =  forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control',
+    'placeholder': 'Last name',
+    'id': 'lastName', 
+    }))
+
+    email = forms.EmailField(required=False, widget=forms.EmailInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'email@email.com',
+        'id': 'email'
+
+    }))
+    street_address = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Mayflower Street',
+        'id': 'address',
     }))
 
     apartment_address = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class': 'form-control',
-        'placeholder': 'Apartment or suite'
+        'placeholder': 'Apartment or suite',
+        'id':'address2',
     }))
 
-    country = CountryField(blank_label='(select country)').formfield(widget=CountrySelectWidget(attrs={
-        'class': 'custom-select d-block w-100'
+    country = CountryField(blank_label='(select country)').formfield( widget=CountrySelectWidget(attrs={
+        'class': 'custom-select d-block w-100 form-control',
+        'id':'country'
     }))
     
-    zip = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'form-control'
+    zip = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'id': 'zip',
+        'placeholder': '00-100'
     }))
 
     same_billing_address = forms.BooleanField(required=False)

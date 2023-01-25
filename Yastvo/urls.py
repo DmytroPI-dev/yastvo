@@ -28,6 +28,7 @@ urlpatterns = [
     path('users/', authViews.LoginView.as_view(template_name= 'users/users.html'), name = 'users'),
     path('exit/', authViews.LogoutView.as_view(template_name= 'users/exit.html'), name = 'exit'),
     path('profile/', userViews.profile, name = 'profile'),
+    path('accounts/', include('allauth.urls')),
     
 ]
 

@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, View
 from django.conf import settings
+from django.utils.translation import ugettext as _
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -35,6 +36,7 @@ class ShowMenuItem(ListView):
         context['food'] = MenuItems.objects.all()
         context['cart']=order
         context['title'] = 'Доставка Кафе Яство'
+        
         return context
     
     
@@ -51,6 +53,7 @@ class ShowMenuDetailed(DetailView):
         context['title'] = MenuItems.objects.get(pk=self.kwargs['pk'])
         context['cart']=order
         return context
+
 
 
 class CreateDishes(CreateView):
@@ -217,15 +220,15 @@ def add_to_cart(request, pk):
         if order.items.filter(item__pk=item.pk).exists():
             order_item.quantity += 1
             order_item.save()
-            return redirect("order-summary")
+            return redirect("delivery")
         else:
             order.items.add(order_item)
-            return redirect("order-summary")
+            return redirect("delivery")
     else:
         ordered_date = timezone.now()
         order = Order.objects.create(user=request.user, ordered_date=ordered_date)
         order.items.add(order_item)
-        return redirect("order-summary")
+        return redirect("delivery")
 
 @login_required
 def remove_from_cart(request, pk):

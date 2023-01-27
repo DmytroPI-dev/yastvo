@@ -3,6 +3,7 @@ from django.core.mail import send_mail, BadHeaderError
 from .forms import ContactForm
 from django.http import HttpResponse
 from django.contrib import messages
+from django.utils.translation import ugettext as _
 
 
 def index(request):

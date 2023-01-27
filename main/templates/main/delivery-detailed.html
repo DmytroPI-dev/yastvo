@@ -1,5 +1,6 @@
 {% extends 'main/layout.html' %}
 {% load static %}
+{% load i18n %}
 {% block title %}{{title}}{%endblock %}
 {% block content %}
 
@@ -29,14 +30,14 @@
               <h6 class="card-text">Состав: {{object.item_composition}}</h6>
             </div>
             <div class="d-flex justify-content-left mt-4">
-              <p class="card-text pe-2">Вес: {{object.item_weight}} гр.</p>
+              <p class="card-text pe-2">{% trans 'Weight:' %} {{object.item_weight}} гр.</p>
               <p class="card-text px-2">
-                Калорийность: {{object.item_calories}} Ккал
+               {% trans 'Calories:' %} {{object.item_calories}} {% trans 'Kcal' %}
               </p>
 
               {% if object.item_discount %}
               <span class="mr-1">
-                Without discount: <del>{{ object.item_price }}</del>
+                {% trans 'Without discount:' %} <del>{{ object.item_price }}</del>
               </span>
               <span>${{ object.item_discount }}</span>
               {% else %}
@@ -69,7 +70,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title danger" id="exampleModalLabel">
-                        Внимание!
+                        {% trans 'Warning!' %}
                       </h5>
                       <button
                         type="button"
@@ -79,8 +80,7 @@
                       ></button>
                     </div>
                     <div class="modal-body">
-                      Данный продукт содержит коровье молоко или продукты его
-                      переработки!
+                  {% trans 'This product contains milk or milk components!' %}
                     </div>
                     <div class="modal-footer">
                       <button
@@ -88,7 +88,7 @@
                         class="btn btn-success"
                         data-bs-dismiss="modal"
                       >
-                        Закрыть
+                        {% trans 'Close' %}
                       </button>
                     </div>
                   </div>
@@ -102,14 +102,14 @@
               <a
                 href="{%url 'reg' %}"
                 class="btn btn-warning btn-md my-0 p"
-                >Register to order!
+                > {% trans 'Register to order!' %}
                 
               </a>                    
               {% else %}
               <a
-                href="{{ dishes.get_add_to_cart_url }}"
+                href="{{ delivery.get_add_to_cart_url }}"
                 class="btn greenBtn btn-md my-0 p"
-                >Add to cart
+                > {% trans 'Register to order!' %}
                 <i class="fas fa-shopping-cart ml-1"></i>
               </a>
               {% endif %}           
@@ -117,7 +117,7 @@
               
              
               <a href="{% url 'delivery' %}" class="btn lightGreenBtn btn-md my-0 p"
-              >Back</a
+              >{% trans 'Back' %}</a
             >
             
             

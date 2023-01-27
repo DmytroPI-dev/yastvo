@@ -1,0 +1,384 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-27 21:02+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
+"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#: .\delivery\templates\checkout.html:10
+msgid "Checkout form"
+msgstr ""
+
+#: .\delivery\templates\checkout.html:16 .\delivery\templates\payment.html:53
+msgid "Your cart"
+msgstr ""
+
+#: .\delivery\templates\checkout.html:44 .\delivery\templates\payment.html:83
+msgid "Total:"
+msgstr ""
+
+#: .\delivery\templates\checkout.html:54
+msgid "Delivery address"
+msgstr ""
+
+#: .\delivery\templates\checkout.html:59
+msgid "First name"
+msgstr ""
+
+#: .\delivery\templates\checkout.html:63
+msgid "Valid first name is required."
+msgstr ""
+
+#: .\delivery\templates\checkout.html:68
+msgid "Last name"
+msgstr ""
+
+#: .\delivery\templates\checkout.html:71
+msgid "Valid last name is required."
+msgstr ""
+
+#: .\delivery\templates\checkout.html:75
+msgid "Email"
+msgstr ""
+
+#: .\delivery\templates\checkout.html:79
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: .\delivery\templates\checkout.html:84
+msgid "Address"
+msgstr ""
+
+#: .\delivery\templates\checkout.html:88
+msgid "Please enter your address."
+msgstr ""
+
+#: .\delivery\templates\checkout.html:94
+msgid "Address (continued)"
+msgstr ""
+
+#: .\delivery\templates\checkout.html:98
+msgid "Valid address is required."
+msgstr ""
+
+#: .\delivery\templates\checkout.html:106
+msgid "Phone number"
+msgstr ""
+
+#: .\delivery\templates\checkout.html:109
+msgid "Valid phone number is required."
+msgstr ""
+
+#: .\delivery\templates\checkout.html:117 .\delivery\templates\payment.html:14
+msgid "Payment"
+msgstr ""
+
+#: .\delivery\templates\checkout.html:134
+msgid "Select payment option"
+msgstr ""
+
+#: .\delivery\templates\checkout.html:139
+msgid "Continue to checkout"
+msgstr ""
+
+#: .\delivery\templates\order_summary.html:17
+msgid "Your Cart"
+msgstr ""
+
+#: .\delivery\templates\order_summary.html:23
+msgid "Item Name"
+msgstr ""
+
+#: .\delivery\templates\order_summary.html:24
+msgid "Price"
+msgstr ""
+
+#: .\delivery\templates\order_summary.html:25
+msgid "Quantity"
+msgstr ""
+
+#: .\delivery\templates\order_summary.html:26
+msgid "Total"
+msgstr ""
+
+#: .\delivery\templates\order_summary.html:27
+msgid "Discount"
+msgstr ""
+
+#: .\delivery\templates\order_summary.html:28
+msgid "Remove item"
+msgstr ""
+
+#: .\delivery\templates\order_summary.html:64
+msgid "Saved"
+msgstr ""
+
+#: .\delivery\templates\order_summary.html:79
+msgid "Your Cart is empty"
+msgstr ""
+
+#: .\delivery\templates\order_summary.html:85
+#: .\delivery\templates\order_summary.html:104
+msgid "Continue Shopping"
+msgstr ""
+
+#: .\delivery\templates\order_summary.html:93
+msgid "Total Order Price"
+msgstr ""
+
+#: .\delivery\templates\order_summary.html:101
+msgid "Checkout"
+msgstr ""
+
+#: .\delivery\templates\order_summary.html:107
+msgid "Delete order"
+msgstr ""
+
+#: .\delivery\templates\payment.html:28
+msgid "Credit or debit card"
+msgstr ""
+
+#: .\delivery\templates\payment.html:33
+msgid "Submit Payment"
+msgstr ""
+
+#: .\delivery\templates\payment.html:38
+msgid "Save for future purchases"
+msgstr ""
+
+#: .\main\templates\main\add-dishes.html:3
+#: .\main\templates\main\add-dishes.html:7
+msgid "Adding dishes to menu"
+msgstr ""
+
+#: .\main\templates\main\add-dishes.html:17
+msgid "Add dish to menu"
+msgstr ""
+
+#: .\main\templates\main\contacts.html:3
+msgid "Our contacts"
+msgstr ""
+
+#: .\main\templates\main\contacts.html:14
+msgid "Write us an email"
+msgstr ""
+
+#: .\main\templates\main\contacts.html:18
+msgid "Send"
+msgstr ""
+
+#: .\main\templates\main\contacts.html:28
+msgid "We have a rule:"
+msgstr ""
+
+#: .\main\templates\main\contacts.html:29
+msgid "The food must be just-cooked"
+msgstr ""
+
+#: .\main\templates\main\contacts.html:30
+msgid "All dishes are made \"under knife\", so, on your order! "
+msgstr ""
+
+#: .\main\templates\main\contacts.html:32
+msgid ""
+"We have some food preparations, on our kitchen to speed up dish cooking, but "
+"if there are many orders, your order may be ready a bit longer"
+msgstr ""
+
+#: .\main\templates\main\contacts.html:35
+msgid "Please, tell us if You have allergy on some food components"
+msgstr ""
+
+#: .\main\templates\main\contacts.html:38
+msgid "We have delivery service \"Cafe at your home!\""
+msgstr ""
+
+#: .\main\templates\main\delivery-detailed.html:33
+msgid "Weight:"
+msgstr ""
+
+#: .\main\templates\main\delivery-detailed.html:35
+msgid "Calories:"
+msgstr ""
+
+#: .\main\templates\main\delivery-detailed.html:35
+msgid "Kcal"
+msgstr ""
+
+#: .\main\templates\main\delivery-detailed.html:40
+msgid "Without discount:"
+msgstr ""
+
+#: .\main\templates\main\delivery-detailed.html:73
+msgid "Warning!"
+msgstr ""
+
+#: .\main\templates\main\delivery-detailed.html:83
+msgid "This product contains milk or milk components!"
+msgstr ""
+
+#: .\main\templates\main\delivery-detailed.html:91
+msgid "Close"
+msgstr ""
+
+#: .\main\templates\main\delivery-detailed.html:105
+#: .\main\templates\main\delivery-detailed.html:112
+#: .\main\templates\main\delivery.html:45
+msgid "Register to order!"
+msgstr ""
+
+#: .\main\templates\main\delivery-detailed.html:120
+msgid "Back"
+msgstr ""
+
+#: .\main\templates\main\delivery.html:32
+#: .\main\templates\main\delivery.html:37
+msgid "Price:"
+msgstr ""
+
+#: .\main\templates\main\delivery.html:52
+msgid "Add to cart"
+msgstr ""
+
+#: .\main\templates\main\delivery.html:59
+msgid "Details"
+msgstr ""
+
+#: .\main\templates\main\index.html:4
+msgid "Yastvo Cafe"
+msgstr ""
+
+#: .\main\templates\main\index.html:25
+msgid "Good and healthy food"
+msgstr ""
+
+#: .\main\templates\main\index.html:26
+msgid "Come and call your friends!"
+msgstr ""
+
+#: .\main\templates\main\index.html:27
+msgid "Menu"
+msgstr ""
+
+#: .\main\templates\main\index.html:36
+msgid "We are always happy to see You!"
+msgstr ""
+
+#: .\main\templates\main\index.html:37
+msgid "We have delivery service \"Cafe at home!\""
+msgstr ""
+
+#: .\main\templates\main\index.html:38 .\main\templates\main\layout.html:87
+msgid "Delivery"
+msgstr ""
+
+#: .\main\templates\main\index.html:47
+msgid "We would be happy hearing Your opinion about us!"
+msgstr ""
+
+#: .\main\templates\main\index.html:48
+msgid "It is easy to find us in your city!"
+msgstr ""
+
+#: .\main\templates\main\index.html:49
+msgid "contacts"
+msgstr ""
+
+#: .\main\templates\main\index.html:56
+msgid "Previous"
+msgstr ""
+
+#: .\main\templates\main\index.html:60
+msgid "Next"
+msgstr ""
+
+#: .\main\templates\main\index.html:72
+msgid "Colourful events"
+msgstr ""
+
+#: .\main\templates\main\index.html:72
+msgid "will rize up your mood!"
+msgstr ""
+
+#: .\main\templates\main\index.html:73
+msgid "We organize celebrations and parties"
+msgstr ""
+
+#: .\main\templates\main\index.html:85
+msgid "You can have a snack"
+msgstr ""
+
+#: .\main\templates\main\index.html:85
+msgid "or have a good lunch!"
+msgstr ""
+
+#: .\main\templates\main\index.html:86
+msgid "Breakfasts from opening to closing, drinks, snacks - for every taste!"
+msgstr ""
+
+#: .\main\templates\main\index.html:98
+msgid "While cooking"
+msgstr ""
+
+#: .\main\templates\main\index.html:98
+msgid "no animals were harmed!"
+msgstr ""
+
+#: .\main\templates\main\index.html:99
+msgid "Please note that some dishes contains milk or its components."
+msgstr ""
+
+#: .\main\templates\main\layout.html:81
+msgid "Our menu"
+msgstr ""
+
+#: .\main\templates\main\layout.html:84
+msgid "Contacts"
+msgstr ""
+
+#: .\main\templates\main\layout.html:91
+msgid "Registration"
+msgstr ""
+
+#: .\main\templates\main\layout.html:94
+msgid "Log in"
+msgstr ""
+
+#: .\main\templates\main\layout.html:100
+msgid "Profile"
+msgstr ""
+
+#: .\main\templates\main\layout.html:103
+msgid "Log out"
+msgstr ""
+
+#: .\main\templates\main\layout.html:115
+msgid "Language"
+msgstr ""
+
+#: .\main\templates\main\layout.html:118
+msgid "English"
+msgstr ""
+
+#: .\main\templates\main\layout.html:119
+msgid "Ukrainian"
+msgstr ""
+
+#: .\main\templates\main\layout.html:121
+msgid "Polish"
+msgstr ""

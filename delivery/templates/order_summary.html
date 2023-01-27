@@ -1,5 +1,6 @@
 {% extends 'main/layout.html' %} 
 {% load static %} 
+{% load i18n %}
 {% block content %}
 
 <main>
@@ -13,23 +14,18 @@
     </div>
     <div class="table-responsive text-nowrap">
       <h3>
-        <strong>Your Cart</strong>
-        {% if ordered %}
-        <muted>Order is paid!</muted>
-        {% else %}
-        <muted>Order is not paid yet!</muted>
-        {% endif %}
-              </h3>
+        <strong>{% trans 'Your Cart' %} </strong>
+       </h3>
       <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Item Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Total</th>
-            <th scope="col">Discount</th>
-            <th scope="col">Remove item</th>
+            <th scope="col">{% trans 'Item Name' %} </th>
+            <th scope="col">{% trans 'Price' %} </th>
+            <th scope="col">{% trans 'Quantity' %} </th>
+            <th scope="col">{% trans 'Total' %} </th>
+            <th scope="col">{% trans 'Discount' %} </th>
+            <th scope="col">{% trans 'Remove item' %} </th>
             
 
           </tr>
@@ -65,7 +61,7 @@
             </td>
             <td>          
                     {% if order_item.item.item_discount %}
-                    <span class="badge bg-success"> Saved
+                    <span class="badge bg-success">{% trans 'Saved' %} 
                     {{ order_item.get_amount_saved }}! 
                      {% endif%}
                 </span>
@@ -80,13 +76,13 @@
 
           {% empty %}
           <tr>
-            <td colspan="5">Your Cart is empty</td>
+            <td colspan="5"> {% trans 'Your Cart is empty' %} </td>
           </tr>
 
           <tr>
             <td colspan="5">
               <a href="{% url 'delivery' %}" class="btn greenBtn float-right"
-                >Continue Shopping</a
+                >{% trans 'Continue Shopping' %} </a
               >
             </td>
           </tr>
@@ -94,7 +90,7 @@
           {% endfor %} 
           {% if object.get_total_price %}
           <tr>
-            <td colspan="4"><b>Total Order Price</b></td>
+            <td colspan="4"><b>{% trans 'Total Order Price' %} </b></td>
             <td><b>{{ object.get_total_price }}</b></td>
           </tr>
           <tr>
@@ -102,13 +98,13 @@
               <a
                 href="{% url 'checkout' %}"
                 class="btn greenBtn float-right ml-2"
-                >Checkout</a
+                > {% trans 'Checkout' %} </a
               >
               <a href="{% url 'delivery' %}" class="btn lightGreenBtn float-right"
-                >Continue Shopping</a
+                >{% trans 'Continue Shopping' %} </a
               >
               <a href="{% url 'delete' %}" class="btn btn-danger float-right"
-              >Delete order</a
+              >{% trans 'Delete order' %} </a
             >
             </td>
           </tr>

@@ -1,5 +1,6 @@
 {% extends 'main/layout.html' %}
-{% block title %}Кафе Яство-контакты{% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Our contacts' %}{% endblock %}
 
 {% block content %}
 <div class="container-fluid">
@@ -10,11 +11,11 @@
           <div class="form-left-decoration"></div>
             <div class="form-right-decoration"></div>
             <div class="container flex form-inner">
-              <h3 class="text-center mb-3">Написать нам</h3>
+              <h3 class="text-center mb-3">{% trans 'Write us an email' %}</h3>
                 {% csrf_token %}
                 {{form.as_p}}
                 <div class="d-flex justify-content-center">
-                <input type="submit" value="Отправить"></div>
+                <input type="submit" value= "{% trans 'Send' %}"></div>
             </div>
         </form>
       </div>
@@ -24,27 +25,24 @@
 
     </div>
     <div class="col-sm-4">
-      <h3 >У нас есть правило:</h3>
-      <p></p>
-      <h4 style="text-align: center;">"Еда должна быть свежеприготовленной"</h4>
-      <p></p>
-      <p>Все блюда мы готовим "из под ножа", то есть, по твоему заказу!
-        <br><br>
-        На кухне есть минимальные заготовки, которые ускоряют процесс приготовления блюда.
-        Когда одновременно много заказов, исполнение может быть чуть долше обычного!
-        <br><br>
-        Пожалуйста, если у Вас есть непереносимость каких-то продуктов, скажите нам об этом.
-        <br><br>
-        Действует услуга доставки: <br>
-        "Кафе у тебя дома".
-        <br>
-        <br>
+      <h3>{% trans 'We have a rule:' %}</h3>
+      <h4 style="text-align: center;">{% trans 'The food must be just-cooked' %} </h4>
+      <p>{% trans 'All dishes are made "under knife", so, on your order! ' %} </p>
+        <p>
+          {% trans 'We have some food preparations, on our kitchen to speed up dish cooking, but if there are many orders, your order may be ready a bit longer' %}
+        </p>
+        <p>
+          {% trans 'Please, tell us if You have allergy on some food components' %}
+        </p>
+        <p>
+          {% trans 'We have delivery service "Cafe at your home!"' %}
+        </p>
         <i class="fas fa-seedling">Vegan 100%</i>
         <br>
         <br>
-        <i class="bi bi-telephone"> +7(978)935-85-30</i> <br>
-        <i class="bi bi-envelope-open"> postmaster@yastvo-yalta.ru</i><br>
-        <i class="bi bi-geo-alt-fill"> 298635, Республика Крым, г. Ялта, ул. Ломоносова, д. 3/2 </i>
+        <i class="bi bi-telephone"> +4864458524</i> <br>
+        <i class="bi bi-envelope-open"> postmaster@yastvo.com</i><br>
+        <i class="bi bi-geo-alt-fill">Slava Ukraine!</i>
 
 
         

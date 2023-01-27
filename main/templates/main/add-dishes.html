@@ -1,9 +1,10 @@
 {% extends 'main/layout.html' %}
-{% block title %}Добавление блюд {% endblock %}
+{% load i18n %}
+{% block title %} {% trans 'Adding dishes to menu' %} {% endblock %}
 
 {% block content %}
 
-<h2 class="mt-5 text-center ">Добавление блюд</h4>
+<h2 class="mt-5 text-center ">{% trans 'Adding dishes to menu' %}</h4>
 <div class="container text-start">
   <form method="post" enctype="multipart/form-data" class="border border-primary rounded">
 <div class="row p-2">
@@ -13,7 +14,7 @@
   </div>
 </div>
 <div class="text-center">
-  <button class="btn greenBtn btn-lg mb-3 mx-auto rounded" type="submit">Добавить блюдо</button>
+  <button class="btn greenBtn btn-lg mb-3 mx-auto rounded" type="submit">{% trans 'Add dish to menu' %}</button>
 </div>
 </form>
 </div>

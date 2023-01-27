@@ -1,5 +1,6 @@
 {% extends 'main/layout.html' %} 
 {% load static %}
+{% load i18n %}
 {% block title %}{{title}}{% endblock %} 
 {% block content %}
 
@@ -13,8 +14,6 @@
   </div>
 
  
-
-
 <div class="album py-5">
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -30,12 +29,12 @@
             <h3 class="card-text mb-3">{{ dishes.item_description }}</h3>
             
             {% if dishes.item_discount %}
-            <span>Price:
+            <span>{% trans 'Price:' %}
               <del>{{ dishes.item_price }}</del>
             
             {{ dishes.item_discount}}</span>
             {% else %}
-            <span>Price: {{ dishes.item_price }}</span>
+            <span>{% trans 'Price:' %} {{ dishes.item_price }}</span>
             {% endif %}
 
             <div class="btn-group mt-auto" role="group">
@@ -43,21 +42,21 @@
               <a
                 href="{%url 'reg' %}"
                 class="btn btn-warning btn-md my-0 p"
-                >Register to order!
+                > {% trans 'Register to order!' %}
                 
               </a>                    
               {% else %}
               <a
                 href="{{ dishes.get_add_to_cart_url }}"
                 class="btn greenBtn btn-md my-0 p"
-                >Add to cart
+                > {% trans 'Add to cart' %}
                 <i class="fas fa-shopping-cart ml-1"></i>
               </a>
               {% endif %}
               <a
                 href="{% url 'delivery-detailed' dishes.id %} "
                 class="btn lightGreenBtn btn-md my-0 p"
-                >Details</a
+                >{% trans 'Details' %}</a
               >
             </div>
           </div>

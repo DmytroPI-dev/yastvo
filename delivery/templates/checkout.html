@@ -23,10 +23,16 @@
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
                 <h6 class="my-0">
-                  {{ order_item.quantity }} x {{ order_item.item.item }}
+                  {{ order_item.quantity }} x 
+                  {% if order_item.item.item_discount %}
+                  {{ order_item.item.item_discount }}
+                  {% else  %}
+                  {{ order_item.item.item_price }}
+                  {% endif %}
+                  
                 </h6>
                 <small class="text-muted"
-                  >{{ order_item.item.description }}</small
+                  >{{ order_item.item.item_description }}</small
                 >
               </div>
               <span class="text-muted">{{ order_item.get_final_price }}</span>
@@ -44,7 +50,7 @@
         <!-- Address data  -->
 
         <div class="col-md-7 col-lg-8">
-          <h4 class="mb-3">Billing address</h4>
+          <h4 class="mb-3">Delivery address</h4>
           <form class="needs-validation" novalidate method="POST">
             {% csrf_token %}
             <div class="row g-3">
@@ -69,7 +75,7 @@
                 {{form.email}}
              
                 <div class="invalid-feedback">
-                  Please enter a valid email address for shipping updates.
+                  Please enter a valid email address.
                 </div>
               </div>
 
@@ -78,60 +84,33 @@
                 {{ form.street_address }}
             
                 <div class="invalid-feedback">
-                  Please enter your shipping address.
+                  Please enter your address.
                 </div>
               </div>
 
               <div class="col-12">
                 <label for="address2" class="form-label"
-                  >Address 2 <span class="text-muted">(Optional)</span></label
+                  >Address (continued)</label
                 >
                 {{ form.apartment_address }}
+                <div class="invalid-feedback">
+                  Valid address is required.
+                </div>
               
               </div>
 
-              <div class="col-md-5">
-                <label for="country" class="form-label">Country</label>
-                {{ form.country }}
-                <div class="invalid-feedback">
-                  Please select a valid country.
-                </div>
+
+            <div class="col-12">
+              <label for="phone-number" class="form-label"
+                >Phone number</label>
+              {{ form.phone_number }}
+              <div class="invalid-feedback">
+                Valid phone number is required.
               </div>
-
-              <div class="col-md-3">
-                <label for="zip" class="form-label">Postal code</label>
-                {{ form.zip }}
-           
-                <div class="invalid-feedback">Zip code required.</div>
-              </div>
+            
             </div>
 
-            <hr class="my-4" />
 
-            <div class="custom-control custom-checkbox">
-              <input
-                {% if form.same_billing_address.value %}checked{% endif %}
-                type="checkbox"
-                class="custom-control-input"
-                name="same_billing_address"
-                id="same-address"
-              />
-              <label class="custom-control-label" for="same-address"
-                >Shipping address is the same as my billing address</label
-              >
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input
-                {% if form.save_info.value %}checked{% endif %}
-                type="checkbox"
-                class="custom-control-input"
-                name="save_info"
-                id="save-info"
-              />
-              <label class="custom-control-label" for="save-info"
-                >Save this information for next time</label
-              >
-            </div>
             <hr class="my-4" />
            <div class="d-block my-3">
               <h4 class="mb-3">Payment</h4>
@@ -150,9 +129,12 @@
                 >
               </div>
               {% endfor %}
+              <div class="invalid-feedback">
+                Select payment option
+              </div>
             </div>
 
-            <button class="w-25 btn add-btn btn-lg" type="submit">
+            <button class="w-50 btn greenBtn btn-lg" type="submit">
               Continue to checkout
             </button>
           </form>

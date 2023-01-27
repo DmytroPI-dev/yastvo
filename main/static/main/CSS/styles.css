@@ -121,12 +121,12 @@ border-radius: 10px;
   
 }
 
-.add-btn {
+.greenBtn {
   background-color: var(--secondaryColor);
   
 }
 
-.details-btn {
+.lightGreenBtn {
   background-color: var(--mainColor);
   
 }
@@ -211,6 +211,14 @@ p {
 .card-body {
   height: 250px;
 }
+
+
+
+
+
+
+
+
 
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {

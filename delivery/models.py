@@ -6,7 +6,7 @@ from django.db import models
 from django.urls import reverse
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django_countries.fields import CountryField
-from django.db.models import F 
+ 
 
 LABEL = (
     ('N', 'New'),
@@ -23,11 +23,11 @@ CATEGORY = (
 )
 
 class MenuItems (models.Model):
-    item = models.CharField('Название блюда', max_length=50, default='Название блюда')
+    item = models.CharField('Название блюда', max_length=50)
     category = models.CharField('Категория', choices=CATEGORY, max_length=2, default='B')
     label = models.CharField('Label', choices=LABEL, max_length=2, blank=True, null=True)
-    item_description = models.TextField('Описание блюда', max_length=250, default='Описание блюда')
-    item_composition = models.TextField('Состав блюда', max_length=250, default='Состав')
+    item_description = models.TextField('Описание блюда', max_length=150)
+    item_composition = models.TextField('Состав блюда', max_length=150)
     item_weight = models.FloatField(verbose_name='Масса нетто')
     item_price = models.FloatField(verbose_name='Цена блюда', default=100.00)
     item_discount = models.FloatField(verbose_name='Цена со скидкой', blank=True, null=True)
@@ -130,9 +130,11 @@ class CheckoutAddress(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     street_address = models.CharField(max_length=100)
     apartment_address = models.CharField(max_length=100)
-    country = CountryField(multiple=False)
-    zip = models.CharField(max_length=100)
-
+    first_name = models.CharField(max_length=100, default=user)
+    last_name = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=20, default=123)
+    email = models.EmailField(max_length=25, default='email@email.com')
+    
     def __str__(self):
         return self.user.username
     

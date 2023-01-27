@@ -1,4 +1,5 @@
 # Views for delivery.
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, View
 from django.conf import settings
@@ -70,7 +71,7 @@ class OrderSummaryView(LoginRequiredMixin, View):
             return render(self.request, 'order_summary.html', context)
         except ObjectDoesNotExist:
             messages.error(self.request, "You do not have an order")
-            return redirect("/")
+            return redirect("delivery")
 
 class CheckoutView(View):
     def get(self, *args, **kwargs):
@@ -88,18 +89,22 @@ class CheckoutView(View):
         try:
             order = Order.objects.get(user=self.request.user, ordered=False)
             if form.is_valid():
+                first_name = form.cleaned_data.get('first_name')
+                last_name = form.cleaned_data.get('last_name')
+                email = form.cleaned_data.get('email')
                 street_address = form.cleaned_data.get('street_address')
                 apartment_address = form.cleaned_data.get('apartment_address')
-                country = form.cleaned_data.get('country')
-                zip = form.cleaned_data.get('zip')
+                phone_number = form.cleaned_data.get('phone_number')            
                 payment_option = form.cleaned_data.get('payment_option')
-
                 checkout_address = CheckoutAddress(
                     user=self.request.user,
+                    first_name = first_name,
+                    last_name= last_name,
+                    email = email,
+                    phone_number = phone_number,
                     street_address=street_address,
                     apartment_address=apartment_address,
-                    country=country,
-                    zip=zip
+                    
                 )
                 checkout_address.save()
                 order.checkout_address = checkout_address
@@ -116,6 +121,9 @@ class CheckoutView(View):
         except ObjectDoesNotExist:
             messages.error(self.request, "You do not have an order")
             return redirect("order-summary")
+        except ValueError:
+            messages.error(self.request, "Form is not completed!")
+            return redirect('checkout')
 
 class PaymentView(View):
     def get(self, *args, **kwargs):
@@ -274,4 +282,9 @@ def reduce_quantity_item(request, pk):
         return redirect("order-summary")
 
 
+
+@login_required
+def delete(request):
+    Order.objects.get(user=request.user, ordered=False).delete()
+    return HttpResponseRedirect(reverse('delivery'))
 

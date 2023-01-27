@@ -9,7 +9,7 @@ PAYMENT = (
 
 class CheckoutForm(forms.Form):
     first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={
-        'class': 'form-control',
+    'class': 'form-control',
     'placeholder': 'First name', 
     'id': 'firstName', 
      
@@ -23,7 +23,8 @@ class CheckoutForm(forms.Form):
     email = forms.EmailField(required=False, widget=forms.EmailInput(attrs={
         'class': 'form-control',
         'placeholder': 'email@email.com',
-        'id': 'email'
+        'id': 'email',
+        'type':'e-mail'
 
     }))
     street_address = forms.CharField(required=True, widget=forms.TextInput(attrs={
@@ -38,18 +39,11 @@ class CheckoutForm(forms.Form):
         'id':'address2',
     }))
 
-    country = CountryField(blank_label='(select country)').formfield( widget=CountrySelectWidget(attrs={
-        'class': 'custom-select d-block w-100 form-control',
-        'id':'country'
-    }))
-    
-    zip = forms.CharField(required=True, widget=forms.TextInput(attrs={
-        'class': 'form-control',
-        'id': 'zip',
-        'placeholder': '00-100'
+    phone_number = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        'class': 'form-control', 
+        'placeholder':'+1(235)45-89-89',
+        'id':'phone-number'
     }))
 
-    same_billing_address = forms.BooleanField(required=False)
-    save_info = forms.BooleanField(required=False)
     payment_option = forms.ChoiceField(
         widget=forms.RadioSelect, choices=PAYMENT)

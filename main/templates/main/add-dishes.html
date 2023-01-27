@@ -3,18 +3,20 @@
 
 {% block content %}
 
-<h1 class="vegan"> Добавление блюд </h1>
-<div class="container">
-  <div class="row">
-    <div class="col"></div>
-    <div class="col align-self-center">
-    <form method="post" enctype="multipart/form-data" class="form-register auth">
-      {% csrf_token %}
-      {{form.as_p}}
-      <button class="btn btn-outline-success" type="submit">Добавить блюдо</button>
-    </form>
-    </div>
-    <div class="col"></div>
+<h2 class="mt-5 text-center ">Добавление блюд</h4>
+<div class="container text-start">
+  <form method="post" enctype="multipart/form-data" class="border border-primary rounded">
+<div class="row p-2">
+  <div class="col p-2">
+    {% csrf_token %}
+    {{form.as_table}}
   </div>
 </div>
-{% endblock%}
+<div class="text-center">
+  <button class="btn greenBtn btn-lg mb-3 mx-auto rounded" type="submit">Добавить блюдо</button>
+</div>
+</form>
+</div>
+
+
+{% endblock %}

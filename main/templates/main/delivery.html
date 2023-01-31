@@ -8,7 +8,7 @@
 
     <a class="btn btn-success rounded-pill-lg floating-button" href="{%url 'order-summary' %}"
     ><i class="bi-cart-fill">
-      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ cart.items.count }}</i></span>
+      <span class="position-absolute top-0 start-100 trans-middle badge rounded-pill bg-danger">{{ cart.items.count }}</i></span>
       </a
       >
   </div>
@@ -29,12 +29,12 @@
             <h3 class="card-text mb-3">{{ dishes.item_description }}</h3>
             
             {% if dishes.item_discount %}
-            <span>{% trans 'Price:' %}
+            <span>{% translate 'Price:' %}
               <del>{{ dishes.item_price }}</del>
             
             {{ dishes.item_discount}}</span>
             {% else %}
-            <span>{% trans 'Price:' %} {{ dishes.item_price }}</span>
+            <span>{% translate 'Price:' %} {{ dishes.item_price }}</span>
             {% endif %}
 
             <div class="btn-group mt-auto" role="group">
@@ -42,21 +42,21 @@
               <a
                 href="{%url 'reg' %}"
                 class="btn btn-warning btn-md my-0 p"
-                > {% trans 'Register to order!' %}
+                > {% translate 'Register to order!' %}
                 
               </a>                    
               {% else %}
               <a
                 href="{{ dishes.get_add_to_cart_url }}"
                 class="btn greenBtn btn-md my-0 p"
-                > {% trans 'Add to cart' %}
+                > {% translate 'Add to cart' %}
                 <i class="fas fa-shopping-cart ml-1"></i>
               </a>
               {% endif %}
               <a
                 href="{% url 'delivery-detailed' dishes.id %} "
                 class="btn lightGreenBtn btn-md my-0 p"
-                >{% trans 'Details' %}</a
+                >{% translate 'Details' %}</a
               >
             </div>
           </div>

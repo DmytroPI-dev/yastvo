@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, View
 from django.conf import settings
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -35,7 +35,7 @@ class ShowMenuItem(ListView):
             order = 0
         context['food'] = MenuItems.objects.all()
         context['cart']=order
-        context['title'] = 'Доставка Кафе Яство'
+        context['title'] = _('Delivery')
         
         return context
     
@@ -73,7 +73,7 @@ class OrderSummaryView(LoginRequiredMixin, View):
                 }
             return render(self.request, 'order_summary.html', context)
         except ObjectDoesNotExist:
-            messages.error(self.request, "You do not have an order")
+            messages.error(self.request, _("You do not have an order"))
             return redirect("delivery")
 
 class CheckoutView(View):
@@ -118,14 +118,14 @@ class CheckoutView(View):
                 elif payment_option == 'P':
                     return redirect('payment', payment_option='paypal')
                 else:
-                    messages.warning(self.request, "Invalid Payment option")
+                    messages.warning(self.request, _("Invalid Payment option"))
                     return redirect('checkout')
 
         except ObjectDoesNotExist:
-            messages.error(self.request, "You do not have an order")
+            messages.error(self.request, _("You do not have an order"))
             return redirect("order-summary")
         except ValueError:
-            messages.error(self.request, "Form is not completed!")
+            messages.error(self.request, _("Form is not completed!"))
             return redirect('checkout')
 
 class PaymentView(View):
@@ -160,7 +160,7 @@ class PaymentView(View):
             order.payment = payment
             order.save()
 
-            messages.success(self.request, "Success make an order")
+            messages.success(self.request, _("Success make an order"))
             return redirect('/')
 
         except stripe.error.CardError as e:
@@ -171,34 +171,34 @@ class PaymentView(View):
 
         except stripe.error.RateLimitError as e:
             # Too many requests made to the API too quickly
-            messages.error(self.request, "To many request error")
+            messages.error(self.request, _("To many request error"))
             return redirect('/')
 
         except stripe.error.InvalidRequestError as e:
             # Invalid parameters were supplied to Stripe's API
-            messages.error(self.request, "Invalid Parameter")
+            messages.error(self.request, _("Invalid Parameter"))
             return redirect('/')
 
         except stripe.error.AuthenticationError as e:
             # Authentication with Stripe's API failed
             # (maybe you changed API keys recently)
-            messages.error(self.request, "Authentication with stripe failed")
+            messages.error(self.request, _("Authentication with stripe failed"))
             return redirect('/')
 
         except stripe.error.APIConnectionError as e:
             # Network communication with Stripe failed
-            messages.error(self.request, "Network Error")
+            messages.error(self.request, _("Network Error"))
             return redirect('/')
 
         except stripe.error.StripeError as e:
             # Display a very generic error to the user, and maybe send
             # yourself an email
-            messages.error(self.request, "Something went wrong")
+            messages.error(self.request, _("Something went wrong"))
             return redirect('/')
         
         except Exception as e:
             # Something else happened, completely unrelated to Stripe
-            messages.error(self.request, "Not identified error")
+            messages.error(self.request, _("Not identified error"))
             return redirect('/')
 
         
@@ -248,11 +248,11 @@ def remove_from_cart(request, pk):
             order_item.delete()
             return redirect("order-summary")
         else:
-            messages.info(request, "This Item is not in your cart")
+            messages.info(request, _("This Item is not in your cart"))
             return redirect("product", pk=pk)
     else:
         #add message cart empty
-        messages.info(request, "You cart is empty")
+        messages.info(request, _("You cart is empty"))
         return redirect("product", pk = pk)
 
 
@@ -281,7 +281,7 @@ def reduce_quantity_item(request, pk):
             return redirect("order-summary")
     else:
         #add message cart is empty
-        messages.info(request, "You cart is empty!")
+        messages.info(request, _("You cart is empty!"))
         return redirect("order-summary")
 
 

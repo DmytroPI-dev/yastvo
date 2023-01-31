@@ -9,7 +9,7 @@
 
   <a class="btn btn-success rounded-pill-lg floating-button" href="{%url 'order-summary' %}"
   ><i class="bi-cart-fill">
-    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ cart.items.count }}</i></span>
+    <span class="position-absolute top-0 start-100 trans-middle badge rounded-pill bg-danger">{{ cart.items.count }}</i></span>
     </a
     >
 </div>
@@ -30,14 +30,14 @@
               <h6 class="card-text">Состав: {{object.item_composition}}</h6>
             </div>
             <div class="d-flex justify-content-left mt-4">
-              <p class="card-text pe-2">{% trans 'Weight:' %} {{object.item_weight}} гр.</p>
+              <p class="card-text pe-2">{% translate 'Weight:' %} {{object.item_weight}} гр.</p>
               <p class="card-text px-2">
-               {% trans 'Calories:' %} {{object.item_calories}} {% trans 'Kcal' %}
+               {% translate 'Calories:' %} {{object.item_calories}} {% translate 'Kcal' %}
               </p>
 
               {% if object.item_discount %}
               <span class="mr-1">
-                {% trans 'Without discount:' %} <del>{{ object.item_price }}</del>
+                {% translate 'Without discount:' %} <del>{{ object.item_price }}</del>
               </span>
               <span>${{ object.item_discount }}</span>
               {% else %}
@@ -70,7 +70,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title danger" id="exampleModalLabel">
-                        {% trans 'Warning!' %}
+                        {% translate 'Warning!' %}
                       </h5>
                       <button
                         type="button"
@@ -80,7 +80,7 @@
                       ></button>
                     </div>
                     <div class="modal-body">
-                  {% trans 'This product contains milk or milk components!' %}
+                  {% translate 'This product contains milk or milk components!' %}
                     </div>
                     <div class="modal-footer">
                       <button
@@ -88,7 +88,7 @@
                         class="btn btn-success"
                         data-bs-dismiss="modal"
                       >
-                        {% trans 'Close' %}
+                        {% translate 'Close' %}
                       </button>
                     </div>
                   </div>
@@ -102,14 +102,14 @@
               <a
                 href="{%url 'reg' %}"
                 class="btn btn-warning btn-md my-0 p"
-                > {% trans 'Register to order!' %}
+                > {% translate 'Register to order!' %}
                 
               </a>                    
               {% else %}
               <a
                 href="{{ delivery.get_add_to_cart_url }}"
                 class="btn greenBtn btn-md my-0 p"
-                > {% trans 'Register to order!' %}
+                > {% translate 'Add to cart!' %}
                 <i class="fas fa-shopping-cart ml-1"></i>
               </a>
               {% endif %}           
@@ -117,7 +117,7 @@
               
              
               <a href="{% url 'delivery' %}" class="btn lightGreenBtn btn-md my-0 p"
-              >{% trans 'Back' %}</a
+              >{% translate 'Back' %}</a
             >
             
             

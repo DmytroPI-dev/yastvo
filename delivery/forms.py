@@ -1,22 +1,35 @@
 from django import forms
 from django_countries.fields import CountryField
 from django_countries.widgets import CountrySelectWidget
+from django.utils.translation import gettext as _
 
 PAYMENT = (
     ('S', 'Stripe'),
     ('P', 'PayPal')
 )
 
+class AddDishesForm(forms.Form):
+    item = forms.CharField(required=True, widget=forms.TextInput(attrs=
+    {'class':'form-control'
+
+    }))
+    
+    pass
+
+
+
+
+
 class CheckoutForm(forms.Form):
     first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={
     'class': 'form-control',
-    'placeholder': 'First name', 
+    'placeholder': _('First name'), 
     'id': 'firstName', 
      
     }))
 
     last_name =  forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control',
-    'placeholder': 'Last name',
+    'placeholder': _('Last name'),
     'id': 'lastName', 
     }))
 
@@ -29,13 +42,13 @@ class CheckoutForm(forms.Form):
     }))
     street_address = forms.CharField(required=True, widget=forms.TextInput(attrs={
         'class': 'form-control',
-        'placeholder': 'Mayflower Street',
+        'placeholder': _('Your address'),
         'id': 'address',
     }))
 
     apartment_address = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class': 'form-control',
-        'placeholder': 'Apartment or suite',
+        'placeholder': _('Apartment or suite'),
         'id':'address2',
     }))
 

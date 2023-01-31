@@ -19,6 +19,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from users import views as userViews
 from django.contrib.auth import views as authViews
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext_lazy as _
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,8 +31,11 @@ urlpatterns = [
     path('exit/', authViews.LogoutView.as_view(template_name= 'users/exit.html'), name = 'exit'),
     path('profile/', userViews.profile, name = 'profile'),
     path('accounts/', include('allauth.urls')),
+   
     
 ]
+
+
 
 if settings.DEBUG:
     urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

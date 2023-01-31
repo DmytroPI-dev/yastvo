@@ -6,40 +6,41 @@ from django.db import models
 from django.urls import reverse
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django_countries.fields import CountryField
+from django.utils.translation import gettext as _
  
 
 LABEL = (
-    ('N', 'New'),
-    ('BS', 'Best Seller')
+    ('N', _('New')),
+    ('BS', _('Best Seller'))
 )
 
 CATEGORY = (
-    ('B', 'Breakfast'),
-    ('LC', 'Lunch'),
-    ('SN', 'Snack'),
-    ('D', 'Drinks'),
-    ('SD', 'Salads'),
-    ('DS','Desserts')
+    ('B', _('Breakfast')),
+    ('LC', _('Lunch')),
+    ('SN', _('Snack')),
+    ('D', _('Drinks')),
+    ('SD', _('Salads')),
+    ('DS',_('Desserts'))
 )
 
 class MenuItems (models.Model):
-    item = models.CharField('Название блюда', max_length=50)
-    category = models.CharField('Категория', choices=CATEGORY, max_length=2, default='B')
-    label = models.CharField('Label', choices=LABEL, max_length=2, blank=True, null=True)
-    item_description = models.TextField('Описание блюда', max_length=150)
-    item_composition = models.TextField('Состав блюда', max_length=150)
-    item_weight = models.FloatField(verbose_name='Масса нетто')
-    item_price = models.FloatField(verbose_name='Цена блюда', default=100.00)
-    item_discount = models.FloatField(verbose_name='Цена со скидкой', blank=True, null=True)
-    item_calories = models.IntegerField(verbose_name='Калорийность', default=100)
-    item_image = models.ImageField('Фотография блюда', upload_to='goods')
-    milk_added = models.BooleanField(verbose_name='Молоко в составе', default=False)
+    item = models.CharField(_('Meal name'), max_length=50)
+    category = models.CharField(_('Category'), choices=CATEGORY, max_length=2, default='B')
+    label = models.CharField(_('Label'), choices=LABEL, max_length=2, blank=True, null=True)
+    item_description = models.TextField(_('Meal description'), max_length=150)
+    item_composition = models.TextField(_('Ingredients'), max_length=150)
+    item_weight = models.FloatField(verbose_name=_('Net weight'))
+    item_price = models.FloatField(verbose_name=_('Meal price'), default=100.00)
+    item_discount = models.FloatField(verbose_name=_('Discounted price'), blank=True, null=True)
+    item_calories = models.IntegerField(verbose_name=_('Calories'), default=100)
+    item_image = models.ImageField(_('Meal image'), upload_to='goods')
+    milk_added = models.BooleanField(verbose_name=_('Milk components added'), default=False)
     
    
 
     class Meta:
-        verbose_name = 'Блюдо'
-        verbose_name_plural = 'Блюда'
+        verbose_name = _('Meal')
+        verbose_name_plural = _('Meals')
 
     
     def __str__(self):

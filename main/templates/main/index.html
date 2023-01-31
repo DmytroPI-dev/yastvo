@@ -1,7 +1,7 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 {% load i18n %}
-{% block title %}{% trans 'Yastvo Cafe' %}{% endblock %}
+{% block title %}{% translate 'Yastvo Cafe' %}{% endblock %}
 
 {% block content %}
   <div class = "vegan container-fluid">
@@ -22,9 +22,9 @@
 
         <div class="container">
           <div class="carousel-caption ">
-            <h2>{% trans 'Good and healthy food' %}</h2>
-            <p>{% trans 'Come and call your friends!' %}</p>
-            <p><a class="btn btn-md greenBtn" href="{%url 'menu' %}">{% trans 'Menu' %}</a></p>
+            <h2>{% translate 'Good and healthy food' %}</h2>
+            <p>{% translate 'Come and call your friends!' %}</p>
+            <p><a class="btn btn-md greenBtn" href="{%url 'menu' %}">{% translate 'Menu' %}</a></p>
           </div>
         </div>
       </div>
@@ -33,9 +33,9 @@
 
         <div class="container">
           <div class="carousel-caption">
-            <h2>{% trans 'We are always happy to see You!' %}</h2>
-            <p>{% trans 'We have delivery service "Cafe at home!"' %} </p>
-            <p><a class="btn btn-md greenBtn" href="{%url 'delivery' %}">{% trans 'Delivery' %}</a></p>
+            <h2>{% translate 'We are always happy to see You!' %}</h2>
+            <p>{% translate  'We have delivery service "Cafe at home!"' %} </p>
+            <p><a class="btn btn-md greenBtn" href="{%url 'delivery' %}">{% translate 'Delivery' %}</a></p>
           </div>
         </div>
       </div>
@@ -44,20 +44,20 @@
 
         <div class="container">
           <div class="carousel-caption">
-            <h2>{% trans 'We would be happy hearing Your opinion about us!' %}</h2>
-            <p>{% trans 'It is easy to find us in your city!' %}</p>
-            <p><a class="btn btn-md greenBtn" href="{%url 'contacts' %}">{% trans 'contacts' %}</a></p>
+            <h2>{% translate 'We would be happy hearing Your opinion about us!' %}</h2>
+            <p>{% translate 'It is easy to find us in your city!' %}</p>
+            <p><a class="btn btn-md greenBtn" href="{%url 'contacts' %}">{% translate 'contacts' %}</a></p>
           </div>
         </div>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">{% trans 'Previous' %}</span>
+      <span class="visually-hidden">{% translate 'Previous' %}</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">{% trans 'Next' %}</span>
+      <span class="visually-hidden">{% translate 'Next' %}</span>
     </button>
   </div>
 
@@ -69,8 +69,8 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading feature-text" >{% trans 'Colourful events' %} <span class="text-info">{% trans 'will rize up your mood!' %}</span></h2>
-        <p class="lead">{% trans 'We organize celebrations and parties' %}</p>
+        <h2 class="featurette-heading feature-text" >{% translate 'Colourful events' %} <span class="text-info">{% translate 'will rize up your mood!' %}</span></h2>
+        <p class="lead">{% translate 'We organize celebrations and parties' %}</p>
       </div>
       <div class="col-md-5">
         <img src="{%static 'main/img/Food_items/DSC_7408.jpg' %}" class="rounded-circle" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">
@@ -82,8 +82,8 @@
 
     <div class="row featurette">
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading feature-text">{% trans 'You can have a snack' %} <span>{% trans 'or have a good lunch!' %}</span></h2>
-        <p class="lead">{% trans 'Breakfasts from opening to closing, drinks, snacks - for every taste!' %}</p>
+        <h2 class="featurette-heading feature-text">{% translate 'You can have a snack' %} <span>{% translate 'or have a good lunch!' %}</span></h2>
+        <p class="lead">{% translate 'Breakfasts from opening to closing, drinks, snacks - for every taste!' %}</p>
       </div>
       <div class="col-md-5 order-md-1">
         <img src="{%static 'main/img/Food_items/DSC_7315.jpg' %}"  class="rounded-circle" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">
@@ -95,8 +95,8 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading feature-text">{% trans 'While cooking' %}<span>{% trans 'no animals were harmed!' %}</span></h2>
-        <p class="lead">{% trans 'Please note that some dishes contains milk or its components.' %}</p>
+        <h2 class="featurette-heading feature-text">{% translate 'While cooking ' %}<span>{% translate 'no animals were harmed!' %}</span></h2>
+        <p class="lead">{% translate 'Please note that some dishes contains milk or its components.' %}</p>
       </div>
       <div class="col-md-5">
         <img src="{%static 'main/img/Food_items/DSC_7408.jpg' %}" class="rounded-circle" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">

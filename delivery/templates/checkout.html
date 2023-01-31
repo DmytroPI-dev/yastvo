@@ -7,13 +7,13 @@
   <div class="container">
     <main>
       <div class="py-5 text-center">
-        <h2>{% trans 'Checkout form' %}</h2>
+        <h2>{% translate 'Checkout form' %}</h2>
       </div>
       <!-- Cart heading -->
       <div class="row g-5">
         <div class="col-md-5 col-lg-4 order-md-last">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-primary">{% trans 'Your cart' %}</span>
+            <span class="text-primary">{% translate 'Your cart' %}</span>
             <span class="badge bg-primary rounded-pill"
               >{{ order.items.count }}</span
             >
@@ -41,7 +41,7 @@
             {% endfor %}
 
             <li class="list-group-item d-flex justify-content-between">
-              <span>{% trans 'Total:' %} </span>
+              <span>{% translate 'Total:' %} </span>
               <strong>{{ order.get_total_price }}</strong>
             </li>
           </ul>
@@ -51,51 +51,51 @@
         <!-- Address data  -->
 
         <div class="col-md-7 col-lg-8">
-          <h4 class="mb-3">{% trans 'Delivery address' %}</h4>
+          <h4 class="mb-3">{% translate 'Delivery address' %}</h4>
           <form class="needs-validation" novalidate method="POST">
             {% csrf_token %}
             <div class="row g-3">
               <div class="col-sm-6">
-                <label for="firstName" class="form-label">{%trans 'First name' %}</label>
+                <label for="firstName" class="form-label">{%translate 'First name' %}</label>
                 {{ form.first_name }}
              
                 <div class="invalid-feedback">
-                  {% trans 'Valid first name is required.' %}
+                  {% translate 'Valid first name is required.' %}
                 </div>
               </div>
 
               <div class="col-sm-6">
-                <label for="lastName" class="form-label">{% trans 'Last name' %}</label>
+                <label for="lastName" class="form-label">{% translate 'Last name' %}</label>
                 {{ form.last_name }}
          
-                <div class="invalid-feedback">{% trans 'Valid last name is required.' %}</div>
+                <div class="invalid-feedback">{% translate 'Valid last name is required.' %}</div>
               </div>
 
               <div class="col-12">
-                <label for="email" class="form-label">{% trans 'Email' %}</label>
+                <label for="email" class="form-label">{% translate 'Email' %}</label>
                 {{form.email}}
              
                 <div class="invalid-feedback">
-                  {% trans 'Please enter a valid email address.' %}
+                  {% translate 'Please enter a valid email address.' %}
                 </div>
               </div>
 
               <div class="col-12">
-                <label for="address" class="form-label">{% trans 'Address' %}</label>
+                <label for="address" class="form-label">{% translate 'Address' %}</label>
                 {{ form.street_address }}
             
                 <div class="invalid-feedback">
-                  {% trans 'Please enter your address.' %} 
+                  {% translate 'Please enter your address.' %} 
                 </div>
               </div>
 
               <div class="col-12">
                 <label for="address2" class="form-label"
-                  >{% trans 'Address (continued)' %} </label
+                  >{% translate 'Address (continued)' %} </label
                 >
                 {{ form.apartment_address }}
                 <div class="invalid-feedback">
-                  {% trans 'Valid address is required.' %} 
+                  {% translate 'Valid address is required.' %} 
                 </div>
               
               </div>
@@ -103,10 +103,10 @@
 
             <div class="col-12">
               <label for="phone-number" class="form-label"
-                >{% trans 'Phone number' %} </label>
+                >{% translate 'Phone number' %} </label>
               {{ form.phone_number }}
               <div class="invalid-feedback">
-              {% trans 'Valid phone number is required.' %}  
+              {% translate 'Valid phone number is required.' %}  
               </div>
             
             </div>
@@ -114,7 +114,7 @@
 
             <hr class="my-4" />
            <div class="d-block my-3">
-              <h4 class="mb-3"> {% trans 'Payment' %} </h4>
+              <h4 class="mb-3"> {% translate 'Payment' %} </h4>
               {% for value, name in form.fields.payment_option.choices %}
               <div class="custom-control custom-radio">
                 <input
@@ -131,12 +131,12 @@
               </div>
               {% endfor %}
               <div class="invalid-feedback">
-               {% trans 'Select payment option' %} 
+               {% translate 'Select payment option' %} 
               </div>
             </div>
 
             <button class="w-50 btn greenBtn btn-lg" type="submit">
-             {% trans 'Continue to checkout' %} 
+             {% translate 'Continue to checkout' %} 
             </button>
           </form>
         </div>

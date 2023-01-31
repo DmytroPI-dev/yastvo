@@ -1,8 +1,9 @@
 {% extends 'main/layout.html' %}
-{% block title %}Страница авторизации {% endblock %}
+{% load i18n %}
+{% block title %}{% translate 'Authorization page' %}{% endblock %}
 
 {% block content %}
 
-<h1 class="vegan">Вы вышли из личного кабинета!</h1>
+<h1 class="vegan">{% translate 'You left the account' %}</h1>
 
 {% endblock%}

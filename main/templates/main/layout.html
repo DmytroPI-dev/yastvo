@@ -1,7 +1,7 @@
 {% load static %}
 {% load i18n %}
 <!DOCTYPE html>
-<html lang="en-us" class="h-100">
+<html lang="uk" class="h-100">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -78,29 +78,29 @@
           <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a class="nav-link" href="{%url 'menu' %}">{% trans 'Our menu' %}</a>
+                <a class="nav-link" href="{%url 'menu' %}">{% translate 'Our menu' %}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{%url 'contacts' %}">{% trans 'Contacts' %}</a>
+                <a class="nav-link" href="{%url 'contacts' %}">{% translate 'Contacts' %}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{%url 'delivery' %}">{% trans 'Delivery' %}</a>
+                <a class="nav-link" href="{%url 'delivery' %}">{% translate 'Delivery' %}</a>
               </li>
               {%if not user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="{%url 'reg' %}">{% trans 'Registration' %}</a>
+                <a class="nav-link" href="{%url 'reg' %}">{% translate 'Registration' %}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{%url 'users' %}">{% trans 'Log in' %}</a>
+                <a class="nav-link" href="{%url 'users' %}">{% translate 'Log in' %}</a>
               </li>
 
               {% else %}
 
               <li class="nav-item">
-                <a class="nav-link" href="{%url 'profile' %}">{% trans 'Profile' %}</a>
+                <a class="nav-link" href="{%url 'profile' %}">{% translate 'Profile' %}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{%url 'exit' %}">{% trans 'Log out' %}</a>
+                <a class="nav-link" href="{%url 'exit' %}">{% translate 'Log out' %}</a>
               </li>
 
               {% endif %}
@@ -112,13 +112,13 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  {% trans 'Language' %}
+                  {% translate 'Language' %}
                 </a>
                 <ul class="dropdown-menu mt-3">
-                  <li><a class="dropdown-item" href="#">{% trans 'English' %}</a></li>
-                  <li><a class="dropdown-item" href="#">{% trans 'Ukrainian' %}</a></li>
+                  <li><a class="dropdown-item" href="#">{% translate 'English' %}</a></li>
+                  <li><a class="dropdown-item" href="#">{% translate 'Ukrainian' %}</a></li>
                   <li>
-                    <a class="dropdown-item" href="#">{% trans 'Polish' %}}</a>
+                    <a class="dropdown-item" href="#">{% translate 'Polish' %}}</a>
                   </li>
                 </ul>
               </li>

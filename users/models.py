@@ -2,13 +2,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
-
+from django.utils.translation import gettext as _
 
 class Profile (models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    img = models.ImageField('Аватар пользователя', default='default.png', upload_to='avatars')
-    name = models.CharField('Ваше имя', max_length=20, default='Веган')
-    phone = models.CharField('Телефон пользователя', max_length=15)
+    img = models.ImageField(_('User avatar'), default='default.png', upload_to='avatars')
+    name = models.CharField(_('Your name:'), max_length=20, default=_('Vegan'))
+    phone = models.CharField(_('Your phone:'), max_length=15)
     
 
 
@@ -23,9 +23,9 @@ class Profile (models.Model):
             image.save(self.img.path)
 
     class Meta:
-        verbose_name = 'Профиль'
-        verbose_name_plural = 'Профили'
+        verbose_name = _('Profile')
+        verbose_name_plural = _('Profiles')
 
     def __str__(self):
-        return f'Профиль пользователя {self.user.username}'
+        return f'_("User profile") {self.user.username}'
 

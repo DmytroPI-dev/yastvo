@@ -1,4 +1,5 @@
 {% extends 'main/layout.html' %}
+{% load i18n %}
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
@@ -10,8 +11,8 @@
     <form method="post" class="form-register">
       {% csrf_token %}
       {{form.as_p}}
-      <button class="btn btn-outline-success" type="submit">Зарегистрироваться</button>
-      <p>Уже зарегистрированы? <a href="{%url 'users'%}">Войти в личный кабинет</a></p>
+      <button class="btn btn-outline-success" type="submit">{% translate 'Register!' %}</button>
+      <p>{% translate 'Already regustered?' %}<a href="{%url 'users'%}">{% translate 'Log in!' %}</a></p>
     </form>
     </div>
   </div>

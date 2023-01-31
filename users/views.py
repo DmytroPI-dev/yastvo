@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import UserRegisterForm, UserUpdateForm, ProfileImageForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 
 def register (request):
@@ -11,7 +11,7 @@ def register (request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Пользователь {username} зарегистрирован!')
+            messages.success(request, f'User {username} is registered')
             return redirect ('home')
     else:
         form = UserRegisterForm()
@@ -20,7 +20,7 @@ def register (request):
         request,
         'users/registration.html',
         {
-            'title': 'Страница регистрации',
+            'title': _('Registration page'),
             'form': form
         }
     )
@@ -35,7 +35,7 @@ def profile (request):
         if profileForm.is_valid() and updateUserForm.is_valid():
             profileForm.save()
             updateUserForm.save()
-            messages.success(request, f'Пользователь обновил сведения о себе!')
+            messages.success(request, f'User refreshed own data')
             return redirect('profile')
 
     else:

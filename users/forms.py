@@ -2,34 +2,35 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
+from django.utils.translation import gettext as _
 
 
 class UserRegisterForm(UserCreationForm):
 
     email = forms.EmailField(
-        label='Введите Email:',
+        label=_('Enter Your email:'),
         required=False,
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите Email'})
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Enter email address:')})
     )
 
     username = forms.CharField(
-        label='Введите логин:',
+        label=_('Enter login'),
         required=True,
         help_text='Нельзя вводить символы: @, /, _',
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите логин'})
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Enter login')})
     )
 
     password1 = forms.CharField(
-        label='Введите пароль:',
+        label=_('Enter password'),
         required=True,
-        help_text='Пароль не должен быть коротким и слишком простым.',
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Введите пароль'})
+        help_text=_('The password must be not too short and not common'),
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': _('Enter password')})
     )
 
     password2 = forms.CharField(
-        label='Подтвердите пароль:',
+        label=_('Enter password again'),
         required=True,
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Повторно введите пароль'})
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': _('Enter password again')})
     )
 
     class Meta:
@@ -40,16 +41,16 @@ class UserRegisterForm(UserCreationForm):
 class UserUpdateForm(forms.ModelForm):
 
     email = forms.EmailField(
-        label='Введите Email:',
+        label=_('Enter Your email:'),
         required=False,
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите Email'})
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Enter Your email:')})
     )
 
     username = forms.CharField(
-        label='Введите логин:',
+        label=_('Enter login'),
         required=False,
-        help_text='Нельзя вводить символы: @, /, _',
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите логин'})
+        help_text=_('Don`t use special characters'),
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Enter login')})
     )
 
     class Meta:
@@ -60,22 +61,22 @@ class UserUpdateForm(forms.ModelForm):
 
 class ProfileImageForm(forms.ModelForm):
     img = forms.ImageField(
-        label='Загрузите Ваше фото',
+        label=_('Upload Your photo'),
         required=False,
         widget=forms.FileInput(attrs={'class': 'form-control'})
     )
 
     name = forms.CharField(
-        label='Укажите Ваше имя',
+        label=_('Please, enter Your name'),
         required=False,
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Укажите Ваше имя'})
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Please, enter Your name')})
     )
 
     
     phone = forms.CharField(
-        label='Телефон',
+        label=_('Phone'),
         required=False,
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Номер телефона'})
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Phone')})
     )
 
 

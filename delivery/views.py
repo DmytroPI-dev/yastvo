@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .forms import CheckoutForm
+from .forms import CheckoutForm, AddDishesForm
 from .models import (
     MenuItems,
     Order,
@@ -54,13 +54,20 @@ class ShowMenuDetailed(DetailView):
         context['cart']=order
         return context
 
-
-
-class CreateDishes(CreateView):
-    model = MenuItems
-    template_name = 'main/add-dishes.html'
-    fields = ['item', 'category', 'label', 'item_description', 'item_composition', 'item_weight', 'item_price', 'item_discount', 'item_calories', 'item_image', 'milk_added']
-
+class CreateDishes(View):
+    def get(self, *args, **kwargs):
+        form = AddDishesForm()
+        context = {'form':form}
+        return render (self.request, 'main/add-dishes.html', context)
+    
+    def post (self, *args, **kwargs):
+        if self.request.method == "POST":
+            form = AddDishesForm(self.request.POST, self.request.FILES)
+            if form.is_valid():
+                form.save()
+                messages.success(self.request, _("Menu item added!"))
+                return redirect ('add')
+        
 
 class OrderSummaryView(LoginRequiredMixin, View):
     def get(self, *args, **kwargs):
@@ -106,7 +113,7 @@ class CheckoutView(View):
                     email = email,
                     phone_number = phone_number,
                     street_address=street_address,
-                    apartment_address=apartment_address,
+                    apartment_address=apartment_address
                     
                 )
                 checkout_address.save()

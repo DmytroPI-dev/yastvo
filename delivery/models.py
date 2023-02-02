@@ -5,13 +5,16 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.core.files.uploadedfile import InMemoryUploadedFile
-from django_countries.fields import CountryField
 from django.utils.translation import gettext as _
+from django_database_translation.fields import TranslatedField
+from django_database_translation.models import TranslatedModel
+
  
 
 LABEL = (
-    ('N', _('New')),
-    ('BS', _('Best Seller'))
+        ('',""),
+        ('N', _('New')),
+        ('BS', _('Best Seller'))
 )
 
 CATEGORY = (
@@ -27,8 +30,8 @@ class MenuItems (models.Model):
     item = models.CharField(_('Meal name'), max_length=50)
     category = models.CharField(_('Category'), choices=CATEGORY, max_length=2, default='B')
     label = models.CharField(_('Label'), choices=LABEL, max_length=2, blank=True, null=True)
-    item_description = models.TextField(_('Meal description'), max_length=150)
-    item_composition = models.TextField(_('Ingredients'), max_length=150)
+    item_description = models.CharField(_('Meal description'), max_length=150)
+    item_composition = models.CharField(_('Ingredients'), max_length=150)
     item_weight = models.FloatField(verbose_name=_('Net weight'))
     item_price = models.FloatField(verbose_name=_('Meal price'), default=100.00)
     item_discount = models.FloatField(verbose_name=_('Discounted price'), blank=True, null=True)

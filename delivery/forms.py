@@ -2,21 +2,66 @@ from django import forms
 from django_countries.fields import CountryField
 from django_countries.widgets import CountrySelectWidget
 from django.utils.translation import gettext as _
+from .models import CATEGORY, LABEL, MenuItems
 
 PAYMENT = (
     ('S', 'Stripe'),
     ('P', 'PayPal')
 )
 
-class AddDishesForm(forms.Form):
-    item = forms.CharField(required=True, widget=forms.TextInput(attrs=
-    {'class':'form-control'
-
+class AddDishesForm(forms.ModelForm):
+    item = forms.CharField(max_length=50, widget=forms.TextInput(attrs=
+    {'class':'form-control',
+    'placeholder':_('Item name'),
+    'id':'menuItem'
     }))
-    
-    pass
 
+    category = forms.ChoiceField(choices=CATEGORY,required=True, widget=forms.Select (attrs={
+    'class':'form-control',
+    'id':'category'
+    }))
 
+    label = forms.ChoiceField(choices=LABEL, required=False, widget=forms.Select (attrs={
+    'class':'form-control',
+    'id':'label'
+    }))
+
+    item_description = forms.CharField(widget=forms.TextInput (attrs=
+    {'class':'form-control',
+    'placeholder':_('Item description'),
+    'id':'itemDescription'
+    }))
+    item_composition = forms.CharField(widget=forms.TextInput (attrs=
+    {'class':'form-control',
+    'placeholder':_('Item composition'),
+    'id':'itemComposition'
+    }))
+    item_weight = forms.FloatField(required=True, widget=forms.NumberInput(attrs={
+    'class':'form-control',
+    'id':'weight'
+    }))
+
+    item_price = forms.FloatField(required=True, widget=forms.NumberInput(attrs={
+    'class':'form-control',
+    'id':'price'
+    }))
+    item_discount = forms.FloatField(required=False, widget=forms.NumberInput(attrs={
+    'class':'form-control',
+    'id':'discount'
+    }))
+    item_calories = forms.FloatField(required=True, widget=forms.NumberInput(attrs={
+    'class':'form-control',
+    'id':'calories'
+    }))
+    item_image = forms.ImageField(widget=forms.FileInput)
+    milk_added =forms.CheckboxInput(attrs={
+         'class':'form-control',
+        'id':'milk'
+    })
+
+    class Meta:
+        model = MenuItems
+        fields = ['item', 'category', 'label', 'item_description','item_composition','item_weight','item_price','item_discount','item_calories', 'item_image', 'milk_added']
 
 
 
@@ -25,7 +70,6 @@ class CheckoutForm(forms.Form):
     'class': 'form-control',
     'placeholder': _('First name'), 
     'id': 'firstName', 
-     
     }))
 
     last_name =  forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control',

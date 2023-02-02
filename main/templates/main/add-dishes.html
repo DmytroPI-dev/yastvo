@@ -1,23 +1,103 @@
 {% extends 'main/layout.html' %}
 {% load i18n %}
-{% block title %} {% translate 'Adding dishes to menu' %} {% endblock %}
-
+{% block title %}
+{% translate 'Adding dishes to menu' %}
+{% endblock %}
 {% block content %}
 
-<h2 class="mt-5 text-center ">{% translate 'Adding dishes to menu' %}</h4>
-<div class="container text-start">
-  <form method="post" enctype="multipart/form-data" class="border border-primary rounded">
-<div class="row p-2">
-  <div class="col p-2">
+<div class="col-md-7 col-lg-8 mt-5">
+  <form enctype="multipart/form-data" class="needs-validation" novalidate method="POST">
     {% csrf_token %}
-    {{form.as_table}}
-  </div>
-</div>
-<div class="text-center">
-  <button class="btn greenBtn btn-lg mb-3 mx-auto rounded" type="submit">{% translate 'Add dish to menu' %}</button>
-</div>
-</form>
-</div>
+    <div class="text-center">
+      <h4 class="mb-5 ">{% translate 'Adding dishes to menu' %}</h4>
+    </div>
+    <div class="row g-3">
+      <div class="col-12">
+        <label for="item" class="form-label">{%translate 'Meal name' %}</label>
+        {{ form.item}}
+        <div class="invalid-feedback">
+          {% translate 'Valid meal name required.' %}
+        </div>
+      </div>
 
+      <div class="col-sm-6">
+        <label for="category" class="form-label"
+          >{% translate 'Category' %}</label
+        >
+        {{ form.category }}
+        <div class="invalid-feedback">{% translate 'Category required.' %}</div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="label" class="form-label">{% translate 'Label' %}</label>
+        {{ form.label }}
+      </div>
+
+      <div class="col-12">
+        <label for="item_description" class="form-label"
+          >{% translate 'Meal description' %}</label
+        >
+        {{ form.item_description }}
+        <div class="invalid-feedback">
+          {% translate 'Meal description needed.' %}
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label for="item_composition" class="form-label"
+          >{% translate 'Meal composition' %}</label
+        >
+        {{ form.item_composition }}
+        <div class="invalid-feedback">
+          {% translate 'Meal composition needed.' %}
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="weight" class="form-label">{% translate 'Weight' %}</label>
+        {{ form.item_weight }}
+        <div class="invalid-feedback">{% translate 'Weight needed.' %}</div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="price" class="form-label">{% translate 'Price' %}</label>
+        {{ form.item_price }}
+        <div class="invalid-feedback">{% translate 'Price needed.' %}</div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="price" class="form-label">{% translate 'Discount' %}</label>
+        {{ form.item_discount }}
+      </div>
+
+      <div class="col-sm-6">
+        <label for="calories" class="form-label"
+          >{% translate 'Calories' %}</label
+        >
+        {{ form.item_calories }}
+      </div>
+
+      <div class="col-12">
+        <label for="item_image" class="form-label"
+          >{% translate 'Meal image' %}</label
+        >
+        {{ form.item_image }}
+        <div class="invalid-feedback">{% translate 'Image needed.' %}</div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="milk" class="form-label"
+          >{% translate 'Contains milk' %}</label
+        >
+        {{ form.milk_added }}
+      </div>
+      <div class="text-center">
+        <button class="btn greenBtn btn-lg mb-3 mx-auto" type="submit">
+          {% translate 'Add meal to menu' %}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
 
 {% endblock %}

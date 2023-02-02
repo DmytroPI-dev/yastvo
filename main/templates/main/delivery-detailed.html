@@ -1,50 +1,47 @@
-{% extends 'main/layout.html' %}
+{% extends 'main/layout.html' %} 
 {% load static %}
-{% load i18n %}
-{% block title %}{{title}}{%endblock %}
-{% block content %}
-
+ {% load i18n %}
+  {% block title %}
+  {{title}}
+  {%endblock %}
+   {% block content %}
 
 <div class="cart-button">
-
-  <a class="btn btn-success rounded-pill-lg floating-button" href="{%url 'order-summary' %}"
-  ><i class="bi-cart-fill">
-    <span class="position-absolute top-0 start-100 trans-middle badge rounded-pill bg-danger">{{ cart.items.count }}</i></span>
-    </a
+  <a
+    class="btn btn-success rounded-pill-lg floating-button"
+    href="{%url 'order-summary' %}"
+    ><i class="bi-cart-fill">
+      <span
+        class="position-absolute top-0 start-100 trans-middle badge rounded-pill bg-danger"
+        >{{ cart.items.count }}</span
+      ></i
     >
+  </a>
 </div>
 
-
-<div class="album py-5">
-  <div class="container">
-    <div class="row row-cols-3 row-cols-sm-2 row-cols-md-3 g-3">
-      <div class="col">
-        <div class="card border border-0">
-          <img
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <div class="row">
+    <div class="col-4">
+      <img
             src="{{ object.item_image.url }}"
-            class="bd-placeholder-img card-img-top"
+            class="bd-placeholder-img card-img-top rounded-circle"
           />
-          <div class="card-body d-flex flex-column h-100">
-            <h3 class="card-text mb-3">{{object.item_description}}</h3>
-            <div class="d-flex justify-content-between align-items-start">
-              <h6 class="card-text">Состав: {{object.item_composition}}</h6>
-            </div>
-            <div class="d-flex justify-content-left mt-4">
-              <p class="card-text pe-2">{% translate 'Weight:' %} {{object.item_weight}} гр.</p>
-              <p class="card-text px-2">
-               {% translate 'Calories:' %} {{object.item_calories}} {% translate 'Kcal' %}
-              </p>
+      </div>
+      <div class="col-8">
+        <div class="col-8">
+        <h1 class="display-4 fw-bold text-center vegan position-relative">{{object.item}}<span class="fs-5 position-absolute top-0 start-100 translate-middle badge rounded-pill {% if object.label == 'N' %} bg-danger {% else %} bg-success {% endif %}">{{ object.get_label_display }} </span> </h1>
+      </div>
+        <h2 class="display-4 text-center"> {{object.item_description}}</h2>
+        <h2 class="display-6"><strong>{% translate 'Meal composition: '%} </strong>{{object.item_composition}} </h2>
+        <p class="fs-4 text-start"><strong>{% translate 'Weight:' %}</strong>{{object.item_weight}}</p>
+        <p class="fs-4 text-start"><strong>{% translate 'Calories:' %} </strong>{{object.item_calories}}</p>
+        <h2 class="display-5">{% translate 'Price: ' %}{% if object.item_discount %}<span class ="text-muted"><del>{{ object.item_price }}</del></span>
+        <span class="text-danger">{{ object.item_discount }}</span>{% else %} <span>{{ object.item_price }}</span> {% endif %}
+     
 
-              {% if object.item_discount %}
-              <span class="mr-1">
-                {% translate 'Without discount:' %} <del>{{ object.item_price }}</del>
-              </span>
-              <span>${{ object.item_discount }}</span>
-              {% else %}
-              <span>${{ object.item_price }}</span>
-              {% endif %}
 
-              {% if object.milk_added %}
+               {% if object.milk_added %}
               <!-- Button trigger modal -->
               <button
                 type="button"
@@ -80,7 +77,7 @@
                       ></button>
                     </div>
                     <div class="modal-body">
-                  {% translate 'This product contains milk or milk components!' %}
+                      {% translate 'This product contains milk or milk components!' %}
                     </div>
                     <div class="modal-footer">
                       <button
@@ -97,47 +94,29 @@
 
               {% endif %}
             </div>
-            <div class="btn-group mt-auto" role="group">
-              {%if not user.is_authenticated %}              
-              <a
-                href="{%url 'reg' %}"
-                class="btn btn-warning btn-md my-0 p"
-                > {% translate 'Register to order!' %}
-                
-              </a>                    
-              {% else %}
-              <a
-                href="{{ delivery.get_add_to_cart_url }}"
-                class="btn greenBtn btn-md my-0 p"
-                > {% translate 'Add to cart!' %}
-                <i class="fas fa-shopping-cart ml-1"></i>
-              </a>
-              {% endif %}           
-              
-              
-             
-              <a href="{% url 'delivery' %}" class="btn lightGreenBtn btn-md my-0 p"
+
+            <a
+              href="{% url 'delivery' %}"
+              class="btn lightGreenBtn btn-md my-0 p"
               >{% translate 'Back' %}</a
             >
-            
-            
-            
+          </div>
+    
+        </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    var myModal = document.getElementById("myModal");
+    var myInput = document.getElementById("myInput");
+
+    myModal.addEventListener("shown.bs.modal", function () {
+      myInput.focus();
+    });
+  </script>
+
+  {% endblock %}
 </div>
-
-<script>
-  var myModal = document.getElementById("myModal");
-  var myInput = document.getElementById("myInput");
-
-  myModal.addEventListener("shown.bs.modal", function () {
-    myInput.focus();
-  });
-</script>
-
-
-{% endblock %}
-

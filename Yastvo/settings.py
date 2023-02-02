@@ -46,10 +46,12 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.instagram',
-    'django_countries',
     'crispy_forms',
     'main',
     'delivery',
+    'django_database_translation'
+   
+    
     
         ]
 
@@ -135,6 +137,7 @@ USE_TZ = True
 LANGUAGES = (
     ('en-us', _('English')),
     ('uk', _('Ukrainian')),
+    ('pl',_('Polish'))
 )
 
 LOCALE_PATHS = (os.path.join(BASE_DIR,'locale/'),)

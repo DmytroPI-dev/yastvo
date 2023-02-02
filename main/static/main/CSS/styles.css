@@ -14,19 +14,8 @@ body {
   background-repeat: repeat;
   background-image: url("images/Heading_Leaves.png");
 }
-a {
-  font-size: 1rem;
-}
-h1 {
-  font-size: 2em;
-}
-h2 {
-  font-size: 1em;
-}
 
-p {
-  font-size: 0.8em;
-}
+
 
 .footer,
 .header {
@@ -64,16 +53,10 @@ main > .container {
 }
 
 .vegan {
-  width: 100%;
-  text-align: center;
-  font-size: 3em;
-  font-style: italic;
   color: var(--secondaryColor);
-  margin-top: 2rem;
+  
 }
-#vegan {
-  text-align: right;
-}
+
 
 #id_img {
   border-radius: 2px;
@@ -213,13 +196,6 @@ p {
 }
 
 
-
-
-
-
-
-
-
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
@@ -241,26 +217,5 @@ p {
     margin: 2px;
     border-radius: 7px;
     font-size: 8px;
-  }
-}
-@media (max-width: 1441px){
-   a {
-    font-size: 1.5rem;
-  }
-  h1 {
-    font-size: 4rem;
-  }
-  h2 {
-    font-size: 3rem;
-  }
-  
-  p {
-    font-size: 2rem;
-  }
-  .lead {
-    font-size: 2rem;
-  }
-  .text-muted {
-    font-size: 1.5rem;
   }
 }

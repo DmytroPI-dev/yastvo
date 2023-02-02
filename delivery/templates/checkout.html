@@ -3,9 +3,9 @@
 {% load i18n %}
 {% block content %}
 
-<body class="bg-light">
+
   <div class="container">
-    <main>
+
       <div class="py-5 text-center">
         <h2>{% translate 'Checkout form' %}</h2>
       </div>
@@ -66,8 +66,7 @@
 
               <div class="col-sm-6">
                 <label for="lastName" class="form-label">{% translate 'Last name' %}</label>
-                {{ form.last_name }}
-         
+                {{ form.last_name }}         
                 <div class="invalid-feedback">{% translate 'Valid last name is required.' %}</div>
               </div>
 
@@ -141,7 +140,7 @@
           </form>
         </div>
       </div>
-    </main>
+
   </div>
-</body>
+
 {% endblock content %}

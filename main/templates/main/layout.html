@@ -127,7 +127,7 @@
         </div>
       </nav>
     </header>
-
+  
     {% if messages %} {% for mess in messages %}
     <div class="row justify-content-center">
       <div class="col col-lg-2"></div>
@@ -139,7 +139,9 @@
     </div>
 
     <main class="flex-shrink-0">
-      <div class="container">{% block content %} {% endblock %}</div>
+      <div class="container">
+        {% block content %} {% endblock %}
+      </div>
     </main>
 
     <footer

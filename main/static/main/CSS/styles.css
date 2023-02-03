@@ -6,8 +6,12 @@
   --mainGradientColor: #6ab1d7;
   --secondaryGradientColor: #33d9de;
   --navBarLinkColor: #a52a2a;
+ 
+}
+a, h1, h2, h3, h4, span, p, td, th, b, button {
   font-family: 'Lobster Two', cursive;
 }
+
 body {
   
   background-size: 400px 200px;

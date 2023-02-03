@@ -4,11 +4,10 @@ from .forms import ContactForm
 from django.http import HttpResponse
 from django.contrib import messages
 from django.utils.translation import gettext as _
-
+from django.utils.translation import get_language, activate
 
 def index(request):
     return render(request, 'main/index.html')
-
 
 def menu(request):
     return render(request, 'main/menu.html')

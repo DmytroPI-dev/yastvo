@@ -31,10 +31,18 @@ urlpatterns = [
     path('exit/', authViews.LogoutView.as_view(template_name= 'users/exit.html'), name = 'exit'),
     path('profile/', userViews.profile, name = 'profile'),
     path('accounts/', include('allauth.urls')),
-   
-    
+    path('i18n/', include('django.conf.urls.i18n')),
 ]
 
+
+urlpatterns += i18n_patterns (
+    path('', include('main.urls')),
+    path('reg/', userViews.register, name = 'reg'),
+    path('delivery/', include ('delivery.urls')),
+    path('users/', authViews.LoginView.as_view(template_name= 'users/users.html'), name = 'users'),
+    path('exit/', authViews.LogoutView.as_view(template_name= 'users/exit.html'), name = 'exit'),
+    path('profile/', userViews.profile, name = 'profile'),
+)
 
 
 if settings.DEBUG:

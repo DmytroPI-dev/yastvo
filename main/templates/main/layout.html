@@ -6,43 +6,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-
-<link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@200;400;500;900&display=swap" rel="stylesheet">
-
-
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-    />
-    <link
-      rel="shortcut icon"
-      href="{% static 'main/img/favicon.jpg' %}"
-      type="image/jpg"
-    />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
+    <link rel="shortcut icon" href="{% static 'main/img/favicon.jpg' %}" type="image/jpg"/>
     <link rel="stylesheet" href="{% static 'main/CSS/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'main/CSS/feedback.css' %}" />
     <link rel="stylesheet" href="{% static 'main/CSS/bxslider.css' %}" />
     <link rel="stylesheet" href="{% static 'main/CSS/stripe.css' %}" />
-
-    <link
-      rel="stylesheet"
-      href="{% static 'main/CSS/jquery.bxslider.min.css' %}"
-    />
+    <link rel="stylesheet" href="{% static 'main/CSS/jquery.bxslider.min.css' %}"/>
     <link rel="stylesheet" href="{% static 'main/CSS/styles.css' %}" />
-
-    <script
-      src="https://kit.fontawesome.com/fb1859fd88.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/fb1859fd88.js" crossorigin="anonymous"></script>
     <script src="{% static 'main/JS/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'main/JS/jquery.bxslider.min.js' %}"></script>
     <script src="{% static 'main/JS/jquery.easing.1.3.min.js' %}"></script>
@@ -115,11 +91,21 @@
                   {% translate 'Language' %}
                 </a>
                 <ul class="dropdown-menu mt-3">
-                  <li><a class="dropdown-item" href="#">{% translate 'English' %}</a></li>
+                  {% get_current_language as LANGUAGE_CODE %}
+                  {% get_available_languages as LANGUAGES %}
+                  {% get_language_info_list for LANGUAGES as languages %}
+                  {% for lang in languages %}
+              <li>
+              <a class="dropdown-item" href="/{{ lang.code }}/">
+                  {{ lang.name_local }}
+              </a>
+              </li>
+            {% endfor %}
+                  <!-- <li><a class="dropdown-item" href="#">{% translate 'English' %}</a></li>
                   <li><a class="dropdown-item" href="#">{% translate 'Ukrainian' %}</a></li>
                   <li>
-                    <a class="dropdown-item" href="#">{% translate 'Polish' %}}</a>
-                  </li>
+                    <a class="dropdown-item" href="#">{% translate 'Polish' %}</a>
+                  </li> -->
                 </ul>
               </li>
             </ul>

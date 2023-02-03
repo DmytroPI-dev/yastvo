@@ -120,8 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'uk'
-
+LANGUAGE_CODE = 'en-us'
 
 LANGUAGE_COOKIE_NAME = 'django_language'
 
@@ -133,9 +132,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+from django.utils.translation import gettext_lazy as _
+
+LANGUAGE_CODE = 'en'
 
 LANGUAGES = (
-    ('en-us', _('English')),
+    ('en', _('English')),
     ('uk', _('Ukrainian')),
     ('pl',_('Polish'))
 )

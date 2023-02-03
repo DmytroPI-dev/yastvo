@@ -6,8 +6,6 @@ from django.db import models
 from django.urls import reverse
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.utils.translation import gettext as _
-from django_database_translation.fields import TranslatedField
-from django_database_translation.models import TranslatedModel
 
  
 

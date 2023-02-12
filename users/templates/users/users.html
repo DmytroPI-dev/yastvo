@@ -1,5 +1,6 @@
 {% extends 'main/layout.html' %}
-{% block title %}Страница авторизации {% endblock %}
+{% load i18n %}
+{% block title %}{% translate 'Auth page' %}{% endblock %}
 
 {% block content %}
 
@@ -11,7 +12,7 @@
     <form method="post" class="form-register auth">
       {% csrf_token %}
       {{form.as_p}}
-      <button class="btn btn-outline-success" type="submit">Войти</button>
+      <button class="btn btn-outline-success" type="submit">{% translate 'Log in' %}</button>
     </form>
     </div>
     <div class="col"></div>

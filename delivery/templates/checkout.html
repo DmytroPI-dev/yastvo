@@ -1,0 +1,146 @@
+{% extends 'main/layout.html' %} 
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+
+  <div class="container">
+
+      <div class="py-5 text-center">
+        <h2>{% translate 'Checkout form' %}</h2>
+      </div>
+      <!-- Cart heading -->
+      <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-primary">{% translate 'Your cart' %}</span>
+            <span class="badge bg-primary rounded-pill"
+              >{{ order.items.count }}</span
+            >
+          </h4>
+          <!-- Cart body  -->
+          <ul class="list-group mb-3">
+            {% for order_item in order.items.all %}
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div>
+                <h6 class="my-0">
+                  {{ order_item.quantity }} x 
+                  {% if order_item.item.item_discount %}
+                  {{ order_item.item.item_discount }}
+                  {% else  %}
+                  {{ order_item.item.item_price }}
+                  {% endif %}
+                  
+                </h6>
+                <small class="text-muted"
+                  >{{ order_item.item.item_description }}</small
+                >
+              </div>
+              <span class="text-muted">{{ order_item.get_final_price }}</span>
+            </li>
+            {% endfor %}
+
+            <li class="list-group-item d-flex justify-content-between">
+              <span>{% translate 'Total:' %} </span>
+              <strong>{{ order.get_total_price }}</strong>
+            </li>
+          </ul>
+        </div>
+        <!-- End of cart  -->
+
+        <!-- Address data  -->
+
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">{% translate 'Delivery address' %}</h4>
+          <form class="needs-validation" novalidate method="POST">
+            {% csrf_token %}
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="firstName" class="form-label">{%translate 'First name' %}</label>
+                {{ form.first_name }}
+             
+                <div class="invalid-feedback">
+                  {% translate 'Valid first name is required.' %}
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label">{% translate 'Last name' %}</label>
+                {{ form.last_name }}         
+                <div class="invalid-feedback">{% translate 'Valid last name is required.' %}</div>
+              </div>
+
+              <div class="col-12">
+                <label for="email" class="form-label">{% translate 'Email' %}</label>
+                {{form.email}}
+             
+                <div class="invalid-feedback">
+                  {% translate 'Please enter a valid email address.' %}
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="address" class="form-label">{% translate 'Address' %}</label>
+                {{ form.street_address }}
+            
+                <div class="invalid-feedback">
+                  {% translate 'Please enter your address.' %} 
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="address2" class="form-label"
+                  >{% translate 'Address (continued)' %} </label
+                >
+                {{ form.apartment_address }}
+                <div class="invalid-feedback">
+                  {% translate 'Valid address is required.' %} 
+                </div>
+              
+              </div>
+
+
+            <div class="col-12">
+              <label for="phone-number" class="form-label"
+                >{% translate 'Phone number' %} </label>
+              {{ form.phone_number }}
+              <div class="invalid-feedback">
+              {% translate 'Valid phone number is required.' %}  
+              </div>
+            
+            </div>
+
+
+            <hr class="my-4" />
+           <div class="d-block my-3">
+              <h4 class="mb-3"> {% translate 'Payment' %} </h4>
+              {% for value, name in form.fields.payment_option.choices %}
+              <div class="custom-control custom-radio">
+                <input
+                  id="{{ name }}"
+                  name="payment_option"
+                  value="{{ value }}"
+                  type="radio"
+                  class="custom-control-input"
+                  required
+                />
+                <label class="custom-control-label" for="{{ name }}"
+                  >{{ name }}</label
+                >
+              </div>
+              {% endfor %}
+              <div class="invalid-feedback">
+               {% translate 'Select payment option' %} 
+              </div>
+            </div>
+
+            <button class="w-50 btn greenBtn btn-lg" type="submit">
+             {% translate 'Continue to checkout' %} 
+            </button>
+          </form>
+        </div>
+      </div>
+
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,760 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-03 12:21+0100\n"
+"PO-Revision-Date: 2023-02-03 19:29+0000\n"
+"Last-Translator:   <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: .\Yastvo\settings.py:137 .\main\templates\main\layout.html:104
+msgid "English"
+msgstr "Англійська"
+
+#: .\Yastvo\settings.py:138 .\main\templates\main\layout.html:105
+msgid "Ukrainian"
+msgstr "Наша соловїна"
+
+#: .\Yastvo\settings.py:139 .\main\templates\main\layout.html:107
+msgid "Polish"
+msgstr "Польська"
+
+#: .\delivery\forms.py:15
+#| msgid "Item Name"
+msgid "Item name"
+msgstr "Найменування товару"
+
+#: .\delivery\forms.py:31
+#| msgid "Meal description"
+msgid "Item description"
+msgstr "Опис страви"
+
+#: .\delivery\forms.py:36
+msgid "Item composition"
+msgstr "Склад страви"
+
+#: .\delivery\forms.py:71 .\delivery\templates\checkout.html:59
+msgid "First name"
+msgstr "Ім'я"
+
+#: .\delivery\forms.py:76 .\delivery\templates\checkout.html:68
+msgid "Last name"
+msgstr "Призвіще"
+
+#: .\delivery\forms.py:89
+#| msgid "Your email address"
+msgid "Your address"
+msgstr "Ваша адреса:"
+
+#: .\delivery\forms.py:95
+msgid "Apartment or suite"
+msgstr "Квартира"
+
+#: .\delivery\models.py:14
+msgid "New"
+msgstr "Новинка"
+
+#: .\delivery\models.py:15
+msgid "Best Seller"
+msgstr "Найкращий вибір!"
+
+#: .\delivery\models.py:19
+msgid "Breakfast"
+msgstr "Сніданок"
+
+#: .\delivery\models.py:20
+msgid "Lunch"
+msgstr "Обід"
+
+#: .\delivery\models.py:21
+msgid "Snack"
+msgstr "Заїдка"
+
+#: .\delivery\models.py:22
+msgid "Drinks"
+msgstr "Напої"
+
+#: .\delivery\models.py:23
+msgid "Salads"
+msgstr "Салати"
+
+#: .\delivery\models.py:24
+msgid "Desserts"
+msgstr "Десерти"
+
+#: .\delivery\models.py:28 .\main\templates\main\add-dishes.html:16
+msgid "Meal name"
+msgstr "Найменування страви"
+
+#: .\delivery\models.py:29 .\main\templates\main\add-dishes.html:25
+msgid "Category"
+msgstr "Категорія"
+
+#: .\delivery\models.py:30 .\main\templates\main\add-dishes.html:32
+msgid "Label"
+msgstr "Тип"
+
+#: .\delivery\models.py:31 .\main\templates\main\add-dishes.html:38
+msgid "Meal description"
+msgstr "Опис страви"
+
+#: .\delivery\models.py:32
+msgid "Ingredients"
+msgstr "Склад"
+
+#: .\delivery\models.py:33
+msgid "Net weight"
+msgstr "Вага нето"
+
+#: .\delivery\models.py:34
+msgid "Meal price"
+msgstr "Ціна блюда"
+
+#: .\delivery\models.py:35
+msgid "Discounted price"
+msgstr "Знижка"
+
+#: .\delivery\models.py:36 .\main\templates\main\add-dishes.html:75
+msgid "Calories"
+msgstr "Калорії"
+
+#: .\delivery\models.py:37 .\main\templates\main\add-dishes.html:82
+msgid "Meal image"
+msgstr "Зображення страви"
+
+#: .\delivery\models.py:38
+msgid "Milk components added"
+msgstr "Містить молоко"
+
+#: .\delivery\models.py:43
+msgid "Meal"
+msgstr "Страва"
+
+#: .\delivery\models.py:44
+msgid "Meals"
+msgstr "Страви"
+
+#: .\delivery\templates\checkout.html:10
+msgid "Checkout form"
+msgstr "Завершення оплати"
+
+#: .\delivery\templates\checkout.html:16 .\delivery\templates\payment.html:53
+msgid "Your cart"
+msgstr "Ваш кошик"
+
+#: .\delivery\templates\checkout.html:44 .\delivery\templates\payment.html:83
+msgid "Total:"
+msgstr "Всьго:"
+
+#: .\delivery\templates\checkout.html:54
+msgid "Delivery address"
+msgstr "Адреса доставки"
+
+#: .\delivery\templates\checkout.html:63
+msgid "Valid first name is required."
+msgstr "Треба вказати справжне ім'я"
+
+#: .\delivery\templates\checkout.html:70
+msgid "Valid last name is required."
+msgstr "Треба вказати справжне прізвіще"
+
+#: .\delivery\templates\checkout.html:74
+msgid "Email"
+msgstr "Електронна пошта"
+
+#: .\delivery\templates\checkout.html:78
+msgid "Please enter a valid email address."
+msgstr "Вкажите дійсну адресу електронної пошти."
+
+#: .\delivery\templates\checkout.html:83
+msgid "Address"
+msgstr "Адреса"
+
+#: .\delivery\templates\checkout.html:87
+msgid "Please enter your address."
+msgstr "Будь ласка, вкажить Вашу адресу."
+
+#: .\delivery\templates\checkout.html:93
+msgid "Address (continued)"
+msgstr "Адреса (додатковий рядок)"
+
+#: .\delivery\templates\checkout.html:97
+msgid "Valid address is required."
+msgstr "Потрібна дійсна адреса."
+
+#: .\delivery\templates\checkout.html:105
+msgid "Phone number"
+msgstr "Вкажить Ваш телефон"
+
+#: .\delivery\templates\checkout.html:108
+msgid "Valid phone number is required."
+msgstr "Треба вказати дійсний номер телефону."
+
+#: .\delivery\templates\checkout.html:116 .\delivery\templates\payment.html:14
+msgid "Payment"
+msgstr "Оплата"
+
+#: .\delivery\templates\checkout.html:133
+msgid "Select payment option"
+msgstr "Вкажить засіб платежу!"
+
+#: .\delivery\templates\checkout.html:138
+msgid "Continue to checkout"
+msgstr "Продовжити оплату"
+
+#: .\delivery\templates\order_summary.html:17
+msgid "Your Cart"
+msgstr "Ваш кошик"
+
+#: .\delivery\templates\order_summary.html:23
+msgid "Item Name"
+msgstr "Найменування товару"
+
+#: .\delivery\templates\order_summary.html:24
+#: .\main\templates\main\add-dishes.html:63
+msgid "Price"
+msgstr "Ціна"
+
+#: .\delivery\templates\order_summary.html:25
+msgid "Quantity"
+msgstr "Кількість"
+
+#: .\delivery\templates\order_summary.html:26
+msgid "Total"
+msgstr "Всьго"
+
+#: .\delivery\templates\order_summary.html:27
+#: .\main\templates\main\add-dishes.html:69
+msgid "Discount"
+msgstr "Знижка"
+
+#: .\delivery\templates\order_summary.html:28
+msgid "Remove item"
+msgstr "Видалити товар"
+
+#: .\delivery\templates\order_summary.html:64
+msgid "Saved"
+msgstr "Збережено"
+
+#: .\delivery\templates\order_summary.html:79
+msgid "Your Cart is empty"
+msgstr "Ваш кошик пустий"
+
+#: .\delivery\templates\order_summary.html:85
+#: .\delivery\templates\order_summary.html:104
+msgid "Continue Shopping"
+msgstr "Повернутися до покупок"
+
+#: .\delivery\templates\order_summary.html:93
+msgid "Total Order Price"
+msgstr "Загальна ціна"
+
+#: .\delivery\templates\order_summary.html:101
+msgid "Checkout"
+msgstr "Оплата замовлення"
+
+#: .\delivery\templates\order_summary.html:107
+msgid "Delete order"
+msgstr "Видалити замовлення"
+
+#: .\delivery\templates\payment.html:28
+msgid "Credit or debit card"
+msgstr "Вкажить дані картки"
+
+#: .\delivery\templates\payment.html:33
+msgid "Submit Payment"
+msgstr "Сплатити"
+
+#: .\delivery\templates\payment.html:38
+msgid "Save for future purchases"
+msgstr "Зберегти для наступних купівель"
+
+#: .\delivery\views.py:38 .\main\templates\main\index.html:38
+#: .\main\templates\main\layout.html:63
+msgid "Delivery"
+msgstr "Доставка"
+
+#: .\delivery\views.py:68
+msgid "Menu item added!"
+msgstr "Страву додано!"
+
+#: .\delivery\views.py:83 .\delivery\views.py:132
+msgid "You do not have an order"
+msgstr "У Вас нема замовлення!"
+
+#: .\delivery\views.py:128
+#, fuzzy
+#| msgid "Select payment option"
+msgid "Invalid Payment option"
+msgstr "Невірний засіб платежу!"
+
+#: .\delivery\views.py:135
+msgid "Form is not completed!"
+msgstr "Форма не заповнена!"
+
+#: .\delivery\views.py:170
+msgid "Success make an order"
+msgstr "Заказ успішно створено!"
+
+#: .\delivery\views.py:181
+msgid "To many request error"
+msgstr "Забагато запитів!"
+
+#: .\delivery\views.py:186
+msgid "Invalid Parameter"
+msgstr "Помилковий параметр"
+
+#: .\delivery\views.py:192
+msgid "Authentication with stripe failed"
+msgstr "Автентіфікація не вдалась!"
+
+#: .\delivery\views.py:197
+msgid "Network Error"
+msgstr "Мережева помилка!"
+
+#: .\delivery\views.py:203
+msgid "Something went wrong"
+msgstr "Упс! Щось пішло не так!"
+
+#: .\delivery\views.py:208
+msgid "Not identified error"
+msgstr "Невизначена помилка!"
+
+#: .\delivery\views.py:258
+msgid "This Item is not in your cart"
+msgstr "Цього немае у Вашому кошику!"
+
+#: .\delivery\views.py:262
+msgid "You cart is empty"
+msgstr "Ваш кошик пустий"
+
+#: .\delivery\views.py:291
+msgid "You cart is empty!"
+msgstr "Ваш кошик пустий"
+
+#: .\main\forms.py:11
+msgid "Your message"
+msgstr "Ваше повідомлення!"
+
+#: .\main\models.py:5
+msgid "Your email address"
+msgstr "Ваша електронна пошта:"
+
+#: .\main\models.py:6
+msgid "Email subject"
+msgstr "Тема повідомлення"
+
+#: .\main\models.py:7
+msgid "Email text"
+msgstr "Текст повідомлення "
+
+#: .\main\templates\main\add-dishes.html:4
+#: .\main\templates\main\add-dishes.html:12
+msgid "Adding dishes to menu"
+msgstr "Додавання страв до меню"
+
+#: .\main\templates\main\add-dishes.html:19
+#, fuzzy
+#| msgid "Valid last name is required."
+msgid "Valid meal name required."
+msgstr "Треба вказати справжне прізвіще"
+
+#: .\main\templates\main\add-dishes.html:28
+#, fuzzy
+#| msgid "Category"
+msgid "Category required."
+msgstr "Категорія"
+
+#: .\main\templates\main\add-dishes.html:42
+#| msgid "Meal description"
+msgid "Meal description needed."
+msgstr "Потрібен опис страви!"
+
+#: .\main\templates\main\add-dishes.html:48
+#| msgid "Meal description"
+msgid "Meal composition"
+msgstr "Складники:"
+
+#: .\main\templates\main\add-dishes.html:52
+msgid "Meal composition needed."
+msgstr "Потрібно вказати склад страви!"
+
+#: .\main\templates\main\add-dishes.html:57
+#, fuzzy
+#| msgid "Weight:"
+msgid "Weight"
+msgstr "Вага, гр:"
+
+#: .\main\templates\main\add-dishes.html:59
+msgid "Weight needed."
+msgstr "Вкажить вагу страви!"
+
+#: .\main\templates\main\add-dishes.html:65
+msgid "Price needed."
+msgstr "Вкажить ціну страви!"
+
+#: .\main\templates\main\add-dishes.html:85
+msgid "Image needed."
+msgstr "Потрібно вказати шлях до зображення страви!"
+
+#: .\main\templates\main\add-dishes.html:90
+msgid "Contains milk"
+msgstr "Містить молоко!"
+
+#: .\main\templates\main\add-dishes.html:96
+#, fuzzy
+#| msgid "Add dish to menu"
+msgid "Add meal to menu"
+msgstr "Додавання нових страв до меню"
+
+#: .\main\templates\main\contacts.html:3
+msgid "Our contacts"
+msgstr "Зв'язок з нами"
+
+#: .\main\templates\main\contacts.html:14
+msgid "Write us an email"
+msgstr "Напишить нам листа"
+
+#: .\main\templates\main\contacts.html:18
+msgid "Send"
+msgstr "Відправити"
+
+#: .\main\templates\main\contacts.html:28
+msgid "We have a rule:"
+msgstr "У нас є правило:"
+
+#: .\main\templates\main\contacts.html:29
+msgid "The food must be just-cooked"
+msgstr "Їжа має бути свіжоприготовленою"
+
+#: .\main\templates\main\contacts.html:30
+msgid "All dishes are made \"under knife\", so, on your order! "
+msgstr "Всі страви зроблені \"з під ножа\", тобто, на Ваше замовлення!"
+
+#: .\main\templates\main\contacts.html:32
+msgid ""
+"We have some food preparations, on our kitchen to speed up dish cooking, but"
+" if there are many orders, your order may be ready a bit longer"
+msgstr ""
+"У нас є мінімальні заготовки на кухні, щоб прискорити приготування, але якщо"
+" у нас багато замовлень, можливо, доведеться дещо почекати"
+
+#: .\main\templates\main\contacts.html:35
+msgid "Please, tell us if You have allergy on some food components"
+msgstr ""
+"Будь ласка, повідомьте нам, якщо у вас є алергія на які-небудь продукти."
+
+#: .\main\templates\main\contacts.html:38
+msgid "We have delivery service \"Cafe at your home!\""
+msgstr "У нас є доставка \"Кафе вдома\""
+
+#: .\main\templates\main\delivery-detailed.html:36
+#| msgid "Meal description"
+msgid "Meal composition: "
+msgstr "Склад страви:"
+
+#: .\main\templates\main\delivery-detailed.html:37
+msgid "Weight:"
+msgstr "Вага, гр:"
+
+#: .\main\templates\main\delivery-detailed.html:38
+msgid "Calories:"
+msgstr "Калорії"
+
+#: .\main\templates\main\delivery-detailed.html:39
+#, fuzzy
+#| msgid "Price:"
+msgid "Price: "
+msgstr "Ціна:"
+
+#: .\main\templates\main\delivery-detailed.html:70
+msgid "Warning!"
+msgstr "Увага!"
+
+#: .\main\templates\main\delivery-detailed.html:80
+msgid "This product contains milk or milk components!"
+msgstr "Цей продукт містить молоко або його компоненти!"
+
+#: .\main\templates\main\delivery-detailed.html:88
+msgid "Close"
+msgstr "Закрити"
+
+#: .\main\templates\main\delivery-detailed.html:101
+msgid "Back"
+msgstr "Назад"
+
+#: .\main\templates\main\delivery.html:32
+#: .\main\templates\main\delivery.html:37
+msgid "Price:"
+msgstr "Ціна:"
+
+#: .\main\templates\main\delivery.html:45
+msgid "Register to order!"
+msgstr "Зареєструйтесь, щоб зробити замовлення!"
+
+#: .\main\templates\main\delivery.html:52
+msgid "Add to cart"
+msgstr "Додати в кошик."
+
+#: .\main\templates\main\delivery.html:59
+msgid "Details"
+msgstr "Подробно"
+
+#: .\main\templates\main\index.html:4
+msgid "Yastvo Cafe"
+msgstr "Кафе Яство"
+
+#: .\main\templates\main\index.html:25
+msgid "Good and healthy food"
+msgstr "Здорова і якісна їжа"
+
+#: .\main\templates\main\index.html:26
+msgid "Come and call your friends!"
+msgstr "Заходьте самі і разом із друзями!"
+
+#: .\main\templates\main\index.html:27
+msgid "Menu"
+msgstr "Меню"
+
+#: .\main\templates\main\index.html:36
+msgid "We are always happy to see You!"
+msgstr "Завжди ради бачити Вас!"
+
+#: .\main\templates\main\index.html:37
+msgid "We have delivery service \"Cafe at home!\""
+msgstr "У нас є доставка \"Кафе вдома\""
+
+#: .\main\templates\main\index.html:47
+msgid "We would be happy hearing Your opinion about us!"
+msgstr "Завжди ради Вашим відгукам!"
+
+#: .\main\templates\main\index.html:48
+msgid "It is easy to find us in your city!"
+msgstr "Нас легко знайти у Вашому місті!"
+
+#: .\main\templates\main\index.html:49
+msgid "contacts"
+msgstr "Зв'язок"
+
+#: .\main\templates\main\index.html:56
+msgid "Previous"
+msgstr "Попередня"
+
+#: .\main\templates\main\index.html:60
+msgid "Next"
+msgstr "Наступна"
+
+#: .\main\templates\main\index.html:72
+msgid "Colourful events"
+msgstr "Яскраві події"
+
+#: .\main\templates\main\index.html:72
+msgid "will rize up your mood!"
+msgstr "піднимуть Ваш настрій!"
+
+#: .\main\templates\main\index.html:73
+msgid "We organize celebrations and parties"
+msgstr "Організуемо свята та вечірки."
+
+#: .\main\templates\main\index.html:85
+msgid "You can have a snack"
+msgstr "Можна перекусити,"
+
+#: .\main\templates\main\index.html:85
+msgid "or have a good lunch!"
+msgstr "або добре попоїсти."
+
+#: .\main\templates\main\index.html:86
+msgid "Breakfasts from opening to closing, drinks, snacks - for every taste!"
+msgstr ""
+"Сніданки від відкриття до закриття, напої, заїдки - на будь-який смак!"
+
+#: .\main\templates\main\index.html:98
+msgid "While cooking "
+msgstr "Під час приготування страв "
+
+#: .\main\templates\main\index.html:98
+msgid "no animals were harmed!"
+msgstr "не постраждала жодна тварина (окрім москалів!)"
+
+#: .\main\templates\main\index.html:99
+msgid "Please note that some dishes contains milk or its components."
+msgstr "Звернить увагу, що деякі блюда містять молоко або його компоненти."
+
+#: .\main\templates\main\layout.html:57
+msgid "Our menu"
+msgstr "Наше меню."
+
+#: .\main\templates\main\layout.html:60
+msgid "Contacts"
+msgstr "Зв'язок"
+
+#: .\main\templates\main\layout.html:67
+msgid "Registration"
+msgstr "Реєстрація"
+
+#: .\main\templates\main\layout.html:70 .\users\templates\users\users.html:15
+msgid "Log in"
+msgstr "Вхід в аккаунт."
+
+#: .\main\templates\main\layout.html:76 .\users\models.py:26
+msgid "Profile"
+msgstr "Ваш профіль"
+
+#: .\main\templates\main\layout.html:79
+msgid "Log out"
+msgstr "Вихід із аккаунту"
+
+#: .\main\templates\main\layout.html:91
+msgid "Language"
+msgstr "Мова"
+
+#: .\main\views.py:16
+msgid "hello"
+msgstr "привіт"
+
+#: .\main\views.py:30
+msgid "Message sent"
+msgstr "Повідомлення надіслано"
+
+#: .\main\views.py:32
+msgid "Message from site"
+msgstr "Повідомлення із сайту"
+
+#: .\main\views.py:42
+msgid "Incorrect header"
+msgstr "Невірний заголовок"
+
+#: .\users\forms.py:11 .\users\forms.py:44 .\users\forms.py:46
+msgid "Enter Your email:"
+msgstr "Ваша електронна пошта"
+
+#: .\users\forms.py:13
+msgid "Enter email address:"
+msgstr "Ваша електронна пошта:"
+
+#: .\users\forms.py:17 .\users\forms.py:20 .\users\forms.py:50
+#: .\users\forms.py:53
+msgid "Enter login"
+msgstr "Ваш логін"
+
+#: .\users\forms.py:24 .\users\forms.py:27
+msgid "Enter password"
+msgstr "Введить пароль"
+
+#: .\users\forms.py:26
+msgid "The password must be not too short and not common"
+msgstr "Пароль не має бути занадто короткий або поширений"
+
+#: .\users\forms.py:31 .\users\forms.py:33
+msgid "Enter password again"
+msgstr "Повторіть пароль"
+
+#: .\users\forms.py:52
+msgid "Don`t use special characters"
+msgstr "Не використовуйте спеціальні символи"
+
+#: .\users\forms.py:64
+msgid "Upload Your photo"
+msgstr "Завантажьте Ваше фото"
+
+#: .\users\forms.py:70 .\users\forms.py:72
+msgid "Please, enter Your name"
+msgstr "Будь ласка, вкажить Ваше ім'я"
+
+#: .\users\forms.py:77 .\users\forms.py:79
+msgid "Phone"
+msgstr "Телефон:"
+
+#: .\users\models.py:9
+msgid "User avatar"
+msgstr "Аватар користувача"
+
+#: .\users\models.py:10
+msgid "Your name:"
+msgstr "Ваше ім'я"
+
+#: .\users\models.py:10
+msgid "Vegan"
+msgstr "Веган"
+
+#: .\users\models.py:11
+msgid "Your phone:"
+msgstr "Телефон"
+
+#: .\users\models.py:27
+msgid "Profiles"
+msgstr "Ваш профіль"
+
+#: .\users\templates\users\exit.html:3
+msgid "Authorization page"
+msgstr "Сторінка авторізації"
+
+#: .\users\templates\users\exit.html:7
+msgid "You left the account"
+msgstr "Ви вийшли із аккаунту"
+
+#: .\users\templates\users\profile.html:3
+msgid "Personal profile"
+msgstr "Ваш профіль"
+
+#: .\users\templates\users\profile.html:6
+msgid "Your account"
+msgstr "Ваш аккаунт"
+
+#: .\users\templates\users\profile.html:11
+msgid "Email:"
+msgstr "Електронна пошта"
+
+#: .\users\templates\users\profile.html:14
+msgid "Sex:"
+msgstr "Стать:"
+
+#: .\users\templates\users\profile.html:17
+msgid "Phone:"
+msgstr "Телефон:"
+
+#: .\users\templates\users\profile.html:28
+msgid "Refresh"
+msgstr "Обновити!"
+
+#: .\users\templates\users\registration.html:14
+msgid "Register!"
+msgstr "Зареєструйтесь, щоб зробити замовлення!"
+
+#: .\users\templates\users\registration.html:15
+msgid "Already regustered?"
+msgstr "Вже зареєстровані?"
+
+#: .\users\templates\users\registration.html:15
+msgid "Log in!"
+msgstr "Вхід в кабінет"
+
+#: .\users\templates\users\users.html:3
+msgid "Auth page"
+msgstr "Сторінка авторизации."
+
+#: .\users\views.py:23
+msgid "Registration page"
+msgstr "Реєстрація"
+
+#~ msgid "Kcal"
+#~ msgstr "Ккал"
+
+#~ msgid "Without discount:"
+#~ msgstr "Без знижки"
+
+#~ msgid "Add to cart!"
+#~ msgstr "Додати в кошик!"

@@ -1,52 +1,69 @@
-{% extends 'main/layout.html' %}
+{% extends 'main/layout.html' %} 
 {% load static %}
-{% block title %}{{title}}{% endblock %}
-
+{% load i18n %}
+{% block title %}{{title}}{% endblock %} 
 {% block content %}
-<!-- Cart button form -->
-<form class="d-flex flex-row-reverse ">
-  <button class="btn btn-success btn-lg rounded-pill position-fixed" type="submit">
-      <i class="bi-cart-fill"></i>
-      <span class="badge bg-dark text-info rounded-pill">0</span>
-  </button>
-  </form>
-<!--  -->
 
+  <div class="cart-button">
+
+    <a class="btn btn-success rounded-pill-lg floating-button" href="{%url 'order-summary' %}"
+    ><i class="bi-cart-fill">
+      <span class="position-absolute top-0 start-100 trans-middle badge rounded-pill bg-danger">{{ cart.items.count }}</i></span>
+      </a
+      >
+  </div>
+ 
 <div class="album py-5">
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-{%for dishes in items %}
-            <div class="col">
-                <div class="card border-light border border-0 h-100">
-                <img src="{{ dishes.item_image.url }}" class="bd-placeholder-img bg-transparent card-img-top img-fluid rounded-circle"></img>
-                    <div class="card-body d-flex flex-column h-100">
-                    <h3 class="card-text mb-3">{{dishes.item_description}}</h3>
-                    <h3> </h3>
-                    <div class="d-flex justify-content-center align-items-center">
-                      <h1><span class="badge bg-danger rounded-pill"> Цена: {{dishes.item_price}} руб. </span></h1>
-                    </div>
-                    <!-- <div class="d-flex justify-content-left mt-4">
-                      <p class="card-text pe-2">Вес: {{dishes.item_weight}} гр.</p>
-                      <p class="card-text px-2">Калорийность: {{dishes.item_calories}} Ккал</p>
-                      <p class="card-text px-2">Цена: {{dishes.item_price}} руб.</p>
-                    </div> -->
-                    <h3> </h3>
-                    <div class="btn-group mt-auto" role="group">
-                    <button type="button" class="btn btn-success rounded-pill w-50" >В корзину</button>
-                    <button type="button" class="btn btn-info rounded-pill w-50">
-                    <a href="{% url 'delivery-detailed' dishes.id %}">Подробнее</a></button>
-                  </div>
-                </div>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {% for dishes in food %}
+      
+      <div class="col">
+        <div class="card border-light border border-0 h-100">
+          <img
+            src="{{ dishes.item_image.url }}"
+            class="bd-placeholder-img bg-transparent card-img-top img-fluid rounded-circle"
+          />
+          <div class="card-body d-flex flex-column h-100">
+            <h3 class="card-text mb-3">{{ dishes.item_description }}</h3>
+            
+            {% if dishes.item_discount %}
+            <span>{% translate 'Price:' %}
+              <del>{{ dishes.item_price }}</del>
+            
+            {{ dishes.item_discount}}</span>
+            {% else %}
+            <span>{% translate 'Price:' %} {{ dishes.item_price }}</span>
+            {% endif %}
+
+            <div class="btn-group mt-auto" role="group">
+              {%if not user.is_authenticated %}              
+              <a
+                href="{%url 'reg' %}"
+                class="btn btn-warning btn-md my-0 p"
+                > {% translate 'Register to order!' %}
+                
+              </a>                    
+              {% else %}
+              <a
+                href="{{ dishes.get_add_to_cart_url }}"
+                class="btn greenBtn btn-md my-0 p"
+                > {% translate 'Add to cart' %}
+                <i class="fas fa-shopping-cart ml-1"></i>
+              </a>
+              {% endif %}
+              <a
+                href="{% url 'delivery-detailed' dishes.id %} "
+                class="btn lightGreenBtn btn-md my-0 p"
+                >{% translate 'Details' %}</a
+              >
+            </div>
           </div>
         </div>
-  {% endfor %}
-     </div>
+      </div>
+
+      {% endfor %}
+    </div>
   </div>
 </div>
-  {% endblock %}
-
-
-
-  
-
-
+{% endblock %}

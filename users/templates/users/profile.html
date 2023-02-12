@@ -1,20 +1,20 @@
 {% extends 'main/layout.html' %}
-{%block title%}Личный кабинет {%endblock%}
-
+{% load i18n %}
+{%block title%}{% translate 'Personal profile' %}{%endblock%}
 {% block content %}
 
-<h1 class="vegan">Кабинет пользователя</h1>
+<h1 class="vegan">{% translate 'Your account' %}</h1>
 <div class="media text-muted pt-3">
 <img class="bd-placeholder-img mr-2 rounded" width="64" height="64" src="{{user.profile.img.url}}">
 <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray "><strong class="d-block text-gray-dark">@{{user.username}}</strong>
 {% if user.email %}
-    <b>Email: </b>{{ user.email }}
+    <b>{% translate 'Email:' %}</b>{{ user.email }}
 {% endif %}
 {% if user.profile.gender %}
-    <b>Пол: </b>{{ user.profile.get_gender_display }}
+    <b>{% translate 'Sex:' %}</b>{{ user.profile.get_gender_display }}
 {% endif %}
 {% if user.profile.phone %}
-    <b>Телефон: </b>{{ user.profile.phone }}
+    <b>{% translate 'Phone:' %} </b>{{ user.profile.phone }}
 {% endif %}
 
 </p>
@@ -25,7 +25,7 @@
       {% csrf_token %}
       {{ updateUserForm.as_p }}
       {{ profileForm.as_p }}
-      <button class="btn btn-outline-success" type="submit">Обновить</button>
+      <button class="btn btn-outline-success" type="submit">{% translate 'Refresh' %}</button>
       </form>
     </div>
 </div>

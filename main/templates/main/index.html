@@ -1,12 +1,13 @@
 {% extends 'main/layout.html' %}
 {% load static %}
-{% block title %}Кафе Яство{% endblock %}
+{% load i18n %}
+{% block title %}{% translate 'Yastvo Cafe' %}{% endblock %}
 
 {% block content %}
   <div class = "vegan container-fluid">
-    <!-- <p>Cafe</p> -->
-    <img class="vegan container-fluid" src="{% static 'main/img/Heading_small-removebg.png' %}" alt="">
-    <!-- <p id = "vegan">Vegan</p> -->
+    
+    <img class="vegan container-fluid" src="{% static 'main/img/Heading_small-removebg.png' %}" alt="cafe logo">
+    
   </div>
 
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -16,65 +17,60 @@
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div class="carousel-item active text-center">
         <img src="{%static 'main/img/Food_items/DSC_7264.jpg' %}" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">
 
         <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Вкусная полезная еда!</h1>
-            <p>Приходите сами и приводите друзей</p>
-            <p><a class="btn btn-lg btn-primary" href="{%url 'menu' %}">Меню</a></p>
+          <div class="carousel-caption ">
+            <h2>{% translate 'Good and healthy food' %}</h2>
+            <p>{% translate 'Come and call your friends!' %}</p>
+            <p><a class="btn btn-md greenBtn" href="{%url 'menu' %}">{% translate 'Menu' %}</a></p>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
+      <div class="carousel-item text-center">
         <img src="{%static 'main/img/Food_items/DSC_7371.jpg' %}" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">
 
         <div class="container">
           <div class="carousel-caption">
-            <h1>Всегда рады Вас видеть!</h1>
-            <p>Работает доставка "Кафе у Вас дома" </p>
-            <p><a class="btn btn-lg btn-primary" href="{%url 'delivery' %}">Доставка</a></p>
+            <h2>{% translate 'We are always happy to see You!' %}</h2>
+            <p>{% translate  'We have delivery service "Cafe at home!"' %} </p>
+            <p><a class="btn btn-md greenBtn" href="{%url 'delivery' %}">{% translate 'Delivery' %}</a></p>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
+      <div class="carousel-item text-center">
         <img src="{%static 'main/img/Food_items/DSC_7430.jpg' %}" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">
 
         <div class="container">
-          <div class="carousel-caption text-end">
-            <h1 >Будем рады услышать Ваши пожелания!</h1>
-            <p>Нас легко найти в Вашем городе!</p>
-            <p><a class="btn btn-lg btn-primary" href="{%url 'contacts' %}">Контакты</a></p>
+          <div class="carousel-caption">
+            <h2>{% translate 'We would be happy hearing Your opinion about us!' %}</h2>
+            <p>{% translate 'It is easy to find us in your city!' %}</p>
+            <p><a class="btn btn-md greenBtn" href="{%url 'contacts' %}">{% translate 'contacts' %}</a></p>
           </div>
         </div>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
+      <span class="visually-hidden">{% translate 'Previous' %}</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
+      <span class="visually-hidden">{% translate 'Next' %}</span>
     </button>
   </div>
 
 
-  <!-- Marketing messaging and featurettes
-  ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
-
   <div class="container marketing">
 
-    <!-- START THE FEATURETTES -->
-
+    
     <hr class="featurette-divider">
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading text-danger" >Яркие мероприятия <span class="text-info">Поднимут Ваше настроение!</span></h2>
-        <p class="lead text-success">Проводим праздники, встречи, вечеринки и дни рождения!</p>
+        <h2 class="featurette-heading feature-text" >{% translate 'Colourful events' %} <span class="text-info">{% translate 'will rize up your mood!' %}</span></h2>
+        <p class="lead">{% translate 'We organize celebrations and parties' %}</p>
       </div>
       <div class="col-md-5">
         <img src="{%static 'main/img/Food_items/DSC_7408.jpg' %}" class="rounded-circle" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">
@@ -86,8 +82,8 @@
 
     <div class="row featurette">
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading text-warning">Можно прийти перекусить, <span class="text-primary">или плотно покушать.</span></h2>
-        <p class="lead">Завтраки с открытия и до закрытия, напитки, закуски - на любой вкус!</p>
+        <h2 class="featurette-heading feature-text">{% translate 'You can have a snack' %} <span>{% translate 'or have a good lunch!' %}</span></h2>
+        <p class="lead">{% translate 'Breakfasts from opening to closing, drinks, snacks - for every taste!' %}</p>
       </div>
       <div class="col-md-5 order-md-1">
         <img src="{%static 'main/img/Food_items/DSC_7315.jpg' %}"  class="rounded-circle" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">
@@ -99,8 +95,8 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading text-warning">При приготовлении блюд,<span class="text-success"> не пострадало ни одно животное!</span></h2>
-        <p class="lead">При приготовлении некоторых блюд используются молоко и продукты переработки молока!</p>
+        <h2 class="featurette-heading feature-text">{% translate 'While cooking ' %}<span>{% translate 'no animals were harmed!' %}</span></h2>
+        <p class="lead">{% translate 'Please note that some dishes contains milk or its components.' %}</p>
       </div>
       <div class="col-md-5">
         <img src="{%static 'main/img/Food_items/DSC_7408.jpg' %}" class="rounded-circle" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"alt="">
@@ -110,9 +106,7 @@
 
     <hr class="featurette-divider">
 
-    <!-- /END THE FEATURETTES -->
-
-  </div><!-- /.container -->
+  </div>
 
 
 

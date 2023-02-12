@@ -3,27 +3,23 @@ from django.core.mail import send_mail, BadHeaderError
 from .forms import ContactForm
 from django.http import HttpResponse
 from django.contrib import messages
-
+from django.utils.translation import gettext as _
+from django.utils.translation import get_language, activate
 
 def index(request):
     return render(request, 'main/index.html')
 
-
 def menu(request):
     return render(request, 'main/menu.html')
-
-
-def shop(request):
-    return render(request, 'main/shop.html')
 
 
 def contacts(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            messages.success(request, 'Сообщение отправлено')
+            messages.success(request, _('Message sent'))
             form.save()
-            subject = 'Message from site'
+            subject = _('Message from site')
             body = {
                 'email' : form.cleaned_data['email'],
                 'subject' : form.cleaned_data['subject'],
@@ -31,9 +27,9 @@ def contacts(request):
             }
             message = "\n".join(body.values())
             try:
-                send_mail(subject=subject, message=message, from_email='postmaster@yastvo-yalta.ru', recipient_list=['postmaster@yastvo-yalta.ru'])
+                send_mail(subject=subject, message=message, from_email='demetriy.78@gmail.com', recipient_list=['demetriy.78@gmail.com'])
             except BadHeaderError:
-                return HttpResponse('Найден некорректный заголовок')
+                return HttpResponse(_('Incorrect header'))
             return redirect ('contacts')
 
     form = ContactForm()

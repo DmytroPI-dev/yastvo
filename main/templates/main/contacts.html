@@ -1,50 +1,49 @@
 {% extends 'main/layout.html' %}
-{% block title %}Кафе Яство-контакты{% endblock %}
+{% load i18n %}
+{% block title %}{% translate 'Our contacts' %}{% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid mt-5">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-lg-4 mt-5" >
       <div class="d-flex justify-content-center">
       <form method="post" class="decor" >
           <div class="form-left-decoration"></div>
             <div class="form-right-decoration"></div>
             <div class="container flex form-inner">
-              <h3 class="text-center mb-3">Написать нам</h3>
+              <h3 class="text-center mb-3">{% translate 'Write us an email' %}</h3>
                 {% csrf_token %}
                 {{form.as_p}}
                 <div class="d-flex justify-content-center">
-                <input type="submit" value="Отправить"></div>
+                <input type="submit" value= "{% translate 'Send' %}"></div>
             </div>
         </form>
       </div>
     </div>
-    <div class="col-sm-4 mb-4">
-    <iframe class="map" src="https://yandex.ru/map-widget/v1/?z=12&amp;ol=biz&amp;oid=226819973804" width="90%" height="auto" frameborder="0"></iframe>
+
+
+    <div class="col-lg-4 mt-5">
+    <iframe class="map" src="https://yandex.ru/map-widget/v1/?z=12&amp;ol=biz&amp;oid=226819973804" width="90%" min-height="320" frameborder="0"></iframe>
 
     </div>
-    <div class="col-sm-4">
-      <h3 >У нас есть правило:</h3>
-      <p></p>
-      <h4 style="text-align: center;">"Еда должна быть свежеприготовленной"</h4>
-      <p></p>
-      <p>Все блюда мы готовим "из под ножа", то есть, по твоему заказу!
-        <br><br>
-        На кухне есть минимальные заготовки, которые ускоряют процесс приготовления блюда.
-        Когда одновременно много заказов, исполнение может быть чуть долше обычного!
-        <br><br>
-        Пожалуйста, если у Вас есть непереносимость каких-то продуктов, скажите нам об этом.
-        <br><br>
-        Действует услуга доставки: <br>
-        "Кафе у тебя дома".
-        <br>
-        <br>
-        <i class="fas fa-seedling">Vegan 100%</i>
-        <br>
-        <br>
-        <i class="bi bi-telephone"> +7(978)935-85-30</i> <br>
-        <i class="bi bi-envelope-open"> postmaster@yastvo-yalta.ru</i><br>
-        <i class="bi bi-geo-alt-fill"> 298635, Республика Крым, г. Ялта, ул. Ломоносова, д. 3/2 </i>
+    <div class="col-lg-4 mt-5 vegan">
+      <h3>{% translate 'We have a rule:' %}</h3>
+      <h4 style="text-align: center;">{% translate 'The food must be just-cooked' %} </h4>
+      <p>{% translate 'All dishes are made "under knife", so, on your order! ' %} </p>
+        <p>
+          {% translate 'We have some food preparations, on our kitchen to speed up dish cooking, but if there are many orders, your order may be ready a bit longer' %}
+        </p>
+        <p>
+          {% translate 'Please, tell us if You have allergy on some food components' %}
+        </p>
+        <p>
+          {% translate 'We have delivery service "Cafe at your home!"' %}
+        </p>
+        <p class="text-center mb-3 vegan"><i class="fas fa-seedling">Vegan 100%</i></p>
+        
+        <i class="bi bi-telephone"><a href="tel:+4864458524">+4864458524</a></i> <br>
+        <i class="bi bi-envelope-open"><a href="mailto:postmaster@yastvo.com"> postmaster@yastvo.com</a></i><br>
+        <i class="bi bi-geo-alt-fill">Slava Ukraine!</i>
 
 
         

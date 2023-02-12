@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t)wg^gec38yvjwcriylwc=!i8x*ms3qag02y1%je2_#+*!$%!a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -47,10 +47,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.instagram',
-    'crispy_forms',
     'main',
     'delivery',
-    'django_database_translation',
     'rosetta',
     'payments'
        

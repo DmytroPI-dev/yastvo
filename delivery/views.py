@@ -227,15 +227,15 @@ def add_to_cart(request, pk):
         if order.items.filter(item__pk=item.pk).exists():
             order_item.quantity += 1
             order_item.save()
-            return redirect("delivery")
+            return redirect("order-summary")
         else:
             order.items.add(order_item)
-            return redirect("delivery")
+            return redirect("order-summary")
     else:
         ordered_date = timezone.now()
         order = Order.objects.create(user=request.user, ordered_date=ordered_date)
         order.items.add(order_item)
-        return redirect("delivery")
+        return redirect("order-summary")
 
 @login_required
 def remove_from_cart(request, pk):

@@ -2,24 +2,22 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-03 12:21+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2023-02-03 19:29+0000\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
-"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
-"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
-"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
 
 #: .\Yastvo\settings.py:137 .\main\templates\main\layout.html:104
 msgid "English"
@@ -34,13 +32,11 @@ msgid "Polish"
 msgstr "Польська"
 
 #: .\delivery\forms.py:15
-#, fuzzy
 #| msgid "Item Name"
 msgid "Item name"
 msgstr "Найменування товару"
 
 #: .\delivery\forms.py:31
-#, fuzzy
 #| msgid "Meal description"
 msgid "Item description"
 msgstr "Опис страви"
@@ -58,7 +54,6 @@ msgid "Last name"
 msgstr "Призвіще"
 
 #: .\delivery\forms.py:89
-#, fuzzy
 #| msgid "Your email address"
 msgid "Your address"
 msgstr "Ваша адреса:"
@@ -383,16 +378,14 @@ msgid "Category required."
 msgstr "Категорія"
 
 #: .\main\templates\main\add-dishes.html:42
-#, fuzzy
 #| msgid "Meal description"
 msgid "Meal description needed."
-msgstr "Опис страви"
+msgstr "Потрібен опис страви!"
 
 #: .\main\templates\main\add-dishes.html:48
-#, fuzzy
 #| msgid "Meal description"
 msgid "Meal composition"
-msgstr "Опис страви"
+msgstr "Складники:"
 
 #: .\main\templates\main\add-dishes.html:52
 msgid "Meal composition needed."
@@ -452,11 +445,11 @@ msgstr "Всі страви зроблені \"з під ножа\", тобто,
 
 #: .\main\templates\main\contacts.html:32
 msgid ""
-"We have some food preparations, on our kitchen to speed up dish cooking, but "
-"if there are many orders, your order may be ready a bit longer"
+"We have some food preparations, on our kitchen to speed up dish cooking, but"
+" if there are many orders, your order may be ready a bit longer"
 msgstr ""
-"У нас є мінімальні заготовки на кухні, щоб прискорити приготування, але якщо "
-"у нас багато замовлень, можливо, доведеться дещо почекати"
+"У нас є мінімальні заготовки на кухні, щоб прискорити приготування, але якщо"
+" у нас багато замовлень, можливо, доведеться дещо почекати"
 
 #: .\main\templates\main\contacts.html:35
 msgid "Please, tell us if You have allergy on some food components"
@@ -468,10 +461,9 @@ msgid "We have delivery service \"Cafe at your home!\""
 msgstr "У нас є доставка \"Кафе вдома\""
 
 #: .\main\templates\main\delivery-detailed.html:36
-#, fuzzy
 #| msgid "Meal description"
 msgid "Meal composition: "
-msgstr "Опис страви"
+msgstr "Склад страви:"
 
 #: .\main\templates\main\delivery-detailed.html:37
 msgid "Weight:"
@@ -586,7 +578,8 @@ msgstr "або добре попоїсти."
 
 #: .\main\templates\main\index.html:86
 msgid "Breakfasts from opening to closing, drinks, snacks - for every taste!"
-msgstr "Сніданки від відкриття до закриття, напої, заїдки - на будь-який смак!"
+msgstr ""
+"Сніданки від відкриття до закриття, напої, заїдки - на будь-який смак!"
 
 #: .\main\templates\main\index.html:98
 msgid "While cooking "
@@ -630,7 +623,7 @@ msgstr "Мова"
 
 #: .\main\views.py:16
 msgid "hello"
-msgstr ""
+msgstr "привіт"
 
 #: .\main\views.py:30
 msgid "Message sent"

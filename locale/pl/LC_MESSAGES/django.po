@@ -2,729 +2,736 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-03 12:21+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2023-02-03 17:34+0000\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
-"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
-"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
 
 #: .\Yastvo\settings.py:137 .\main\templates\main\layout.html:104
 msgid "English"
-msgstr ""
+msgstr "Angielski"
 
 #: .\Yastvo\settings.py:138 .\main\templates\main\layout.html:105
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukraiński"
 
 #: .\Yastvo\settings.py:139 .\main\templates\main\layout.html:107
 msgid "Polish"
-msgstr ""
+msgstr "Polski"
 
 #: .\delivery\forms.py:15
 msgid "Item name"
-msgstr ""
+msgstr "Nazwa przedmiotu"
 
 #: .\delivery\forms.py:31
 msgid "Item description"
-msgstr ""
+msgstr "Opis przedmiotu"
 
 #: .\delivery\forms.py:36
 msgid "Item composition"
-msgstr ""
+msgstr "Skład pozycji"
 
 #: .\delivery\forms.py:71 .\delivery\templates\checkout.html:59
 msgid "First name"
-msgstr ""
+msgstr "Imię"
 
 #: .\delivery\forms.py:76 .\delivery\templates\checkout.html:68
 msgid "Last name"
-msgstr ""
+msgstr "Nazwisko"
 
 #: .\delivery\forms.py:89
 msgid "Your address"
-msgstr ""
+msgstr "Twój adres"
 
 #: .\delivery\forms.py:95
 msgid "Apartment or suite"
-msgstr ""
+msgstr "Apartament "
 
 #: .\delivery\models.py:14
 msgid "New"
-msgstr ""
+msgstr "Nowy!"
 
 #: .\delivery\models.py:15
 msgid "Best Seller"
-msgstr ""
+msgstr "Bestseller!"
 
 #: .\delivery\models.py:19
 msgid "Breakfast"
-msgstr ""
+msgstr "Śniadanie"
 
 #: .\delivery\models.py:20
 msgid "Lunch"
-msgstr ""
+msgstr "Obiad"
 
 #: .\delivery\models.py:21
 msgid "Snack"
-msgstr ""
+msgstr "Przekąska"
 
 #: .\delivery\models.py:22
 msgid "Drinks"
-msgstr ""
+msgstr "Napoje"
 
 #: .\delivery\models.py:23
 msgid "Salads"
-msgstr ""
+msgstr "Sałatki"
 
 #: .\delivery\models.py:24
 msgid "Desserts"
-msgstr ""
+msgstr "Desery"
 
 #: .\delivery\models.py:28 .\main\templates\main\add-dishes.html:16
 msgid "Meal name"
-msgstr ""
+msgstr "Nazwa posiłku"
 
 #: .\delivery\models.py:29 .\main\templates\main\add-dishes.html:25
 msgid "Category"
-msgstr ""
+msgstr "Kategoria"
 
 #: .\delivery\models.py:30 .\main\templates\main\add-dishes.html:32
 msgid "Label"
-msgstr ""
+msgstr "Etykieta"
 
 #: .\delivery\models.py:31 .\main\templates\main\add-dishes.html:38
 msgid "Meal description"
-msgstr ""
+msgstr "Opis posiłku"
 
 #: .\delivery\models.py:32
 msgid "Ingredients"
-msgstr ""
+msgstr "Składniki"
 
 #: .\delivery\models.py:33
 msgid "Net weight"
-msgstr ""
+msgstr "Waga netto"
 
 #: .\delivery\models.py:34
 msgid "Meal price"
-msgstr ""
+msgstr "Cena posiłku"
 
 #: .\delivery\models.py:35
 msgid "Discounted price"
-msgstr ""
+msgstr "Obniżona cena"
 
 #: .\delivery\models.py:36 .\main\templates\main\add-dishes.html:75
 msgid "Calories"
-msgstr ""
+msgstr "Kalorie"
 
 #: .\delivery\models.py:37 .\main\templates\main\add-dishes.html:82
 msgid "Meal image"
-msgstr ""
+msgstr "Obraz posiłku"
 
 #: .\delivery\models.py:38
 msgid "Milk components added"
-msgstr ""
+msgstr "Dodano składniki mleczne"
 
 #: .\delivery\models.py:43
 msgid "Meal"
-msgstr ""
+msgstr "Posiłek"
 
 #: .\delivery\models.py:44
 msgid "Meals"
-msgstr ""
+msgstr "Posiłki"
 
 #: .\delivery\templates\checkout.html:10
 msgid "Checkout form"
-msgstr ""
+msgstr "Formularz kasy"
 
 #: .\delivery\templates\checkout.html:16 .\delivery\templates\payment.html:53
 msgid "Your cart"
-msgstr ""
+msgstr "Twój wózek"
 
 #: .\delivery\templates\checkout.html:44 .\delivery\templates\payment.html:83
 msgid "Total:"
-msgstr ""
+msgstr "Całkowity:"
 
 #: .\delivery\templates\checkout.html:54
 msgid "Delivery address"
-msgstr ""
+msgstr "Adres dostawy"
 
 #: .\delivery\templates\checkout.html:63
 msgid "Valid first name is required."
-msgstr ""
+msgstr "Wymagane jest prawidłowe imię."
 
 #: .\delivery\templates\checkout.html:70
 msgid "Valid last name is required."
-msgstr ""
+msgstr "Wymagane jest prawidłowe nazwisko."
 
 #: .\delivery\templates\checkout.html:74
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: .\delivery\templates\checkout.html:78
 msgid "Please enter a valid email address."
-msgstr ""
+msgstr "Proszę wpisać aktualny adres e-mail."
 
 #: .\delivery\templates\checkout.html:83
 msgid "Address"
-msgstr ""
+msgstr "Adres "
 
 #: .\delivery\templates\checkout.html:87
 msgid "Please enter your address."
-msgstr ""
+msgstr "Wpisz swój adres."
 
 #: .\delivery\templates\checkout.html:93
 msgid "Address (continued)"
-msgstr ""
+msgstr "Adres (ciąg dalszy)"
 
 #: .\delivery\templates\checkout.html:97
 msgid "Valid address is required."
-msgstr ""
+msgstr "Wymagany jest prawidłowy adres."
 
 #: .\delivery\templates\checkout.html:105
 msgid "Phone number"
-msgstr ""
+msgstr "Numer telefonu"
 
 #: .\delivery\templates\checkout.html:108
 msgid "Valid phone number is required."
-msgstr ""
+msgstr "Wymagany jest prawidłowy numer telefonu."
 
 #: .\delivery\templates\checkout.html:116 .\delivery\templates\payment.html:14
 msgid "Payment"
-msgstr ""
+msgstr "Zapłata"
 
 #: .\delivery\templates\checkout.html:133
 msgid "Select payment option"
-msgstr ""
+msgstr "Wybierz opcję płatności"
 
 #: .\delivery\templates\checkout.html:138
 msgid "Continue to checkout"
-msgstr ""
+msgstr "Kontynułuj żeby sprawdzić"
 
 #: .\delivery\templates\order_summary.html:17
 msgid "Your Cart"
-msgstr ""
+msgstr "Twój wózek"
 
 #: .\delivery\templates\order_summary.html:23
 msgid "Item Name"
-msgstr ""
+msgstr "Nazwa przedmiotu"
 
 #: .\delivery\templates\order_summary.html:24
 #: .\main\templates\main\add-dishes.html:63
 msgid "Price"
-msgstr ""
+msgstr "Cena"
 
 #: .\delivery\templates\order_summary.html:25
 msgid "Quantity"
-msgstr ""
+msgstr "Ilość"
 
 #: .\delivery\templates\order_summary.html:26
 msgid "Total"
-msgstr ""
+msgstr "Całkowity"
 
 #: .\delivery\templates\order_summary.html:27
 #: .\main\templates\main\add-dishes.html:69
 msgid "Discount"
-msgstr ""
+msgstr "Rabat"
 
 #: .\delivery\templates\order_summary.html:28
 msgid "Remove item"
-msgstr ""
+msgstr "Usuń przedmiot"
 
 #: .\delivery\templates\order_summary.html:64
 msgid "Saved"
-msgstr ""
+msgstr "Zapisane"
 
 #: .\delivery\templates\order_summary.html:79
 msgid "Your Cart is empty"
-msgstr ""
+msgstr "Twój koszyk jest pusty"
 
 #: .\delivery\templates\order_summary.html:85
 #: .\delivery\templates\order_summary.html:104
 msgid "Continue Shopping"
-msgstr ""
+msgstr "Kontynuować zakupy"
 
 #: .\delivery\templates\order_summary.html:93
 msgid "Total Order Price"
-msgstr ""
+msgstr "Całkowita cena zamówienia"
 
 #: .\delivery\templates\order_summary.html:101
 msgid "Checkout"
-msgstr ""
+msgstr "Wymeldować się"
 
 #: .\delivery\templates\order_summary.html:107
 msgid "Delete order"
-msgstr ""
+msgstr "Usuń zamówienie"
 
 #: .\delivery\templates\payment.html:28
 msgid "Credit or debit card"
-msgstr ""
+msgstr "Karta kredytowa lub debetowa"
 
 #: .\delivery\templates\payment.html:33
 msgid "Submit Payment"
-msgstr ""
+msgstr "Potwierdź płatność"
 
 #: .\delivery\templates\payment.html:38
 msgid "Save for future purchases"
-msgstr ""
+msgstr "Zachowaj na przyszłe zakupy"
 
 #: .\delivery\views.py:38 .\main\templates\main\index.html:38
 #: .\main\templates\main\layout.html:63
 msgid "Delivery"
-msgstr ""
+msgstr "Dostawa"
 
 #: .\delivery\views.py:68
 msgid "Menu item added!"
-msgstr ""
+msgstr "Pozycja menu dodana!"
 
 #: .\delivery\views.py:83 .\delivery\views.py:132
 msgid "You do not have an order"
-msgstr ""
+msgstr "Nie masz zamówienia"
 
 #: .\delivery\views.py:128
 msgid "Invalid Payment option"
-msgstr ""
+msgstr "Nieprawidłowa opcja płatności"
 
 #: .\delivery\views.py:135
 msgid "Form is not completed!"
-msgstr ""
+msgstr "Formularz nie jest wypełniony!"
 
 #: .\delivery\views.py:170
 msgid "Success make an order"
-msgstr ""
+msgstr "Sukces złożyć zamówienie"
 
 #: .\delivery\views.py:181
 msgid "To many request error"
-msgstr ""
+msgstr "Zbyt wiele błędów żądania"
 
 #: .\delivery\views.py:186
 msgid "Invalid Parameter"
-msgstr ""
+msgstr "Niewłaściwy parametr"
 
 #: .\delivery\views.py:192
 msgid "Authentication with stripe failed"
-msgstr ""
+msgstr "Uwierzytelnianie za pomocą stripe nie powiodło się"
 
 #: .\delivery\views.py:197
 msgid "Network Error"
-msgstr ""
+msgstr "Błąd sieci"
 
 #: .\delivery\views.py:203
 msgid "Something went wrong"
-msgstr ""
+msgstr "Coś poszło nie tak"
 
 #: .\delivery\views.py:208
 msgid "Not identified error"
-msgstr ""
+msgstr "Nie zidentyfikowany błąd"
 
 #: .\delivery\views.py:258
 msgid "This Item is not in your cart"
-msgstr ""
+msgstr "Ten przedmiot nie znajduje się w twoim koszyku"
 
 #: .\delivery\views.py:262
 msgid "You cart is empty"
-msgstr ""
+msgstr "Twój koszyk jest pusty"
 
 #: .\delivery\views.py:291
 msgid "You cart is empty!"
-msgstr ""
+msgstr "Twój koszyk jest pusty!"
 
 #: .\main\forms.py:11
 msgid "Your message"
-msgstr ""
+msgstr "Twoja wiadomość"
 
 #: .\main\models.py:5
 msgid "Your email address"
-msgstr ""
+msgstr "Twój adres email"
 
 #: .\main\models.py:6
 msgid "Email subject"
-msgstr ""
+msgstr "Temat emaila"
 
 #: .\main\models.py:7
 msgid "Email text"
-msgstr ""
+msgstr "Tekst e-maila"
 
 #: .\main\templates\main\add-dishes.html:4
 #: .\main\templates\main\add-dishes.html:12
 msgid "Adding dishes to menu"
-msgstr ""
+msgstr "Dodawanie posiłku do menu"
 
 #: .\main\templates\main\add-dishes.html:19
 msgid "Valid meal name required."
-msgstr ""
+msgstr "Wymagana poprawna nazwa posiłku."
 
 #: .\main\templates\main\add-dishes.html:28
 msgid "Category required."
-msgstr ""
+msgstr "Wymagana kategoria."
 
 #: .\main\templates\main\add-dishes.html:42
 msgid "Meal description needed."
-msgstr ""
+msgstr "Potrzebny opis posiłku."
 
 #: .\main\templates\main\add-dishes.html:48
 msgid "Meal composition"
-msgstr ""
+msgstr "Skład posiłku"
 
 #: .\main\templates\main\add-dishes.html:52
 msgid "Meal composition needed."
-msgstr ""
+msgstr "Potrzebny skład posiłku."
 
 #: .\main\templates\main\add-dishes.html:57
 msgid "Weight"
-msgstr ""
+msgstr "Waga"
 
 #: .\main\templates\main\add-dishes.html:59
 msgid "Weight needed."
-msgstr ""
+msgstr "Potrzebna waga."
 
 #: .\main\templates\main\add-dishes.html:65
 msgid "Price needed."
-msgstr ""
+msgstr "Potrzebna cena."
 
 #: .\main\templates\main\add-dishes.html:85
 msgid "Image needed."
-msgstr ""
+msgstr "Potrzebny obraz."
 
 #: .\main\templates\main\add-dishes.html:90
 msgid "Contains milk"
-msgstr ""
+msgstr "Zawiera mleko"
 
 #: .\main\templates\main\add-dishes.html:96
 msgid "Add meal to menu"
-msgstr ""
+msgstr "Dodaj posiłek do menu"
 
 #: .\main\templates\main\contacts.html:3
 msgid "Our contacts"
-msgstr ""
+msgstr "Nasze kontakty"
 
 #: .\main\templates\main\contacts.html:14
 msgid "Write us an email"
-msgstr ""
+msgstr "Napisz do nas e-mail"
 
 #: .\main\templates\main\contacts.html:18
 msgid "Send"
-msgstr ""
+msgstr "Wysłać"
 
 #: .\main\templates\main\contacts.html:28
 msgid "We have a rule:"
-msgstr ""
+msgstr "Mamy zasadę:"
 
 #: .\main\templates\main\contacts.html:29
 msgid "The food must be just-cooked"
-msgstr ""
+msgstr "Jedzenie musi być właśnie ugotowane"
 
 #: .\main\templates\main\contacts.html:30
 msgid "All dishes are made \"under knife\", so, on your order! "
 msgstr ""
+"Wszystkie dania przygotowywane są „pod nożem”, więc na Wasze zamówienie!"
 
 #: .\main\templates\main\contacts.html:32
 msgid ""
-"We have some food preparations, on our kitchen to speed up dish cooking, but "
-"if there are many orders, your order may be ready a bit longer"
+"We have some food preparations, on our kitchen to speed up dish cooking, but"
+" if there are many orders, your order may be ready a bit longer"
 msgstr ""
+"W naszej kuchni mamy kilka przetworów żywnościowych, aby przyspieszyć "
+"gotowanie, ale jeśli jest dużo zamówień, Twoje zamówienie może być gotowe "
+"nieco dłużej"
 
 #: .\main\templates\main\contacts.html:35
 msgid "Please, tell us if You have allergy on some food components"
 msgstr ""
+"Prosimy o poinformowanie nas, jeśli masz alergię na niektóre składniki "
+"żywności"
 
 #: .\main\templates\main\contacts.html:38
 msgid "We have delivery service \"Cafe at your home!\""
-msgstr ""
+msgstr "Mamy usługę dostawy \"Cafe at your home!\""
 
 #: .\main\templates\main\delivery-detailed.html:36
 msgid "Meal composition: "
-msgstr ""
+msgstr "Skład posiłku:"
 
 #: .\main\templates\main\delivery-detailed.html:37
 msgid "Weight:"
-msgstr ""
+msgstr "Waga"
 
 #: .\main\templates\main\delivery-detailed.html:38
 msgid "Calories:"
-msgstr ""
+msgstr "Kalorie"
 
 #: .\main\templates\main\delivery-detailed.html:39
 msgid "Price: "
-msgstr ""
+msgstr "Cena"
 
 #: .\main\templates\main\delivery-detailed.html:70
 msgid "Warning!"
-msgstr ""
+msgstr "Ostrzeżenie!"
 
 #: .\main\templates\main\delivery-detailed.html:80
 msgid "This product contains milk or milk components!"
-msgstr ""
+msgstr "Ten produkt zawiera mleko lub składniki mleka!"
 
 #: .\main\templates\main\delivery-detailed.html:88
 msgid "Close"
-msgstr ""
+msgstr "Zamknąć"
 
 #: .\main\templates\main\delivery-detailed.html:101
 msgid "Back"
-msgstr ""
+msgstr "Z powrotem"
 
 #: .\main\templates\main\delivery.html:32
 #: .\main\templates\main\delivery.html:37
 msgid "Price:"
-msgstr ""
+msgstr "Cena"
 
 #: .\main\templates\main\delivery.html:45
 msgid "Register to order!"
-msgstr ""
+msgstr "Zarejestruj się, aby zamówić!"
 
 #: .\main\templates\main\delivery.html:52
 msgid "Add to cart"
-msgstr ""
+msgstr "Dodaj do koszyka"
 
 #: .\main\templates\main\delivery.html:59
 msgid "Details"
-msgstr ""
+msgstr "Detale"
 
 #: .\main\templates\main\index.html:4
 msgid "Yastvo Cafe"
-msgstr ""
+msgstr "Yastvo Cafe"
 
 #: .\main\templates\main\index.html:25
 msgid "Good and healthy food"
-msgstr ""
+msgstr "Dobre i zdrowe jedzenie"
 
 #: .\main\templates\main\index.html:26
 msgid "Come and call your friends!"
-msgstr ""
+msgstr "Przyjdź i zadzwoń do znajomych!"
 
 #: .\main\templates\main\index.html:27
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: .\main\templates\main\index.html:36
 msgid "We are always happy to see You!"
-msgstr ""
+msgstr "Zawsze cieszymy się, że Cię widzimy!"
 
 #: .\main\templates\main\index.html:37
 msgid "We have delivery service \"Cafe at home!\""
-msgstr ""
+msgstr "Mamy usługę dostawy \"Cafe at home!\""
 
 #: .\main\templates\main\index.html:47
 msgid "We would be happy hearing Your opinion about us!"
-msgstr ""
+msgstr "Chętnie poznamy Twoją opinię o nas!"
 
 #: .\main\templates\main\index.html:48
 msgid "It is easy to find us in your city!"
-msgstr ""
+msgstr "Łatwo nas znaleźć w Twoim mieście!"
 
 #: .\main\templates\main\index.html:49
 msgid "contacts"
-msgstr ""
+msgstr "Łączność"
 
 #: .\main\templates\main\index.html:56
 msgid "Previous"
-msgstr ""
+msgstr "Poprzedni"
 
 #: .\main\templates\main\index.html:60
 msgid "Next"
-msgstr ""
+msgstr "Następny"
 
 #: .\main\templates\main\index.html:72
 msgid "Colourful events"
-msgstr ""
+msgstr "Kolorowe wydarzenia"
 
 #: .\main\templates\main\index.html:72
 msgid "will rize up your mood!"
-msgstr ""
+msgstr "poprawi Ci nastrój!"
 
 #: .\main\templates\main\index.html:73
 msgid "We organize celebrations and parties"
-msgstr ""
+msgstr "Organizujemy uroczystości i przyjęcia"
 
 #: .\main\templates\main\index.html:85
 msgid "You can have a snack"
-msgstr ""
+msgstr "Możesz zjeść przekąskę"
 
 #: .\main\templates\main\index.html:85
 msgid "or have a good lunch!"
-msgstr ""
+msgstr "lub zjeść dobry obiad!"
 
 #: .\main\templates\main\index.html:86
 msgid "Breakfasts from opening to closing, drinks, snacks - for every taste!"
 msgstr ""
+"Śniadania od otwarcia do zamknięcia, napoje, przekąski - na każdy gust!"
 
 #: .\main\templates\main\index.html:98
 msgid "While cooking "
-msgstr ""
+msgstr "Podczas gotowania"
 
 #: .\main\templates\main\index.html:98
 msgid "no animals were harmed!"
-msgstr ""
+msgstr "żadne zwierzę nie ucierpiało!"
 
 #: .\main\templates\main\index.html:99
 msgid "Please note that some dishes contains milk or its components."
 msgstr ""
+"Należy pamiętać, że niektóre potrawy zawierają mleko lub jego składniki."
 
 #: .\main\templates\main\layout.html:57
 msgid "Our menu"
-msgstr ""
+msgstr "Nasze menu"
 
 #: .\main\templates\main\layout.html:60
 msgid "Contacts"
-msgstr ""
+msgstr "Łączność"
 
 #: .\main\templates\main\layout.html:67
 msgid "Registration"
-msgstr ""
+msgstr "Rejestracja"
 
 #: .\main\templates\main\layout.html:70 .\users\templates\users\users.html:15
 msgid "Log in"
-msgstr ""
+msgstr "Zaloguj sie"
 
 #: .\main\templates\main\layout.html:76 .\users\models.py:26
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: .\main\templates\main\layout.html:79
 msgid "Log out"
-msgstr ""
+msgstr "Wyloguj"
 
 #: .\main\templates\main\layout.html:91
 msgid "Language"
-msgstr ""
+msgstr "Język"
 
 #: .\main\views.py:16
 msgid "hello"
-msgstr ""
+msgstr "Witam"
 
 #: .\main\views.py:30
 msgid "Message sent"
-msgstr ""
+msgstr "Wiadomość wysłana"
 
 #: .\main\views.py:32
 msgid "Message from site"
-msgstr ""
+msgstr "Wiadomość z serwisu"
 
 #: .\main\views.py:42
 msgid "Incorrect header"
-msgstr ""
+msgstr "Nieprawidłowy nagłówek"
 
 #: .\users\forms.py:11 .\users\forms.py:44 .\users\forms.py:46
 msgid "Enter Your email:"
-msgstr ""
+msgstr "Wprowadź swój email:"
 
 #: .\users\forms.py:13
 msgid "Enter email address:"
-msgstr ""
+msgstr "Wprowadź adres e-mail:"
 
 #: .\users\forms.py:17 .\users\forms.py:20 .\users\forms.py:50
 #: .\users\forms.py:53
 msgid "Enter login"
-msgstr ""
+msgstr "Wprowadź login"
 
 #: .\users\forms.py:24 .\users\forms.py:27
 msgid "Enter password"
-msgstr ""
+msgstr "Enter password"
 
 #: .\users\forms.py:26
 msgid "The password must be not too short and not common"
-msgstr ""
+msgstr "Hasło nie może być zbyt krótkie i niezbyt powszechne"
 
 #: .\users\forms.py:31 .\users\forms.py:33
 msgid "Enter password again"
-msgstr ""
+msgstr "Wprowadź hasło ponownie"
 
 #: .\users\forms.py:52
 msgid "Don`t use special characters"
-msgstr ""
+msgstr "Nie używaj znaków specjalnych"
 
 #: .\users\forms.py:64
 msgid "Upload Your photo"
-msgstr ""
+msgstr "Prześlij swoje zdjęcie"
 
 #: .\users\forms.py:70 .\users\forms.py:72
 msgid "Please, enter Your name"
-msgstr ""
+msgstr "Proszę wpisać swoje imię"
 
 #: .\users\forms.py:77 .\users\forms.py:79
 msgid "Phone"
-msgstr ""
+msgstr "Telefon"
 
 #: .\users\models.py:9
 msgid "User avatar"
-msgstr ""
+msgstr "Awatar użytkownika"
 
 #: .\users\models.py:10
 msgid "Your name:"
-msgstr ""
+msgstr "Twoje imię:"
 
 #: .\users\models.py:10
 msgid "Vegan"
-msgstr ""
+msgstr "Vegan"
 
 #: .\users\models.py:11
 msgid "Your phone:"
-msgstr ""
+msgstr "Twój telefon:"
 
 #: .\users\models.py:27
 msgid "Profiles"
-msgstr ""
+msgstr "Profile"
 
 #: .\users\templates\users\exit.html:3
 msgid "Authorization page"
-msgstr ""
+msgstr "Strona autoryzacji"
 
 #: .\users\templates\users\exit.html:7
 msgid "You left the account"
-msgstr ""
+msgstr "Opuściłeś konto"
 
 #: .\users\templates\users\profile.html:3
 msgid "Personal profile"
-msgstr ""
+msgstr "Profil osobisty"
 
 #: .\users\templates\users\profile.html:6
 msgid "Your account"
-msgstr ""
+msgstr "Twoje konto"
 
 #: .\users\templates\users\profile.html:11
 msgid "Email:"
-msgstr ""
+msgstr "Email"
 
 #: .\users\templates\users\profile.html:14
 msgid "Sex:"
-msgstr ""
+msgstr "płeć"
 
 #: .\users\templates\users\profile.html:17
 msgid "Phone:"
-msgstr ""
+msgstr "Telefon:"
 
 #: .\users\templates\users\profile.html:28
 msgid "Refresh"
-msgstr ""
+msgstr "Odświeżać"
 
 #: .\users\templates\users\registration.html:14
 msgid "Register!"
-msgstr ""
+msgstr "Rejestr!"
 
 #: .\users\templates\users\registration.html:15
 msgid "Already regustered?"
-msgstr ""
+msgstr "Już zarejestrowany?"
 
 #: .\users\templates\users\registration.html:15
 msgid "Log in!"
-msgstr ""
+msgstr "Zaloguj sie!"
 
 #: .\users\templates\users\users.html:3
 msgid "Auth page"
-msgstr ""
+msgstr "Strona autoryzacyjna"
 
 #: .\users\views.py:23
 msgid "Registration page"
-msgstr ""
+msgstr "Strona rejestracji"

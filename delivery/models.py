@@ -11,8 +11,8 @@ from django.utils.translation import gettext as _
 
 LABEL = (
         ('',""),
-        ('N', _('New')),
-        ('BS', _('Best Seller'))
+        ('N', 'New'),
+        ('BS', 'Best Seller')
 )
 
 CATEGORY = (

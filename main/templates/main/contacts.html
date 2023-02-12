@@ -3,9 +3,9 @@
 {% block title %}{% translate 'Our contacts' %}{% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid mt-5">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-lg-4 mt-5" >
       <div class="d-flex justify-content-center">
       <form method="post" class="decor" >
           <div class="form-left-decoration"></div>
@@ -20,11 +20,13 @@
         </form>
       </div>
     </div>
-    <div class="col-sm-4 mb-4">
-    <iframe class="map" src="https://yandex.ru/map-widget/v1/?z=12&amp;ol=biz&amp;oid=226819973804" width="90%" height="auto" frameborder="0"></iframe>
+
+
+    <div class="col-lg-4 mt-5">
+    <iframe class="map" src="https://yandex.ru/map-widget/v1/?z=12&amp;ol=biz&amp;oid=226819973804" width="90%" min-height="320" frameborder="0"></iframe>
 
     </div>
-    <div class="col-sm-4">
+    <div class="col-lg-4 mt-5 vegan">
       <h3>{% translate 'We have a rule:' %}</h3>
       <h4 style="text-align: center;">{% translate 'The food must be just-cooked' %} </h4>
       <p>{% translate 'All dishes are made "under knife", so, on your order! ' %} </p>
@@ -37,11 +39,10 @@
         <p>
           {% translate 'We have delivery service "Cafe at your home!"' %}
         </p>
-        <i class="fas fa-seedling">Vegan 100%</i>
-        <br>
-        <br>
-        <i class="bi bi-telephone"> +4864458524</i> <br>
-        <i class="bi bi-envelope-open"> postmaster@yastvo.com</i><br>
+        <p class="text-center mb-3 vegan"><i class="fas fa-seedling">Vegan 100%</i></p>
+        
+        <i class="bi bi-telephone"><a href="tel:+4864458524">+4864458524</a></i> <br>
+        <i class="bi bi-envelope-open"><a href="mailto:postmaster@yastvo.com"> postmaster@yastvo.com</a></i><br>
         <i class="bi bi-geo-alt-fill">Slava Ukraine!</i>
 
 

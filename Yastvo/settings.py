@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation', 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,9 +50,10 @@ INSTALLED_APPS = [
     'crispy_forms',
     'main',
     'delivery',
-    'django_database_translation'
-   
-    
+    'django_database_translation',
+    'rosetta',
+    'payments'
+       
     
         ]
 
@@ -191,3 +193,15 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+# This can be a string or callable, and should return a base host that
+# will be used when receiving callbacks and notifications from payment
+# providers.
+#
+# Keep in mind that if you use `localhost`, external servers won't be
+# able to reach you for webhook notifications.
+PAYMENT_HOST = 'localhost:8000'
+
+# Whether to use TLS (HTTPS). If false, will use plain-text HTTP.
+# Defaults to ``not settings.DEBUG``.
+PAYMENT_USES_SSL = False

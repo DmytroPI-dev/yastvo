@@ -1,6 +1,4 @@
 from django import forms
-from django_countries.fields import CountryField
-from django_countries.widgets import CountrySelectWidget
 from django.utils.translation import gettext as _
 from .models import CATEGORY, LABEL, MenuItems
 

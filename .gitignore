@@ -70,7 +70,6 @@ coverage.xml
 cover/
 
 # Translations
-*.mo
 
 # Django stuff:
 
@@ -119,6 +118,7 @@ celerybeat.pid
 
 # Environments
 .env
+.venv/
 .venv
 .idea/
 env/

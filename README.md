@@ -1,1 +1,2 @@
-A vegetarian-food cafe in Yalta
+# Yastvo
+# A Vegetarian cafe build using Django framework

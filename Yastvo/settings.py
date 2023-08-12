@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-t)wg^gec38yvjwcriylwc=!i8x*ms3qag02y1%je2_#+*!$%!a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -45,9 +45,7 @@ INSTALLED_APPS = [
     'main',
     'delivery',
     'rosetta',
-    'payments'
-       
-    
+   
         ]
 
 MIDDLEWARE = [
@@ -85,13 +83,29 @@ WSGI_APPLICATION = 'Yastvo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': '37485482_yastvo',
+#         'USER': 'DemetrPI',
+#         'PASSWORD': 'oYP9irX8YwqsQXWU',
+#         'HOST': 'serwer2329268.home.pl',
+#         'PORT': '3306', # or the port provided by your hosting provider
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
-        
-    }
+        'default': {
+            'ENGINE': 'djongo',
+            'NAME': 'Yastvo',
+            'ENFORCE_SCHEMA': False,
+            'CLIENT': {
+                'host' : "mongodb+srv://DemetrPI:3PzaX7E1PrgwF5kz@yastvo.qruoho3.mongodb.net/?retryWrites=true&w=majority"
+            }  
+        }
 }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -173,6 +187,9 @@ SITE_ID = 1
 #stripe payment
 STRIPE_KEY = ''
 
+TRANSLATABLE_MODEL_MODULES = [
+    "menuItems",
+]
 
 
 

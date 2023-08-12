@@ -17,7 +17,7 @@ urlpatterns = [
     path('exit/', authViews.LogoutView.as_view(template_name= 'users/exit.html'), name = 'exit'),
     path('profile/', userViews.profile, name = 'profile'),
     path('i18n/', include('django.conf.urls.i18n')),
-    path('payments/', include('payments.urls')),
+    # path('payments/', include('payments.urls')),
 ]
 
 

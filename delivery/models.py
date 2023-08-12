@@ -52,7 +52,7 @@ class MenuItems (models.Model):
         item_image = self.item_image
         img = Image.open(item_image)
         new_img = img.convert('RGB')
-        resized_new_img = new_img.resize((600,600), Image.ANTIALIAS)
+        resized_new_img = new_img.resize((600,600), Image.LANCZOS)
         filestream = BytesIO()
         resized_new_img.save(filestream,'JPEG', quality =90)
         filestream.seek(0)

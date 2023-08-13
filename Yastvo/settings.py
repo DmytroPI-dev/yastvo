@@ -17,12 +17,17 @@ from django.utils.translation import gettext_lazy as _
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECURE_HSTS_SECONDS = 10
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = ["https://yastvo.fly.dev", "https://www.yastvo.fly.dev"]
+CSRF_COOKIE_DOMAIN = '*.fly.dev'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t)wg^gec38yvjwcriylwc=!i8x*ms3qag02y1%je2_#+*!$%!a'
+SECRET_KEY = 't)wg^gec38yvjwcriylwc=!i8x*ms3qag02y1%je2_#+*!$%!a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -50,10 +55,11 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -159,7 +165,7 @@ LOCALE_PATHS = (os.path.join(BASE_DIR,'locale/'),)
 
 STATIC_URL = '/staticfiles/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, 'staticfiles')
 #  ]

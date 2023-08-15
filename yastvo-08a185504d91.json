@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "yastvo",
+  "private_key_id": "08a185504d9119945ad8caf11329c670a92b8165",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCyq9Vmc7BcPhGz\neu/BDxEio2UgCGcpvM/u+OUekOaTCUGO4zp3bVFVFVpy+/DbtAZRdHZh66j1qi8A\nTlgMkQKcaMu/fqexP0dvgt7bWn5Z+vBly+b9PG1j26gwYcJdsti95ijgzhUWx/E5\njpnpLxu+QHd1X497G0Wnz8vFc0FPrEZWkY5jZc8b8bxIwkQoKrbMNiQgN7wCqKus\nMFOAPdIK/qFWnJ5Ad73IPlZ4sZu/zvFOF7WrFeOqANgU2z8Thb+LTeLeUAlW0sBk\nosdjSZ0Q3uljsMSmY0BcNxcEVLdBJTi8ZS+lA7QhZX0UUqh7FtwLFR895ouRDvmb\nvlnwhK0fAgMBAAECggEAEPNpQfI+P4IXMjmHmLLro6c8zaOYDGDaMu6jtH93k87D\nZkfIh2wOCBrU6fPDdhSUq0Wq6L9WC3iJ3QDE+bkINmHHpfNHyL+BveKWO6YdadjI\nCROMADQR0yRG+jZ/UJEwxVNnE9NGM1MX+UEkkpFIxu2QZ8iyvbGb4IymS6VG0CtI\n8XBjrLVVCWbP4WcsUcdGIBOWuYfjEI9XlVL7As920GTLEwwdd5VZYNNW/3/9/sY1\nKU7LZiqzYQlxqfIXEn97udJAZH1+3Xd13SgYBodf7Gbx6JgNwjTVWD4cBgslP9qF\nxeMzfTHOWTfRmtgadX1tQ+zLIvsQzlzyTP7MD8sagQKBgQDeSRta7VlB0cVieqLt\nuPyHsJwO5336xIc7Bl9/220wDJebk6rfwVIFKNDtyFEBsakYGQLW9IrKFI0X3/Kn\njo+y3yCxc/7EoWhl50TVltXywDP+EfJ5fIohE+QJDHZpzMUaopCAd57v7zoSVaJf\n9/7vT3w+RiSArV34+vUJmYrKLQKBgQDNxUVfdH4Nih0Ujx3ZsGIImKH4v9TnoYGu\nYWUrSTWOXjzIsxnogYjko2Imsc1nHerKu/ewqHU7F+N/5wS+22LSDcIuxCEr4fOj\nB0RNbNKG2Wj6wO39qhIf7g/Qy29tSB17PBzlLjrJzYSyT1nlqcSsgy/onm+r5q68\nO69hZOkf+wKBgA8CLqeoCPPJvyMUFrYoXFypDxBujvIEnQDeQEp4vVmWMBJgGRR8\nkBYrGFhFwzpzDXDEF439+vUECDbJdy/bD1bLfACfTV9nao4e3GXzhkSat6f6/D05\nrHXpSudVgRVJrzFKMqmJ6iBXLbuZLpp+OydbXY8y2zoY+pRaFXttc5KNAoGAZkpR\nwTEE1LA64pR+r0/KfCF8K08ZhIg6EjjidREwqXRZXSADmhyCs74wtbGfvUoXBO9K\nIyyrElQ+yL9MEaC30Fn8lQj0wH7TgdDD+IVHZre/QyATbw1Tc0IB5LaszrORzEhG\nyPshSF59P7LIqq2pUmTotQfF1buYU4SMG6txZG8CgYEAhRAHvgcd6U91kk/UwOOF\nuq/lJdyvX7LFqcrIm8qBRgozKQ4tLVkIynndDpCH79FJQSQgO5UtDzzl4k6cWw5C\ndUwEosV9QF8O9PWD9mXAjIzl7aKZ/CnF2u1Jp86j/Od/1H3t0FA2I/aSxw+ufOKD\nLiHLs01/yN2iwkzsNt2PLhs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "yastvo-service-account@yastvo.iam.gserviceaccount.com",
+  "client_id": "116639207063361587672",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/yastvo-service-account%40yastvo.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

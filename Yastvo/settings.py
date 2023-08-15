@@ -12,11 +12,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os.path
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+from google.oauth2.credentials import Credentials
+from google.oauth2 import service_account
+credentials = service_account.Credentials.from_service_account_file('yastvo-08a185504d91.json')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 SECURE_HSTS_SECONDS = 10
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
@@ -34,6 +36,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# Google Cloud Storage Configurations
+GS_BUCKET_NAME = 'yastvo_bucket'
+STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_CREDENTIALS = credentials
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_FILE_OVERWRITE = False
+GS_DEFAULT_ACL = 'publicRead'
+
+MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'images')
 
 # Application definition
 
@@ -47,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'django.contrib.sites',
+    'storages',
     'main',
     'delivery',
     'rosetta',
@@ -66,6 +79,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Yastvo.urls'
+
+
 
 TEMPLATES = [
     {
@@ -136,17 +151,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 LANGUAGE_COOKIE_NAME = 'django_language'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
 from django.utils.translation import gettext_lazy as _
 
 LANGUAGE_CODE = 'en'
@@ -163,8 +172,9 @@ LOCALE_PATHS = (os.path.join(BASE_DIR,'locale/'),)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
 STATIC_URL = '/staticfiles/'
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles')]
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, 'staticfiles')
@@ -177,11 +187,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    
 )
-
-MEDIA_URL = '/images/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'images')
 
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'users'

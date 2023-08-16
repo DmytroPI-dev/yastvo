@@ -1,5 +1,4 @@
 # Views for delivery.
-import stripe
 from django.views import generic
 from bson import ObjectId
 from django.http import HttpResponseRedirect
@@ -23,8 +22,6 @@ from .models import (
     Payment,)
 
 logger = logging.getLogger(__name__)
-
-stripe.api_key = settings.STRIPE_KEY
 
 
 class ShowMenuItem(ListView):

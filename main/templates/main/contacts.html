@@ -5,48 +5,75 @@
 {% block content %}
 <div class="container-fluid mt-5">
   <div class="row">
-    <div class="col-lg-4 mt-5" >
+    <div class="col-12 col-lg-4 mt-5">
       <div class="d-flex justify-content-center">
-      <form method="post" class="decor" >
+        <form method="post" class="decor">
           <div class="form-left-decoration"></div>
-            <div class="form-right-decoration"></div>
-            <div class="container flex form-inner">
-              <h3 class="text-center mb-3">{% translate 'Write us an email' %}</h3>
-                {% csrf_token %}
-                {{form.as_p}}
-                <div class="d-flex justify-content-center">
-                <input type="submit" value= "{% translate 'Send' %}"></div>
+          <div class="form-right-decoration"></div>
+          <div class="container flex form-inner">
+            <h3 class="text-center mb-3">{% translate 'Write us an email' %}</h3>
+            {% csrf_token %}
+            {{form.as_p}}
+            <div class="d-flex justify-content-center">
+              <input type="submit" value="{% translate 'Send' %}">
             </div>
+          </div>
         </form>
       </div>
     </div>
+   
 
-
-    <div class="col-lg-4 mt-5">
-    <iframe class="map" src="https://yandex.ru/map-widget/v1/?z=12&amp;ol=biz&amp;oid=226819973804" width="90%" min-height="320" frameborder="0"></iframe>
-
+    <div class="col-12 col-lg-4 mt-5" id="map">
+      <style>
+        #map {
+            border: 2px solid green;
+            border-radius: 20px;
+            box-shadow: -10px 10px 0px rgba(0, 0, 0, 0.2);
+            margin-top: 10%;
+        }
+    
+        @media (min-width: 992px) {
+            #map {
+                height: 90%;
+            }
+        }
+    
+        @media (max-width: 768px) {
+            #map {
+                height: 400px;
+            }
+        }
+    </style>
+         
+      <script>
+          function initMap() {
+              var location = {lat: 50.0647, lng: 19.9450};
+              var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 14,
+                  center: location
+              });
+              var marker = new google.maps.Marker({
+                  position: location,
+                  map: map
+              });
+          }
+      </script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcR0PMILbGgQ6DgF4bn_dL8zEFFFyJj74&callback=initMap"></script>
     </div>
-    <div class="col-lg-4 mt-5 vegan">
+
+    <div class="col-12 col-lg-4 mt-5 vegan">
       <h3>{% translate 'We have a rule:' %}</h3>
       <h4 style="text-align: center;">{% translate 'The food must be just-cooked' %} </h4>
       <p>{% translate 'All dishes are made "under knife", so, on your order! ' %} </p>
-        <p>
-          {% translate 'We have some food preparations, on our kitchen to speed up dish cooking, but if there are many orders, your order may be ready a bit longer' %}
-        </p>
-        <p>
-          {% translate 'Please, tell us if You have allergy on some food components' %}
-        </p>
-        <p>
-          {% translate 'We have delivery service "Cafe at your home!"' %}
-        </p>
-        <p class="text-center mb-3 vegan"><i class="fas fa-seedling">Vegan 100%</i></p>
-        
-        <i class="bi bi-telephone"><a href="tel:+4864458524">+4864458524</a></i> <br>
-        <i class="bi bi-envelope-open"><a href="mailto:postmaster@yastvo.com"> postmaster@yastvo.com</a></i><br>
-        <i class="bi bi-geo-alt-fill">Slava Ukraine!</i>
-
-
-        
-  </div>    
+      <p>{% translate 'We have some food preparations, on our kitchen to speed up dish cooking, but if there are many orders, your order may be ready a bit longer' %}</p>
+      <p>{% translate 'Please, tell us if You have allergy on some food components' %}</p>
+      <p>{% translate 'We have delivery service "Cafe at your home!"' %}</p>
+      <p class="text-center mb-3 vegan"><i class="fas fa-seedling">Vegan 100%</i></p>
+      <i class="bi bi-telephone"><a href="tel:+4864458524">+4864458524</a></i> <br>
+      <i class="bi bi-envelope-open"><a href="mailto:postmaster@yastvo.com"> postmaster@yastvo.com</a></i><br>
+      <i class="bi bi-geo-alt-fill">Slava Ukraine!</i>
+    </div>
+  </div>
 </div>
+
 {% endblock %}

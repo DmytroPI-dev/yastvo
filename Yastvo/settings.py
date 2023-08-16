@@ -14,7 +14,7 @@ from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 from google.oauth2.credentials import Credentials
 from google.oauth2 import service_account
-credentials = service_account.Credentials.from_service_account_file('yastvo-08a185504d91.json')
+credentials = service_account.Credentials.from_service_account_file('yastvo-eec660a22e89.json')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

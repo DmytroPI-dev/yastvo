@@ -153,3 +153,5 @@ dmypy.json
 cython_debug/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
+yastvo-eec660a22e89.json
+requirements.txt

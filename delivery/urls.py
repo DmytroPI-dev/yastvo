@@ -18,14 +18,14 @@ from .views import (
 
 urlpatterns = [
     path('', ShowMenuItem.as_view(), name = 'delivery'),
-    path('<slug:_id>', ShowMenuDetailed.as_view(), name = 'delivery-detailed' ),  
+    path('<int:pk>', ShowMenuDetailed.as_view(), name = 'delivery-detailed' ),  
     path('add', CreateDishes.as_view(), name = 'add'),
     path('order-summary/', OrderSummaryView.as_view(), name='order-summary'),
     path('checkout/', CheckoutView.as_view(), name='checkout'),
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
-    path('add-to-cart/<slug:_id>/', add_to_cart, name='add-to-cart'),
-    path('remove-from-cart/<slug:pk>/', remove_from_cart, name='remove-from-cart'),
-    path('reduce-quantity-item/<slug:pk>/', reduce_quantity_item, name='reduce-quantity-item'),
+    path('add-to-cart/<pk>/', add_to_cart, name='add-to-cart'),
+    path('remove-from-cart/<pk>/', remove_from_cart, name='remove-from-cart'),
+    path('reduce-quantity-item/<pk>/', reduce_quantity_item, name='reduce-quantity-item'),
     path('delete', views.delete, name='delete'),
 ]
 

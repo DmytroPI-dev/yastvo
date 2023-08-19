@@ -2,11 +2,11 @@ import sys
 from PIL import Image
 from io import BytesIO
 from django.conf import settings
-# from django.db import models
+from django.db import models
 from django.urls import reverse
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.utils.translation import gettext as _
-from djongo import models
+
  
 
 LABEL = (
@@ -25,7 +25,6 @@ CATEGORY = (
 )
 
 class MenuItems (models.Model):
-    _id = models.ObjectIdField()
     item = models.CharField(_('Meal name'), max_length=50)
     category = models.CharField(_('Category'), choices=CATEGORY, max_length=2, default='B')
     label = models.CharField(_('Label'), choices=LABEL, max_length=2, blank=True, null=True)
@@ -42,11 +41,7 @@ class MenuItems (models.Model):
         verbose_name = _('Meal')
         verbose_name_plural = _('Meals')
     
-    @property
-    def id_for_template(self):
-        return str(self._id)
 
-    
     def __str__(self):
         return self.item
 
@@ -72,7 +67,7 @@ class MenuItems (models.Model):
     
     def get_add_to_cart_url(self):
         return reverse("add-to-cart", kwargs={
-            "_id": str(self._id)  # Convert ObjectId to string
+            "pk" : self.pk  
         })
 
     def get_remove_from_cart_url(self):
@@ -82,7 +77,6 @@ class MenuItems (models.Model):
 
 
 class OrderItem(models.Model):
-    _id = models.ObjectIdField()
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     ordered = models.BooleanField(default=False)
     item = models.ForeignKey(MenuItems, on_delete=models.CASCADE)
@@ -111,13 +105,8 @@ class OrderItem(models.Model):
             return self.get_total_price_with_discount()
         return self.get_total_item_price()
     
-    @property
-    def id_for_template(self):
-        return str(self._id)
-    
 
 class Order(models.Model):
-    _id = models.ObjectIdField()
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     items = models.ManyToManyField(OrderItem)
     start_date = models.DateTimeField(auto_now_add=True)
@@ -136,14 +125,9 @@ class Order(models.Model):
         for order_item in self.items.all():
             total += order_item.get_final_price()
         return total
-    
-    @property
-    def id_for_template(self):
-        return str(self._id)
 
 
 class CheckoutAddress(models.Model):
-    _id = models.ObjectIdField()
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     street_address = models.CharField(max_length=100)
     apartment_address = models.CharField(max_length=100)
@@ -155,13 +139,8 @@ class CheckoutAddress(models.Model):
     def __str__(self):
         return self.user.username
     
-    @property
-    def id_for_template(self):
-        return str(self._id)
-    
            
 class Payment(models.Model):
-    _id = models.ObjectIdField()
     stripe_id = models.CharField(max_length=50)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, blank=True, null=True)
     amount = models.FloatField()
@@ -170,8 +149,3 @@ class Payment(models.Model):
     def __str__(self):
         return self.user.username
     
-    @property
-    def id_for_template(self):
-        return str(self._id)
-    
-

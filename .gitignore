@@ -156,3 +156,8 @@ cython_debug/
 yastvo-eec660a22e89.json
 
 
+.pg_service.conf
+.my_pgpass
+Dockerfile
+fly.toml
+

@@ -1,10 +1,8 @@
 # Views for delivery.
 from django.views import generic
-from bson import ObjectId
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic import ListView, View
-from django.conf import settings
 from django.utils.translation import gettext as _
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -13,7 +11,6 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .forms import CheckoutForm, AddDishesForm
-import logging
 from .models import (
     MenuItems,
     Order,
@@ -21,7 +18,6 @@ from .models import (
     CheckoutAddress,
     Payment,)
 
-logger = logging.getLogger(__name__)
 
 
 class ShowMenuItem(ListView):
@@ -45,13 +41,9 @@ class ShowMenuDetailed(generic.DetailView):
     model = MenuItems
     context_object_name = 'dishes'
     template_name = 'main/delivery-detailed.html'
-    slug_url_kwarg = '_id'
-    slug_field = '_id'
 
     def setup(self, request, *args, **kwargs):
         super().setup(request, *args, **kwargs)
-        # Ensure that _id value is an ObjectId type for query filters to work
-        self.kwargs["_id"] = ObjectId(self.kwargs["_id"])
 
     def get_context_data(self, **kwargs):
         context = super(ShowMenuDetailed, self).get_context_data(**kwargs)
@@ -60,7 +52,7 @@ class ShowMenuDetailed(generic.DetailView):
         except:
             order = 0
         # Use self.object to access the fetched object
-        context['title'] = self.object
+        context['title'] = MenuItems.objects.get(pk=self.kwargs['pk'])
         context['cart'] = order
         return context
 
@@ -231,35 +223,11 @@ def get_user_order(user):
         return None
 
 
-@login_required
-def add_to_cart(request, _id):
-    # Convert the _id string to an ObjectId
-    item_id = ObjectId(_id)
-    item = get_object_or_404(MenuItems, _id=item_id)
-    order_item, created = OrderItem.objects.get_or_create(
-        item=item,
-        user=request.user,
-        ordered=False
-    )
-    order = get_user_order(request.user)
-
-    if order:
-        if order.items.filter(item__pk=item.pk).exists():
-            order_item.quantity += 1
-            order_item.save()
-        else:
-            order.items.add(order_item)
-    else:
-        ordered_date = timezone.now()
-        order = Order.objects.create(
-            user=request.user, ordered_date=ordered_date)
-        order.items.add(order_item)
-    return redirect("order-summary")
-
-
 # @login_required
-# def add_to_cart(request, pk):
-#     item = get_object_or_404(MenuItems, pk=pk)
+# def add_to_cart(request, _id):
+#     # Convert the _id string to an ObjectId
+#     item_id = ObjectId(_id)
+#     item = get_object_or_404(MenuItems, _id=item_id)
 #     order_item, created = OrderItem.objects.get_or_create(
 #         item=item,
 #         user=request.user,
@@ -280,139 +248,140 @@ def add_to_cart(request, _id):
 #         order.items.add(order_item)
 #     return redirect("order-summary")
 
-@login_required
-def remove_from_cart(request, pk):
-    item = get_object_or_404(MenuItems, pk=pk)
-    order = get_user_order(request.user)
-
-    if order and order.items.filter(item__pk=item.pk).exists():
-        order_item = OrderItem.objects.get(
-            item=item,
-            user=request.user,
-            ordered=False
-        )
-        order_item.delete()
-        return redirect("order-summary")
-    else:
-        messages.info(request, _(
-            "This item is not in your cart or your cart is empty"))
-        return redirect("product", pk=pk)
-
-
-@login_required
-def reduce_quantity_item(request, pk):
-    item = get_object_or_404(MenuItems, pk=pk)
-    order = get_user_order(request.user)
-
-    if order and order.items.filter(item__pk=item.pk).exists():
-        order_item = OrderItem.objects.get(
-            item=item,
-            user=request.user,
-            ordered=False
-        )
-        if order_item.quantity > 1:
-            order_item.quantity -= 1
-            order_item.save()
-        else:
-            order_item.delete()
-        return redirect("order-summary")
-    else:
-        messages.info(request, _("You cart is empty!"))
-        return redirect("order-summary")
-
-
-@login_required
-def delete(request):
-    order = get_user_order(request.user)
-    if order:
-        order.delete()
-    return HttpResponseRedirect(reverse('delivery'))
-
-
-# @login_required
-# def add_to_cart(request, pk):
-#     item = get_object_or_404(MenuItems, pk=pk)
-#     order_item, created = OrderItem.objects.get_or_create(
-#         item=item,
-#         user=request.user,
-#         ordered=False
-#     )
-#     order_qs = Order.objects.filter(user=request.user, ordered=False)
-
-#     if order_qs.exists():
-#         order = order_qs[0]
-
-#         if order.items.filter(item__pk=item.pk).exists():
-#             order_item.quantity += 1
-#             order_item.save()
-#             return redirect("order-summary")
-#         else:
-#             order.items.add(order_item)
-#             return redirect("order-summary")
-#     else:
-#         ordered_date = timezone.now()
-#         order = Order.objects.create(
-#             user=request.user, ordered_date=ordered_date)
-#         order.items.add(order_item)
-#         return redirect("order-summary")
-
 
 # @login_required
 # def remove_from_cart(request, pk):
 #     item = get_object_or_404(MenuItems, pk=pk)
-#     order_qs = Order.objects.filter(
-#         user=request.user,
-#         ordered=False
-#     )
-#     if order_qs.exists():
-#         order = order_qs[0]
-#         if order.items.filter(item__pk=item.pk).exists():
-#             order_item = OrderItem.objects.filter(
-#                 item=item,
-#                 user=request.user,
-#                 ordered=False
-#             )[0]
-#             order_item.delete()
-#             return redirect("order-summary")
-#         else:
-#             messages.info(request, _("This Item is not in your cart"))
-#             return redirect("product", pk=pk)
+#     order = get_user_order(request.user)
+
+#     if order and order.items.filter(item__pk=item.pk).exists():
+#         order_item = OrderItem.objects.get(
+#             item=item,
+#             user=request.user,
+#             ordered=False
+#         )
+#         order_item.delete()
+#         return redirect("order-summary")
 #     else:
-#         # add message cart empty
-#         messages.info(request, _("You cart is empty"))
+#         messages.info(request, _(
+#             "This item is not in your cart or your cart is empty"))
 #         return redirect("product", pk=pk)
 
 
 # @login_required
 # def reduce_quantity_item(request, pk):
 #     item = get_object_or_404(MenuItems, pk=pk)
-#     order_qs = Order.objects.filter(
-#         user=request.user,
-#         ordered=False
-#     )
-#     if order_qs.exists():
-#         order = order_qs[0]
-#         if order.items.filter(item__pk=item.pk).exists():
-#             order_item = OrderItem.objects.filter(
-#                 item=item,
-#                 user=request.user,
-#                 ordered=False
-#             )[0]
-#             if order_item.quantity > 1:
-#                 order_item.quantity -= 1
-#                 order_item.save()
-#             else:
-#                 order_item.delete()
-#             return redirect("order-summary")
+#     order = get_user_order(request.user)
+
+#     if order and order.items.filter(item__pk=item.pk).exists():
+#         order_item = OrderItem.objects.get(
+#             item=item,
+#             user=request.user,
+#             ordered=False
+#         )
+#         if order_item.quantity > 1:
+#             order_item.quantity -= 1
+#             order_item.save()
 #         else:
-#             return redirect("order-summary")
+#             order_item.delete()
+#         return redirect("order-summary")
 #     else:
-#         # add message cart is empty
 #         messages.info(request, _("You cart is empty!"))
 #         return redirect("order-summary")
 
 
 # @login_required
 # def delete(request):
-#     Order.objects.get(user=request.user, ordered=False).delete()
+#     order = get_user_order(request.user)
+#     if order:
+#         order.delete()
 #     return HttpResponseRedirect(reverse('delivery'))
+
+
+@login_required
+def add_to_cart(request, pk):
+    item = get_object_or_404(MenuItems, pk=pk)
+    order_item, created = OrderItem.objects.get_or_create(
+        item=item,
+        user=request.user,
+        ordered=False
+    )
+    order_qs = Order.objects.filter(user=request.user, ordered=False)
+
+    if order_qs.exists():
+        order = order_qs[0]
+
+        if order.items.filter(item__pk=item.pk).exists():
+            order_item.quantity += 1
+            order_item.save()
+            return redirect("order-summary")
+        else:
+            order.items.add(order_item)
+            return redirect("order-summary")
+    else:
+        ordered_date = timezone.now()
+        order = Order.objects.create(
+            user=request.user, ordered_date=ordered_date)
+        order.items.add(order_item)
+        return redirect("order-summary")
+
+
+@login_required
+def remove_from_cart(request, pk):
+    item = get_object_or_404(MenuItems, pk=pk)
+    order_qs = Order.objects.filter(
+        user=request.user,
+        ordered=False
+    )
+    if order_qs.exists():
+        order = order_qs[0]
+        if order.items.filter(item__pk=item.pk).exists():
+            order_item = OrderItem.objects.filter(
+                item=item,
+                user=request.user,
+                ordered=False
+            )[0]
+            order_item.delete()
+            return redirect("order-summary")
+        else:
+            messages.info(request, _("This Item is not in your cart"))
+            return redirect("product", pk=pk)
+    else:
+        # add message cart empty
+        messages.info(request, _("You cart is empty"))
+        return redirect("product", pk=pk)
+
+
+@login_required
+def reduce_quantity_item(request, pk):
+    item = get_object_or_404(MenuItems, pk=pk)
+    order_qs = Order.objects.filter(
+        user=request.user,
+        ordered=False
+    )
+    if order_qs.exists():
+        order = order_qs[0]
+        if order.items.filter(item__pk=item.pk).exists():
+            order_item = OrderItem.objects.filter(
+                item=item,
+                user=request.user,
+                ordered=False
+            )[0]
+            if order_item.quantity > 1:
+                order_item.quantity -= 1
+                order_item.save()
+            else:
+                order_item.delete()
+            return redirect("order-summary")
+        else:
+            return redirect("order-summary")
+    else:
+        # add message cart is empty
+        messages.info(request, _("You cart is empty!"))
+        return redirect("order-summary")
+
+
+@login_required
+def delete(request):
+    Order.objects.get(user=request.user, ordered=False).delete()
+    return HttpResponseRedirect(reverse('delivery'))

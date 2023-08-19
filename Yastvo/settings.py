@@ -16,7 +16,7 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 CSRF_TRUSTED_ORIGINS = ["https://yastvo.fly.dev", "https://www.yastvo.fly.dev"]
 CSRF_COOKIE_DOMAIN = '*.fly.dev'
-env = environ.Env(DEBUG=(bool, False),
+env = environ.Env(DEBUG=(bool, True),
 )
 environ.Env.read_env(BASE_DIR / '.env') 
 
@@ -99,14 +99,13 @@ WSGI_APPLICATION = 'Yastvo.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 # PostgreSQL
-
 # for production
 # DATABASES = {
 #     # read os.environ['DATABASE_URL']
 #     'default': env.db()  # <-- Updated!
 # }
 
-#for development
+# for development
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

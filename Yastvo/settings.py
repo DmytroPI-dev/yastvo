@@ -12,10 +12,10 @@ google_service_account_json = os.environ.get('GOOGLE_SERVICE_ACCOUNT_JSON')
 
 if google_service_account_json:
     # Use the JSON content from the environment variable
-    credentials = Credentials.from_service_account_info(json.loads(google_service_account_json))
+    credentials = Credentials.from_authorized_user_info(json.loads(google_service_account_json))
 else:
     # Load the JSON file from the local filesystem
-    credentials = service_account.Credentials.from_service_account_file('yastvo-eec660a22e89.json')
+    credentials = service_account.Credentials.from_authorized_user_file('yastvo-eec660a22e89.json')
 
 # Now you can use `credentials` for Google API authentication
 GS_CREDENTIALS = credentials

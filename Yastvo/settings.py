@@ -12,7 +12,7 @@ google_service_account_json = os.environ.get('GOOGLE_SERVICE_ACCOUNT_JSON')
 
 if google_service_account_json:
     # Use the JSON content from the environment variable
-    credentials = Credentials.from_authorized_user_info(json.loads(google_service_account_json))
+    credentials = google_service_account_json
 else:
     # Load the JSON file from the local filesystem
     credentials = service_account.Credentials.from_authorized_user_file('yastvo-eec660a22e89.json')
@@ -23,16 +23,14 @@ GS_CREDENTIALS = credentials
 from google.oauth2.credentials import Credentials
 from google.oauth2 import service_account
 
-credentials = service_account.Credentials.from_service_account_file(
-    'yastvo-eec660a22e89.json')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECURE_HSTS_SECONDS = 10
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-CSRF_TRUSTED_ORIGINS = ["https://yastvo.fly.dev", "https://www.yastvo.fly.dev"]
-CSRF_COOKIE_DOMAIN = '*.fly.dev'
+CSRF_TRUSTED_ORIGINS = ["https://yastvo.fly.dev", "https://www.yastvo.fly.dev",'https://yastvo.azurewebsites.net']
+CSRF_COOKIE_DOMAIN = ['*.fly.dev','*.azurewebsites.net']
 env = environ.Env(DEBUG=(bool, True),
 )
 environ.Env.read_env(BASE_DIR / '.env') 

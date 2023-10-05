@@ -12,16 +12,13 @@ google_service_account_json = os.environ.get('GOOGLE_SERVICE_ACCOUNT_JSON')
 
 if google_service_account_json:
     # Use the JSON content from the environment variable
-    credentials = google_service_account_json
+    credentials = Credentials.from_service_account_info(json.loads(google_service_account_json))
 else:
     # Load the JSON file from the local filesystem
     credentials = service_account.Credentials.from_authorized_user_file('yastvo-eec660a22e89.json')
 
 # Now you can use `credentials` for Google API authentication
 GS_CREDENTIALS = credentials
-
-from google.oauth2.credentials import Credentials
-from google.oauth2 import service_account
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

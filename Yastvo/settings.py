@@ -1,8 +1,25 @@
 import os
+import json
 import os.path
 import environ 
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+from google.oauth2 import service_account
+from google.oauth2.credentials import Credentials
+
+# Check if the GOOGLE_SERVICE_ACCOUNT_JSON environment variable is set
+google_service_account_json = os.environ.get('GOOGLE_SERVICE_ACCOUNT_JSON')
+
+if google_service_account_json:
+    # Use the JSON content from the environment variable
+    credentials = Credentials.from_service_account_info(json.loads(google_service_account_json))
+else:
+    # Load the JSON file from the local filesystem
+    credentials = service_account.Credentials.from_service_account_file('yastvo-eec660a22e89.json')
+
+# Now you can use `credentials` for Google API authentication
+GS_CREDENTIALS = credentials
+
 from google.oauth2.credentials import Credentials
 from google.oauth2 import service_account
 
@@ -29,12 +46,11 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1:8000','https://yastvo.azurewebsites.net/']
 
 # Google Cloud Storage Configurations
 GS_BUCKET_NAME = 'yastvo_bucket'
 STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-GS_CREDENTIALS = credentials
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_FILE_OVERWRITE = False
 GS_DEFAULT_ACL = 'publicRead'
@@ -117,29 +133,6 @@ DATABASES = {
     }
 }
 
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'OPTIONS': {
-#             'service': 'my_service',
-#             'passfile': '.my_pgpass',
-#         },
-#     }
-# }
-
-
-# Djongo
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'djongo',
-#         'NAME': 'Yastvo',
-#         'ENFORCE_SCHEMA': True,
-#         'CLIENT': {
-#                 'host': "mongodb+srv://DemetrPI:3PzaX7E1PrgwF5kz@yastvo.to72xso.mongodb.net/?retryWrites=true&w=majority"
-#         }
-#     }
-# }
 
 
 # Password validation

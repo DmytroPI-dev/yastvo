@@ -1,5 +1,7 @@
 # Yastvo Vegetarian Cafe
 
+https://yastvo.fly.dev/
+
 Welcome to the Yastvo Vegetarian Cafe's code repository. This project is a web application for our vegetarian cafe, built using Django.
 
 ## Features

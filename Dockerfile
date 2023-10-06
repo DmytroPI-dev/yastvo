@@ -1,21 +1,23 @@
-ARG PYTHON_VERSION=3.11-slim-bullseye
+# Use the official Python image as the base image
+FROM python:3.11-slim
 
-FROM python:${PYTHON_VERSION}
-
-ENV PYTHONDONTWRITEBYTECODE 1
+# Set environment variables (modify as needed)
 ENV PYTHONUNBUFFERED 1
+ENV DJANGO_SETTINGS_MODULE Yastvo.settings
 
-RUN mkdir -p /code
+# Create and set the working directory in the container
+WORKDIR /app
 
-WORKDIR /code
+# Copy the project files into the container
+COPY . /app/
 
-COPY requirements.txt /tmp/requirements.txt
-RUN set -ex && \
-    pip install --upgrade pip && \
-    pip install -r /tmp/requirements.txt && \
-    rm -rf /root/.cache/
-COPY . /code
+# Install project dependencies
+RUN pip install -r requirements.txt
 
+# Expose the port Gunicorn will run on
 EXPOSE 8000
 
-CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "Yastvo.wsgi"]
+# Start Gunicorn
+#CMD ["gunicorn", "Yastvo.wsgi:application", "--bind", "127.0.0.1:8000"]
+CMD ["gunicorn", "Yastvo.wsgi:application", "--bind", "0.0.0.0:8000"]
+

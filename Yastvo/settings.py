@@ -1,35 +1,41 @@
 import os
-import json
 import os.path
 import environ 
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
-from google.oauth2 import service_account
 from google.oauth2.credentials import Credentials
+from google.oauth2 import service_account
 
-# Check if the GOOGLE_SERVICE_ACCOUNT_JSON environment variable is set
-google_service_account_json = os.environ.get('GOOGLE_SERVICE_ACCOUNT_JSON')
-
-if google_service_account_json:
-    # Use the JSON content from the environment variable
-    credentials = Credentials.from_service_account_info(json.loads(google_service_account_json))
-else:
-    # Load the JSON file from the local filesystem
-    credentials = service_account.Credentials.from_authorized_user_file('yastvo-eec660a22e89.json')
-
-# Now you can use `credentials` for Google API authentication
-GS_CREDENTIALS = credentials
-
+credentials = service_account.Credentials.from_service_account_file(
+    'yastvo-9bb68732396f.json')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECURE_HSTS_SECONDS = 10
+
+SECURE_HSTS_SECONDS = 600
+SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = True
+
 CSRF_COOKIE_SECURE = True
-CSRF_TRUSTED_ORIGINS = ["https://yastvo.fly.dev", "https://www.yastvo.fly.dev",'https://yastvo.azurewebsites.net']
-CSRF_COOKIE_DOMAIN = ['*.fly.dev','*.azurewebsites.net']
-env = environ.Env(DEBUG=(bool, True),
-)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+ALLOWED_HOSTS = ['127.0.0.1',
+                 'yastvo.azurewebsites.net']
+
+CSRF_TRUSTED_ORIGINS = ["https://yastvo.azurewebsites.net",
+                        "http://127.0.0.1"]
+
+CSRF_COOKIE_DOMAIN = ['*.fly.dev',
+                      '127.0.0.1',
+                      '*.azurewebsites.net']
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "https://yastvo.azurewebsites.net",]
+
+env = environ.Env(DEBUG=(bool, True),)
 environ.Env.read_env(BASE_DIR / '.env') 
 
 # Quick-start development settings - unsuitable for production
@@ -39,13 +45,13 @@ environ.Env.read_env(BASE_DIR / '.env')
 SECRET_KEY = env('SECRET_KEY') 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['127.0.0.1:8000','yastvo.azurewebsites.net']
+
 
 # Google Cloud Storage Configurations
 GS_BUCKET_NAME = 'yastvo_bucket'
 STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_CREDENTIALS = credentials
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_FILE_OVERWRITE = False
 GS_DEFAULT_ACL = 'publicRead'
@@ -65,6 +71,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'django.contrib.sites',
+    'corsheaders',
     'storages',
     'main',
     'delivery',
@@ -73,6 +80,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -127,6 +135,17 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'OPTIONS': {
+#             'service': 'my_service',
+#             'passfile': '.my_pgpass',
+#         },
+#     }
+# }
 
 
 

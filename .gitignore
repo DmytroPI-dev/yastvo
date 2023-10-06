@@ -153,7 +153,6 @@ dmypy.json
 cython_debug/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
-yastvo-eec660a22e89.json
 
 
 .pg_service.conf
@@ -161,3 +160,6 @@ yastvo-eec660a22e89.json
 Dockerfile
 fly.toml
 
+Dockerfile
+yastvo-9bb68732396f.json
+karat.py

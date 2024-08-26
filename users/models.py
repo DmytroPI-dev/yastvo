@@ -14,7 +14,7 @@ class Profile (models.Model):
     phone = models.CharField(_('Your phone:'), max_length=15)
 
     def save(self, *args, **kwargs):
-        super().save()
+        super().save(*args, **kwargs)
 
     # Open the image using the file's url instead of path
         image = Image.open(self.img)

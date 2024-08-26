@@ -6,10 +6,7 @@ from .models import Profile
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
-        # Check if a profile already exists for the user
-        existing_profile = Profile.objects.filter(user=instance).exists()
-        if not existing_profile:
-            Profile.objects.create(user=instance)
+        Profile.objects.get_or_create(user=instance)
 
 @receiver(post_save, sender=User)
 def save_profile(sender, instance, **kwargs):

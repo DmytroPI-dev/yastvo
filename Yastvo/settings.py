@@ -36,12 +36,14 @@ SECURE_HSTS_PRELOAD = True
 
 # ALLOWED_HOSTS = ['*']
 #for localhost only
-ALLOWED_HOSTS = ["cafe.i-dmytro.pl","127.0.0.1", "34.133.151.248"]
-CSRF_TRUSTED_ORIGINS = ["http://cafe.i-dmytro.pl", "https://cafe.i-dmytro.pl"]
+ALLOWED_HOSTS = ["cafe.i-dmytro.pl","test.i-dmytro.pl"]
+CSRF_TRUSTED_ORIGINS = ["http://cafe.i-dmytro.pl", "https://cafe.i-dmytro.pl", "http://test.i-dmytro.pl", "https://test.i-dmytro.pl"]
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    "http://cafe.i-dmytro.pl",
     "https://cafe.i-dmytro.pl"
+    "http://cafe.i-dmytro.pl",
+    "http://test.i-dmytro.pl",
+    "https://test.i-dmytro.pl"
     # Add any other allowed origins here as needed
 ]
 

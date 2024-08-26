@@ -108,7 +108,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'yastvo.wsgi.application'
+WSGI_APPLICATION = 'Yastvo.wsgi.application'
 
 
 # Database

@@ -8,16 +8,16 @@ from django.utils.translation import gettext as _
 class UserRegisterForm(UserCreationForm):
 
     email = forms.EmailField(
-        label=_('Enter Your email:'),
+        label=_('Enter your email:'),
         required=False,
         widget=forms.TextInput(
             attrs={'class': 'form-control', 'placeholder': _('Enter email address:')})
     )
 
     username = forms.CharField(
-        label=_('Enter login'),
+        label=_('Enter your user name'),
         required=True,
-        help_text='Нельзя вводить символы: @, /, _',
+        help_text=_('Don`t use special characters'),
         widget=forms.TextInput(
             attrs={'class': 'form-control', 'placeholder': _('Enter login')})
     )
@@ -52,7 +52,7 @@ class UserUpdateForm(forms.ModelForm):
     )
 
     username = forms.CharField(
-        label=_('Enter login'),
+        label=_('Enter user name'),
         required=False,
         help_text=_('Don`t use special characters'),
         widget=forms.TextInput(
@@ -75,7 +75,7 @@ class ProfileImageForm(forms.ModelForm):
         label=_('Please, enter Your name'),
         required=False,
         widget=forms.TextInput(
-            attrs={'class': 'form-control', 'placeholder': _('Please, enter Your name')})
+            attrs={'class': 'form-control', 'placeholder': _('Please, enter your name')})
     )
 
     phone = forms.CharField(

@@ -14,21 +14,15 @@ class Profile (models.Model):
     phone = models.CharField(_('Your phone:'), max_length=15)
 
     def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-
-    # Open the image using the file's url instead of path
-        image = Image.open(self.img)
-
-        if image.height > 256 or image.width > 256:
-            resize = (256, 256)
-            image.thumbnail(resize)
-            
-            # Save the image back to the same field
-            temp_file = BytesIO()
-            image.save(temp_file, format=image.format)
-            temp_file.seek(0)
-            self.img.save(self.img.name, ContentFile(temp_file.read()), save=False)
-
+        if self.img:
+            image = Image.open(self.img)
+            if image.height > 256 or image.width > 256:
+                resize = (256, 256)
+                image.thumbnail(resize)
+                temp_file = BytesIO()
+                image.save(temp_file, format=image.format)
+                temp_file.seek(0)
+                self.img.save(self.img.name, ContentFile(temp_file.read()), save=False)
         super().save(*args, **kwargs)
 
 

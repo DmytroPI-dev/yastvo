@@ -40,7 +40,7 @@ ALLOWED_HOSTS = ["cafe.i-dmytro.pl","test.i-dmytro.pl"]
 CSRF_TRUSTED_ORIGINS = ["http://cafe.i-dmytro.pl", "https://cafe.i-dmytro.pl", "http://test.i-dmytro.pl", "https://test.i-dmytro.pl"]
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    "https://cafe.i-dmytro.pl"
+    "https://cafe.i-dmytro.pl",
     "http://cafe.i-dmytro.pl",
     "http://test.i-dmytro.pl",
     "https://test.i-dmytro.pl"

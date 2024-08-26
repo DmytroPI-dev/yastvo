@@ -10,43 +10,40 @@ credentials = service_account.Credentials.from_service_account_file(
     'yastvo-9bb68732396f.json')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# reading .env file
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, True))
+
+environ.Env.read_env(BASE_DIR / '.env') 
+
+
+
+# False if not in os.environ because of casting above
+DEBUG = True
+
+
+
+SECRET_KEY = env('SECRET_KEY')
 SECURE_HSTS_SECONDS = 600
 SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = True
-
 CSRF_COOKIE_SECURE = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 
-ALLOWED_HOSTS = ['127.0.0.1',
-                 'yastvo.azurewebsites.net']
-
-CSRF_TRUSTED_ORIGINS = ["https://yastvo.azurewebsites.net",
-                        "http://127.0.0.1"]
-
-CSRF_COOKIE_DOMAIN = ['*.fly.dev',
-                      '127.0.0.1',
-                      '*.azurewebsites.net']
-CORS_ALLOW_ALL_ORIGINS = True
-
+# ALLOWED_HOSTS = ['*']
+#for localhost only
+ALLOWED_HOSTS = ["cafe.i-dmytro.pl","127.0.0.1", "34.133.151.248"]
+CSRF_TRUSTED_ORIGINS = ["http://cafe.i-dmytro.pl", "https://cafe.i-dmytro.pl"]
+CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    "https://yastvo.azurewebsites.net",]
-
-env = environ.Env(DEBUG=(bool, True),)
-environ.Env.read_env(BASE_DIR / '.env') 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY') 
-
-# SECURITY WARNING: don't run with debug turned on in production!
-
-
+    "http://cafe.i-dmytro.pl",
+    "https://cafe.i-dmytro.pl"
+    # Add any other allowed origins here as needed
+]
 
 # Google Cloud Storage Configurations
 GS_BUCKET_NAME = 'yastvo_bucket'
@@ -111,43 +108,23 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Yastvo.wsgi.application'
+WSGI_APPLICATION = 'yastvo.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# PostgreSQL
-# for production
-# DATABASES = {
-#     # read os.environ['DATABASE_URL']
-#     'default': env.db()  # <-- Updated!
-# }
-
-# for development
+hostname = os.environ['DBHOST']
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '37485482_yastvo',
-        'USER': '37485482_yastvo',
-        'PASSWORD': 'Yastvo#2023',
-        'HOST': 'serwer2329268.home.pl',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ["DBNAME"],
+        'USER': os.environ['DBUSER'],
+        'PORT':'3306',
+        'HOST': hostname,
+        'PASSWORD': os.environ['DBPASS']        
     }
 }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'OPTIONS': {
-#             'service': 'my_service',
-#             'passfile': '.my_pgpass',
-#         },
-#     }
-# }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

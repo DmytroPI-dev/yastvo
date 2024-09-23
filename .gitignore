@@ -120,6 +120,7 @@ celerybeat.pid
 # Environments
 .env
 .venv/
+venv/
 .venv
 .idea/
 env/
@@ -154,4 +155,6 @@ cython_debug/
 Dockerfile
 fly.toml
 yastvo-9bb68732396f.json
+requirements.json
 karat.py
+*.sql

@@ -7,7 +7,7 @@ from google.oauth2.credentials import Credentials
 from google.oauth2 import service_account
 
 credentials = service_account.Credentials.from_service_account_file(
-    'yastvo-9bb68732396f.json')
+    'requirements.json')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,7 +36,7 @@ SECURE_HSTS_PRELOAD = True
 
 # ALLOWED_HOSTS = ['*']
 #for localhost only
-ALLOWED_HOSTS = ["cafe.i-dmytro.pl","test.i-dmytro.pl"]
+ALLOWED_HOSTS = ["cafe.i-dmytro.pl","test.i-dmytro.pl","127.0.0.1", "152.67.136.138" ]
 CSRF_TRUSTED_ORIGINS = ["http://cafe.i-dmytro.pl", "https://cafe.i-dmytro.pl", "http://test.i-dmytro.pl", "https://test.i-dmytro.pl"]
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [

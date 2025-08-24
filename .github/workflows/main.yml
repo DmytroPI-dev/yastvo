@@ -65,48 +65,22 @@ jobs:
             sudo mysql -e "FLUSH PRIVILEGES;"
 
 
-            # --- 2. Nginx Setup for New Site ---
-            echo "=== Configuring Nginx for ${SUBDOMAIN}.${DOMAIN_NAME} ==="
-            # This script assumes you have run Certbot at least once to generate the certificate files.
-            # It creates the final HTTPS configuration directly.
+            # --- 2. Nginx Setup for New Site (First-Time HTTP-Only Setup) ---
+            echo "=== Configuring Nginx for initial Certbot validation ==="
             sudo tee /etc/nginx/sites-available/${APP_NAME} > /dev/null <<NGINX_CONF
             server {
                 listen 80;
                 server_name ${SUBDOMAIN}.${DOMAIN_NAME};
-                # Redirect all HTTP traffic to HTTPS
-                return 301 https://\$host\$request_uri;
-            }
 
-            server {
-                listen 443 ssl;
-                server_name ${SUBDOMAIN}.${DOMAIN_NAME};
-
-                # SSL configuration from Certbot
-                ssl_certificate /etc/letsencrypt/live/${SUBDOMAIN}.${DOMAIN_NAME}/fullchain.pem;
-                ssl_certificate_key /etc/letsencrypt/live/${SUBDOMAIN}.${DOMAIN_NAME}/privkey.pem;
-                include /etc/letsencrypt/options-ssl-nginx.conf;
-                ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-
-                # Application configuration
-                location /static/ {
-                    alias ${PROJECT_DIR}/static/;
-                }
-
-                location /media/ {
-                    alias ${PROJECT_DIR}/media/;
-                }
-
-                location / {
-                    include proxy_params;
-                    proxy_pass http://unix:/run/${APP_NAME}.sock;
-                }
+                # A temporary root for Certbot to use for validation
+                root /var/www/html;
+                index index.html index.htm;
             }
           NGINX_CONF
 
             sudo ln -sf /etc/nginx/sites-available/${APP_NAME} /etc/nginx/sites-enabled/
             sudo nginx -t
-            sudo systemctl restart nginx
-            
+            sudo systemctl restart nginx          
 
             # --- 3. Application Deployment ---
             echo "=== Setting up application directory ==="

@@ -3,7 +3,7 @@ name: Build and Deploy Cafe Application
 on:
   push:
     branches:
-      - cafe-main # Assuming a different branch for this project
+      - main # Assuming a different branch for this project
   workflow_dispatch:
 
 env:

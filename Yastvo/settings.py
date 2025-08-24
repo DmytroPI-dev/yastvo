@@ -127,9 +127,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
 # The URL that handles media files served from MEDIA_ROOT.
-MEDIA_URL = '/media/'
+MEDIA_URL = "/images/"
 # The absolute path to the directory that will hold user-uploaded files.
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / "images"
 
 
 # --- Django Defaults ---

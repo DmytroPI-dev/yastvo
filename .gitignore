@@ -120,10 +120,10 @@ celerybeat.pid
 # Environments
 .env
 .venv/
+venv/
 .venv
 .idea/
 env/
-.venv/
 ENV/
 env.bak/
 venv.bak/
@@ -152,14 +152,9 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# End of https://www.toptal.com/developers/gitignore/api/django
-
-
-.pg_service.conf
-.my_pgpass
 Dockerfile
 fly.toml
-
-Dockerfile
 yastvo-9bb68732396f.json
+requirements.json
 karat.py
+*.sql

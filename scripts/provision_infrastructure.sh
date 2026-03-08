@@ -45,7 +45,7 @@ if sudo certbot certificates 2>/dev/null | grep -q "Domains: $DOMAIN_FQDN"; then
   echo "SSL certificate for $DOMAIN_FQDN already exists."
 else
   echo "Requesting new SSL certificate for $DOMAIN_FQDN..."
-  sudo certbot --nginx -d "$DOMAIN_FQDN" --agree-tos --email "$EMAIL" --non-interactive
+  sudo certbot certonly --nginx -d "$DOMAIN_FQDN" --agree-tos --email "$EMAIL" --non-interactive
 fi
 
 # Configure Nginx - Create new site configuration

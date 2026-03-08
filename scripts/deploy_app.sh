@@ -25,7 +25,7 @@ fi
 # Install/update dependencies
 echo "Installing Python dependencies..."
 source ${VENV_DIR}/bin/activate
-pip install --upgrade pip
+pip install --upgrade pip setuptools
 pip install -r ${PROJECT_DIR}/requirements.txt
 
 # Run Django migrations
